@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountdownView">
+            <connections>
+                <outlet property="countdownImageView" destination="KhY-Hh-Plj" id="AT3-zk-ict"/>
+                <outlet property="countdownImageViewWidth" destination="yfY-rk-45i" id="oOe-fh-CBR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_sport_countdown_3" translatesAutoresizingMaskIntoConstraints="NO" id="KhY-Hh-Plj">
+                    <rect key="frame" x="250" y="250" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="KhY-Hh-Plj" secondAttribute="height" multiplier="1:1" id="f4Z-gX-76i"/>
+                        <constraint firstAttribute="width" constant="100" id="yfY-rk-45i"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="KhY-Hh-Plj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="K2q-KK-Icx"/>
+                <constraint firstItem="KhY-Hh-Plj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ngR-Wg-qIt"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_sport_countdown_3" width="375" height="375"/>
+    </resources>
+</document>

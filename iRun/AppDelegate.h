@@ -2,11 +2,13 @@
 //  AppDelegate.h
 //  iRun
 //
-//  Created by yunshang01 on 16/4/6.
+//  Created by izhangyb on 16/4/6.
 //  Copyright © 2016年 izhangyb. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import "Define.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

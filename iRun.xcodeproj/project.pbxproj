@@ -9,10 +9,31 @@
 /* Begin PBXBuildFile section */
 		DD4374E71CB49ADC0044D862 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4374E61CB49ADC0044D862 /* main.m */; };
 		DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4374E91CB49ADC0044D862 /* AppDelegate.m */; };
-		DD4374ED1CB49ADC0044D862 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4374EC1CB49ADC0044D862 /* ViewController.m */; };
 		DD4374F01CB49ADC0044D862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4374EE1CB49ADC0044D862 /* Main.storyboard */; };
 		DD4374F21CB49ADC0044D862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4374F11CB49ADC0044D862 /* Assets.xcassets */; };
 		DD4374F51CB49ADC0044D862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4374F31CB49ADC0044D862 /* LaunchScreen.storyboard */; };
+		DD43750B1CB49D0A0044D862 /* SportAccumulationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4374FF1CB49D0A0044D862 /* SportAccumulationView.m */; };
+		DD43750C1CB49D0A0044D862 /* SportAccumulationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4375001CB49D0A0044D862 /* SportAccumulationView.xib */; };
+		DD43750F1CB49D0A0044D862 /* MainSportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4375091CB49D0A0044D862 /* MainSportViewController.m */; };
+		DD4375151CB4A6070044D862 /* SportAccumulationCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4375141CB4A6070044D862 /* SportAccumulationCircleView.m */; };
+		E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384BD1CB4D95600ED951E /* MAMapKit.framework */; };
+		E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56384C11CB4D9D600ED951E /* AMap.bundle */; };
+		E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C31CB4DA0700ED951E /* UIKit.framework */; };
+		E56384C61CB4DA1300ED951E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C51CB4DA1300ED951E /* Foundation.framework */; };
+		E56384C81CB4DA1B00ED951E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C71CB4DA1B00ED951E /* CoreGraphics.framework */; };
+		E56384CA1CB4DA2400ED951E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C91CB4DA2400ED951E /* QuartzCore.framework */; };
+		E56384CC1CB4DA2F00ED951E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384CB1CB4DA2F00ED951E /* OpenGLES.framework */; };
+		E56384CE1CB4DA3A00ED951E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384CD1CB4DA3A00ED951E /* CoreLocation.framework */; };
+		E56384D01CB4DA4500ED951E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384CF1CB4DA4500ED951E /* CoreTelephony.framework */; };
+		E56384D21CB4DA5000ED951E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384D11CB4DA5000ED951E /* SystemConfiguration.framework */; };
+		E56384D41CB4DA6300ED951E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384D31CB4DA6300ED951E /* libz.tbd */; };
+		E56384D61CB4DA7800ED951E /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384D51CB4DA7800ED951E /* libstdc++.6.0.9.tbd */; };
+		E56384D81CB4DA8A00ED951E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384D71CB4DA8A00ED951E /* libc++.tbd */; };
+		E56384DA1CB4DA9200ED951E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384D91CB4DA9200ED951E /* Security.framework */; };
+		E56384E31CB5F6B500ED951E /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E56384E21CB5F6B500ED951E /* CountdownView.m */; };
+		E56384EA1CB6032900ED951E /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56384E91CB6032900ED951E /* CountdownView.xib */; };
+		E56384ED1CB6052D00ED951E /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56384EC1CB6052D00ED951E /* SportViewController.m */; };
+		E56384F91CB7A84100ED951E /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56384F81CB7A84100ED951E /* MainMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +41,39 @@
 		DD4374E61CB49ADC0044D862 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DD4374E81CB49ADC0044D862 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD4374E91CB49ADC0044D862 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DD4374EB1CB49ADC0044D862 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DD4374EC1CB49ADC0044D862 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DD4374EF1CB49ADC0044D862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD4374F11CB49ADC0044D862 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD4374F41CB49ADC0044D862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD4374F61CB49ADC0044D862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD4374FE1CB49D0A0044D862 /* SportAccumulationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAccumulationView.h; sourceTree = "<group>"; };
+		DD4374FF1CB49D0A0044D862 /* SportAccumulationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportAccumulationView.m; sourceTree = "<group>"; };
+		DD4375001CB49D0A0044D862 /* SportAccumulationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportAccumulationView.xib; sourceTree = "<group>"; };
+		DD4375081CB49D0A0044D862 /* MainSportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSportViewController.h; sourceTree = "<group>"; };
+		DD4375091CB49D0A0044D862 /* MainSportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSportViewController.m; sourceTree = "<group>"; };
+		DD4375131CB4A6070044D862 /* SportAccumulationCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAccumulationCircleView.h; sourceTree = "<group>"; };
+		DD4375141CB4A6070044D862 /* SportAccumulationCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportAccumulationCircleView.m; sourceTree = "<group>"; };
+		E56384BD1CB4D95600ED951E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		E56384C11CB4D9D600ED951E /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
+		E56384C31CB4DA0700ED951E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E56384C51CB4DA1300ED951E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E56384C71CB4DA1B00ED951E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E56384C91CB4DA2400ED951E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E56384CB1CB4DA2F00ED951E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E56384CD1CB4DA3A00ED951E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E56384CF1CB4DA4500ED951E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E56384D11CB4DA5000ED951E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E56384D31CB4DA6300ED951E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E56384D51CB4DA7800ED951E /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		E56384D71CB4DA8A00ED951E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E56384D91CB4DA9200ED951E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E56384E11CB5F6B500ED951E /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownView.h; sourceTree = "<group>"; };
+		E56384E21CB5F6B500ED951E /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownView.m; sourceTree = "<group>"; };
+		E56384E91CB6032900ED951E /* CountdownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountdownView.xib; sourceTree = "<group>"; };
+		E56384EB1CB6052D00ED951E /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
+		E56384EC1CB6052D00ED951E /* SportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportViewController.m; sourceTree = "<group>"; };
+		E56384F51CB62AB400ED951E /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Define.h; path = Common/Define.h; sourceTree = "<group>"; };
+		E56384F71CB7A84100ED951E /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuViewController.h; path = Menu/MainMenuViewController.h; sourceTree = "<group>"; };
+		E56384F81CB7A84100ED951E /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuViewController.m; path = Menu/MainMenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +81,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56384DA1CB4DA9200ED951E /* Security.framework in Frameworks */,
+				E56384D81CB4DA8A00ED951E /* libc++.tbd in Frameworks */,
+				E56384D61CB4DA7800ED951E /* libstdc++.6.0.9.tbd in Frameworks */,
+				E56384D41CB4DA6300ED951E /* libz.tbd in Frameworks */,
+				E56384D21CB4DA5000ED951E /* SystemConfiguration.framework in Frameworks */,
+				E56384D01CB4DA4500ED951E /* CoreTelephony.framework in Frameworks */,
+				E56384CE1CB4DA3A00ED951E /* CoreLocation.framework in Frameworks */,
+				E56384CC1CB4DA2F00ED951E /* OpenGLES.framework in Frameworks */,
+				E56384CA1CB4DA2400ED951E /* QuartzCore.framework in Frameworks */,
+				E56384C81CB4DA1B00ED951E /* CoreGraphics.framework in Frameworks */,
+				E56384C61CB4DA1300ED951E /* Foundation.framework in Frameworks */,
+				E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */,
+				E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,10 +103,12 @@
 		DD4374D91CB49ADC0044D862 = {
 			isa = PBXGroup;
 			children = (
+				E56384BC1CB4D93900ED951E /* Framework */,
 				DD4374E41CB49ADC0044D862 /* iRun */,
 				DD4374E31CB49ADC0044D862 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		DD4374E31CB49ADC0044D862 /* Products */ = {
 			isa = PBXGroup;
@@ -58,10 +121,11 @@
 		DD4374E41CB49ADC0044D862 /* iRun */ = {
 			isa = PBXGroup;
 			children = (
+				E56384F41CB62A9200ED951E /* Common */,
+				DD4374FC1CB49D0A0044D862 /* View */,
+				DD4375031CB49D0A0044D862 /* ViewController */,
 				DD4374E81CB49ADC0044D862 /* AppDelegate.h */,
 				DD4374E91CB49ADC0044D862 /* AppDelegate.m */,
-				DD4374EB1CB49ADC0044D862 /* ViewController.h */,
-				DD4374EC1CB49ADC0044D862 /* ViewController.m */,
 				DD4374EE1CB49ADC0044D862 /* Main.storyboard */,
 				DD4374F11CB49ADC0044D862 /* Assets.xcassets */,
 				DD4374F31CB49ADC0044D862 /* LaunchScreen.storyboard */,
@@ -77,6 +141,80 @@
 				DD4374E61CB49ADC0044D862 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD4374FC1CB49D0A0044D862 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD4374FE1CB49D0A0044D862 /* SportAccumulationView.h */,
+				DD4374FF1CB49D0A0044D862 /* SportAccumulationView.m */,
+				DD4375001CB49D0A0044D862 /* SportAccumulationView.xib */,
+				DD4375131CB4A6070044D862 /* SportAccumulationCircleView.h */,
+				DD4375141CB4A6070044D862 /* SportAccumulationCircleView.m */,
+				E56384E11CB5F6B500ED951E /* CountdownView.h */,
+				E56384E21CB5F6B500ED951E /* CountdownView.m */,
+				E56384E91CB6032900ED951E /* CountdownView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD4375031CB49D0A0044D862 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E56384F61CB7A80F00ED951E /* Menu */,
+				DD4375071CB49D0A0044D862 /* Sports */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DD4375071CB49D0A0044D862 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				DD4375081CB49D0A0044D862 /* MainSportViewController.h */,
+				DD4375091CB49D0A0044D862 /* MainSportViewController.m */,
+				E56384EB1CB6052D00ED951E /* SportViewController.h */,
+				E56384EC1CB6052D00ED951E /* SportViewController.m */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+		E56384BC1CB4D93900ED951E /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				E56384D91CB4DA9200ED951E /* Security.framework */,
+				E56384D71CB4DA8A00ED951E /* libc++.tbd */,
+				E56384D51CB4DA7800ED951E /* libstdc++.6.0.9.tbd */,
+				E56384D31CB4DA6300ED951E /* libz.tbd */,
+				E56384D11CB4DA5000ED951E /* SystemConfiguration.framework */,
+				E56384CF1CB4DA4500ED951E /* CoreTelephony.framework */,
+				E56384CD1CB4DA3A00ED951E /* CoreLocation.framework */,
+				E56384CB1CB4DA2F00ED951E /* OpenGLES.framework */,
+				E56384C91CB4DA2400ED951E /* QuartzCore.framework */,
+				E56384C71CB4DA1B00ED951E /* CoreGraphics.framework */,
+				E56384C51CB4DA1300ED951E /* Foundation.framework */,
+				E56384C31CB4DA0700ED951E /* UIKit.framework */,
+				E56384C11CB4D9D600ED951E /* AMap.bundle */,
+				E56384BD1CB4D95600ED951E /* MAMapKit.framework */,
+			);
+			name = Framework;
+			path = iRun/Framework;
+			sourceTree = "<group>";
+		};
+		E56384F41CB62A9200ED951E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E56384F51CB62AB400ED951E /* Define.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		E56384F61CB7A80F00ED951E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E56384F71CB7A84100ED951E /* MainMenuViewController.h */,
+				E56384F81CB7A84100ED951E /* MainMenuViewController.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +274,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */,
 				DD4374F51CB49ADC0044D862 /* LaunchScreen.storyboard in Resources */,
+				DD43750C1CB49D0A0044D862 /* SportAccumulationView.xib in Resources */,
 				DD4374F21CB49ADC0044D862 /* Assets.xcassets in Resources */,
+				E56384EA1CB6032900ED951E /* CountdownView.xib in Resources */,
 				DD4374F01CB49ADC0044D862 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD4374ED1CB49ADC0044D862 /* ViewController.m in Sources */,
+				DD43750B1CB49D0A0044D862 /* SportAccumulationView.m in Sources */,
+				DD43750F1CB49D0A0044D862 /* MainSportViewController.m in Sources */,
+				E56384F91CB7A84100ED951E /* MainMenuViewController.m in Sources */,
+				DD4375151CB4A6070044D862 /* SportAccumulationCircleView.m in Sources */,
 				DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */,
+				E56384ED1CB6052D00ED951E /* SportViewController.m in Sources */,
+				E56384E31CB5F6B500ED951E /* CountdownView.m in Sources */,
 				DD4374E71CB49ADC0044D862 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +341,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ye Ren (ZD62VM2DLP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye Ren (ZD62VM2DLP)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -214,9 +361,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "238ec42a-d9d4-4b93-a22f-e15e58ffa445";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -239,7 +387,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ye Ren (ZD62VM2DLP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye Ren (ZD62VM2DLP)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -252,8 +401,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "238ec42a-d9d4-4b93-a22f-e15e58ffa445";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -263,9 +413,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iRun/Framework",
+				);
 				INFOPLIST_FILE = iRun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.izhangyb.iRun;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunsung.jianbu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -274,9 +430,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iRun/Framework",
+				);
 				INFOPLIST_FILE = iRun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.izhangyb.iRun;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunsung.jianbu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -300,6 +462,7 @@
 				DD4374FB1CB49ADC0044D862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

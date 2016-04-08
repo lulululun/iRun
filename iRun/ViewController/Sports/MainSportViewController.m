@@ -25,7 +25,6 @@
     
     [self.sportChooseScrollView setDelegate:self];
     [self.startSportButton.layer setCornerRadius:20.f];
-    self.sportIdentifierStr = @"runViewController";
     
     [self loadDataSource];
 }
@@ -79,15 +78,12 @@
     switch (currentPage) {
         case 0:
             [self.startSportButton setTitle:@"开始跑步" forState:UIControlStateNormal];
-            self.sportIdentifierStr = @"runViewController";
             break;
         case 1:
             [self.startSportButton setTitle:@"开始爬山" forState:UIControlStateNormal];
-            self.sportIdentifierStr = @"climbViewController";
             break;
         default:
             [self.startSportButton setTitle:@"开始骑行" forState:UIControlStateNormal];
-            self.sportIdentifierStr = @"bikeViewController";
             break;
     }
 }
@@ -106,7 +102,7 @@
 
 - (IBAction)startSportAction:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *sportVC = [storyboard instantiateViewControllerWithIdentifier:self.sportIdentifierStr];
+    UIViewController *sportVC = [storyboard instantiateViewControllerWithIdentifier:@"@sportViewController"];
     [self presentViewController:sportVC animated:YES completion:nil];
 }
 

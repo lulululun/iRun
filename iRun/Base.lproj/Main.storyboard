@@ -153,7 +153,7 @@
         <!--Sport View Controller-->
         <scene sceneID="xaD-HX-V3U">
             <objects>
-                <viewController storyboardIdentifier="runViewController" id="34r-i3-l5i" customClass="SportViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sportViewController" id="34r-i3-l5i" customClass="SportViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zAD-E9-qJS"/>
                         <viewControllerLayoutGuide type="bottom" id="ajf-gM-zeP"/>

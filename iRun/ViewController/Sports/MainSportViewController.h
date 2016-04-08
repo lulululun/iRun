@@ -39,8 +39,6 @@
 // 骑行数据累计视图
 @property (strong, nonatomic) IBOutlet SportAccumulationView *bikeView;
 
-@property (strong, nonatomic) NSString *sportIdentifierStr;
-
 // 菜单按钮点击事件
 - (IBAction)menuAction:(id)sender;
 // 开始运动按钮点击事件

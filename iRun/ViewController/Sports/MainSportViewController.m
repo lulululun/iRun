@@ -8,12 +8,10 @@
 
 #import "MainSportViewController.h"
 #import "MainMenuViewController.h"
+#import "SportViewController.h"
 
 @interface MainSportViewController () {
-    float willEndContentOffsetX;
-    float startContentOffsetX;
-    float endContentOffsetX;
-    BOOL scrollToRight;
+    SportType sportType;
 }
 
 @end
@@ -25,6 +23,7 @@
     
     [self.sportChooseScrollView setDelegate:self];
     [self.startSportButton.layer setCornerRadius:20.f];
+    sportType = SportTypeRun;
     
     [self loadDataSource];
 }
@@ -38,18 +37,11 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dealloc {
+    NSLog(@"dealloc");
 }
-*/
 
 #pragma mark - UIScrollViewDelegate
 
@@ -72,18 +64,19 @@
     }
     
     int currentPage = floor((currentContentX - pageWidth / 2) / pageWidth) + 1;
-    
     self.sportPageControl.currentPage = currentPage;
-    
     switch (currentPage) {
         case 0:
             [self.startSportButton setTitle:@"开始跑步" forState:UIControlStateNormal];
+            sportType = SportTypeRun;
             break;
         case 1:
             [self.startSportButton setTitle:@"开始爬山" forState:UIControlStateNormal];
+            sportType = SportTypeClimb;
             break;
         default:
             [self.startSportButton setTitle:@"开始骑行" forState:UIControlStateNormal];
+            sportType = SportTypeBike;
             break;
     }
 }
@@ -94,18 +87,22 @@
 
 #pragma mark - Action & Private method
 
+// 点击菜单按钮事件
 - (IBAction)menuAction:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainMenuViewController *settingVC = [storyboard instantiateViewControllerWithIdentifier:@"mainMenuViewController"];
     [self presentViewController:settingVC animated:YES completion:nil];
 }
 
+// 点击开始运动按钮事件
 - (IBAction)startSportAction:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *sportVC = [storyboard instantiateViewControllerWithIdentifier:@"@sportViewController"];
+    SportViewController *sportVC = [storyboard instantiateViewControllerWithIdentifier:@"sportViewController"];
+    [sportVC setSportType:sportType];
     [self presentViewController:sportVC animated:YES completion:nil];
 }
 
+// 加载首页运动数据
 - (void)loadDataSource {
     NSMutableDictionary *runDic = [[NSMutableDictionary alloc] init];
     [runDic setValue:@"步" forKey:@"units"];

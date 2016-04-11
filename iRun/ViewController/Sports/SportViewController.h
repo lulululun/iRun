@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "CountdownView.h"
 #import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 #import "Define.h"
 
+typedef enum {
+    SportTypeRun,
+    SportTypeClimb,
+    SportTypeBike
+} SportType;
+
 @interface SportViewController : UIViewController<MAMapViewDelegate>
+
+@property (nonatomic) SportType sportType;
 
 // 倒计时视图
 @property (strong, nonatomic) IBOutlet CountdownView *countdownView;
@@ -30,6 +39,12 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *mapViewTop;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *mapViewHeight;
 
+// 数据展示视图
+@property (strong, nonatomic) IBOutlet UIView *bottomView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeight;
+@property (strong, nonatomic) IBOutlet UIView *dataDisplayView;
+@property (strong, nonatomic) IBOutlet UIView *controlView;
+
 // 运动主参数
 @property (strong, nonatomic) IBOutlet UILabel *sportMainArg;
 // 运动主参数说明
@@ -42,6 +57,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *sportRightAuxiliaryArg;
 // 运动右边辅参数说明
 @property (strong, nonatomic) IBOutlet UILabel *sportRightAuxiliaryArgTip;
+
+// 隐藏状态下运动参数
+@property (strong, nonatomic) IBOutlet UILabel *bottomLeftArg;
+@property (strong, nonatomic) IBOutlet UILabel *bottomRightArg;
 
 // 结束运动按钮
 @property (strong, nonatomic) IBOutlet UIButton *stopButton;

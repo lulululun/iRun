@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //配置用户Key
     [[MAMapServices sharedServices] setApiKey:MAMAP_API_KEY];
+    [[AMapLocationServices sharedServices] setApiKey:MAMAP_API_KEY];
     
     return YES;
 }

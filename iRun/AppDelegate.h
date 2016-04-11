@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 #import "Define.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

@@ -16,6 +16,7 @@
 		DD43750C1CB49D0A0044D862 /* SportAccumulationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4375001CB49D0A0044D862 /* SportAccumulationView.xib */; };
 		DD43750F1CB49D0A0044D862 /* MainSportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4375091CB49D0A0044D862 /* MainSportViewController.m */; };
 		DD4375151CB4A6070044D862 /* SportAccumulationCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4375141CB4A6070044D862 /* SportAccumulationCircleView.m */; };
+		E549F8C01CBB9258007154F9 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E549F8BF1CBB9258007154F9 /* AMapLocationKit.framework */; };
 		E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384BD1CB4D95600ED951E /* MAMapKit.framework */; };
 		E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56384C11CB4D9D600ED951E /* AMap.bundle */; };
 		E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C31CB4DA0700ED951E /* UIKit.framework */; };
@@ -52,6 +53,7 @@
 		DD4375091CB49D0A0044D862 /* MainSportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSportViewController.m; sourceTree = "<group>"; };
 		DD4375131CB4A6070044D862 /* SportAccumulationCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAccumulationCircleView.h; sourceTree = "<group>"; };
 		DD4375141CB4A6070044D862 /* SportAccumulationCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportAccumulationCircleView.m; sourceTree = "<group>"; };
+		E549F8BF1CBB9258007154F9 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		E56384BD1CB4D95600ED951E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		E56384C11CB4D9D600ED951E /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
 		E56384C31CB4DA0700ED951E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -94,6 +96,7 @@
 				E56384C61CB4DA1300ED951E /* Foundation.framework in Frameworks */,
 				E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */,
 				E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */,
+				E549F8C01CBB9258007154F9 /* AMapLocationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +184,7 @@
 		E56384BC1CB4D93900ED951E /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				E549F8BF1CBB9258007154F9 /* AMapLocationKit.framework */,
 				E56384D91CB4DA9200ED951E /* Security.framework */,
 				E56384D71CB4DA8A00ED951E /* libc++.tbd */,
 				E56384D51CB4DA7800ED951E /* libstdc++.6.0.9.tbd */,

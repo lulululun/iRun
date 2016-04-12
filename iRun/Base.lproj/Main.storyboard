@@ -396,6 +396,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomLeftArg" destination="v0b-Y8-esf" id="uPK-M8-JPM"/>
+                        <outlet property="bottomLeftArgTip" destination="e2M-fQ-sdl" id="1ml-0W-sSL"/>
                         <outlet property="bottomRightArg" destination="NrG-rf-dn0" id="Q1J-Z1-tGB"/>
                         <outlet property="bottomView" destination="xic-5O-uSl" id="4ty-er-BAy"/>
                         <outlet property="bottomViewHeight" destination="5lE-tv-MzB" id="RbN-TL-A4D"/>

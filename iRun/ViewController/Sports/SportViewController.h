@@ -61,6 +61,7 @@ typedef enum {
 // 隐藏状态下运动参数
 @property (strong, nonatomic) IBOutlet UILabel *bottomLeftArg;
 @property (strong, nonatomic) IBOutlet UILabel *bottomRightArg;
+@property (strong, nonatomic) IBOutlet UILabel *bottomLeftArgTip;
 
 // 结束运动按钮
 @property (strong, nonatomic) IBOutlet UIButton *stopButton;

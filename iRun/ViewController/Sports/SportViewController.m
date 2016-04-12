@@ -11,7 +11,9 @@
 @interface SportViewController () {
     NSTimer *_sportTimer;
     NSDate *_startSportDate;
-    CLLocationDistance altitude;
+    CLLocationDistance distance;
+    CLLocation *oldLocation;
+    CLLocation *nowLocation;
 }
 
 @end
@@ -20,10 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if (self.sportType == SportTypeClimb) {
-        altitude = 0;
-    }
     
     self.sportStateViewHidden = NO;
     [self.sportStateView setHidden:YES];
@@ -38,8 +36,6 @@
         [self.mapView setHidden:NO];
         [self.sportStateView setHidden:NO];
         
-        [self loadSportData];
-        
         _startSportDate = [NSDate date];
         
         _sportTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(loadSportTime:) userInfo:nil repeats:YES];
@@ -47,6 +43,7 @@
     }];
 }
 
+// 更新画面约束
 - (void)updateViewConstraints {
     [super updateViewConstraints];
     
@@ -63,25 +60,53 @@
 #pragma mark - MAMapViewDelegate
 
 - (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation {
+    // 获取速度
     CLLocationSpeed moveSpeed = userLocation.location.speed;
     
+    // 获取移动距离
+    nowLocation = userLocation.location;
+    
+    if (moveSpeed > 0) {
+        if (oldLocation) {
+            distance += [nowLocation distanceFromLocation:oldLocation];
+        } else {
+            distance = 0;
+        }
+        
+        oldLocation = userLocation.location;
+        nowLocation = nil;
+    }
+
+    // 加载运动状态数据
     switch (self.sportType) {
-        case SportTypeRun: {
+        case SportTypeRun:
+            if (distance > 0) {
+                [self.sportMainArg setText:[NSString stringWithFormat:@"%0.0f", distance]];
+                [self.bottomLeftArg setText:[NSString stringWithFormat:@"%0.2f", distance]];
+            }
+            
             if (moveSpeed <= 0) {
                 [self.sportRightAuxiliaryArg setText:@"--"];
             } else {
-                [self.sportRightAuxiliaryArg setText:[NSString stringWithFormat:@"%0.2f", moveSpeed*60]];
+                [self.sportRightAuxiliaryArg setText:[NSString stringWithFormat:@"%0.2f", moveSpeed]];
             }
-        }
             break;
             
-        case SportTypeClimb: {
+        case SportTypeClimb:
+            if (distance > 0) {
+                [self.sportLeftAuxiliaryArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000]];
+                [self.bottomLeftArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000]];
+            }
+            
             [self.sportRightAuxiliaryArg setText:[NSString stringWithFormat:@"%0.0f", userLocation.location.altitude]];
-            NSLog(@"altitude:%@", [NSString stringWithFormat:@"%0.0f", userLocation.location.altitude]);
-        }
             break;
             
         default:
+            if (distance > 0) {
+                [self.sportMainArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000]];
+                [self.bottomLeftArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000]];
+            }
+            
             if (moveSpeed <= 0) {
                 [self.sportRightAuxiliaryArg setText:@"--"];
             } else {
@@ -89,7 +114,6 @@
             }
             break;
     }
-    
 }
 
 - (MAOverlayView*)mapView:(MAMapView *)mapView viewForOverlay:(id <MAOverlay>)overlay {
@@ -134,6 +158,7 @@
 
 - (IBAction)sportStopAction:(id)sender {
     [_sportTimer invalidate];
+    oldLocation = nil;
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
@@ -162,9 +187,10 @@
 - (void)controlViewInit {
     switch (self.sportType) {
         case SportTypeRun:
-            [self.sportMainArgTip setText:@"距离(公里)"];
+            [self.sportMainArgTip setText:@"距离(米)"];
+            [self.bottomLeftArgTip setText:@"距离(米)"];
             [self.sportLeftAuxiliaryArgTip setText:@"时长"];
-            [self.sportRightAuxiliaryArgTip setText:@"配速(分钟/公里)"];
+            [self.sportRightAuxiliaryArgTip setText:@"配速(米/秒)"];
             
             break;
             
@@ -180,19 +206,6 @@
             [self.sportLeftAuxiliaryArgTip setText:@"时长"];
             [self.sportRightAuxiliaryArgTip setText:@"配速(公里/时)"];
             
-            break;
-    }
-}
-
-- (void)loadSportData {
-    switch (self.sportType) {
-        case SportTypeRun:
-            break;
-            
-        case SportTypeClimb:
-            break;
-            
-        default:
             break;
     }
 }

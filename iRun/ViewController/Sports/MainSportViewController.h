@@ -38,6 +38,8 @@
 @property (strong, nonatomic) IBOutlet SportAccumulationView *climbView;
 // 骑行数据累计视图
 @property (strong, nonatomic) IBOutlet SportAccumulationView *bikeView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *menuViewHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *menuViewTop;
 
 // 菜单按钮点击事件
 - (IBAction)menuAction:(id)sender;

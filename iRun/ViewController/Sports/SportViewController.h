@@ -71,7 +71,15 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UIButton *lockButton;
 // 设置按钮
 @property (strong, nonatomic) IBOutlet UIButton *setting;
+@property (strong, nonatomic) IBOutlet UIView *circleView;
+@property (strong, nonatomic) IBOutlet UIView *unlockView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *circleRadiu;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *unlockButtonBottom;
+@property (strong, nonatomic) IBOutlet UILabel *doubleClickLabel;
+
 
 // 结束运动
 - (IBAction)sportStopAction:(id)sender;
+- (IBAction)unlockAction:(id)sender;
+- (IBAction)lockAction:(id)sender;
 @end

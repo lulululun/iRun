@@ -28,6 +28,8 @@
     [self mapViewInit];
     [self controlViewInit];
     
+    UIPanGestureRecognizer *unlockRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(unlockAction:)];
+    [self.unlockView addGestureRecognizer:unlockRecognizer];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -156,6 +158,19 @@
     }
 }
 
+- (IBAction)unlockAction:(UIPanGestureRecognizer *)sender {
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.unlockButtonBottom.constant = 20;
+        [self.doubleClickLabel setAlpha:0];
+        [self.cameraButton setAlpha:1];
+        [self.setting setAlpha:1];
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.stopButton setAlpha:1];
+    }];
+}
+
 - (IBAction)sportStopAction:(id)sender {
     [_sportTimer invalidate];
     oldLocation = nil;
@@ -229,8 +244,17 @@
             [self.sportLeftAuxiliaryArg setText:clockStr];
             break;
     }
-    
-    
 }
 
+- (IBAction)lockAction:(id)sender {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.unlockButtonBottom.constant = 140;
+        [self.doubleClickLabel setAlpha:1];
+        [self.cameraButton setAlpha:0];
+        [self.setting setAlpha:0];
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.stopButton setAlpha:0];
+    }];
+}
 @end

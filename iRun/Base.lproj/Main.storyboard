@@ -205,6 +205,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="5lE-tv-MzB"/>
                                             <constraint firstItem="v0b-Y8-esf" firstAttribute="leading" secondItem="xic-5O-uSl" secondAttribute="leading" id="AQl-go-cgQ"/>
@@ -280,6 +281,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="zkc-GO-D5O" firstAttribute="trailing" secondItem="I5s-GI-pGm" secondAttribute="leading" id="0Dk-5X-NuL"/>
                                             <constraint firstAttribute="trailing" secondItem="I5s-GI-pGm" secondAttribute="trailing" id="7AP-oz-u00"/>
@@ -312,7 +314,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv6-hT-e4n" userLabel="Control View">
                                         <rect key="frame" x="0.0" y="221" width="600" height="179"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNu-f4-zqY">
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNu-f4-zqY">
                                                 <rect key="frame" x="270" y="30" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="gmt-US-eV2"/>
@@ -323,39 +325,56 @@
                                                     <action selector="sportStopAction:" destination="34r-i3-l5i" eventType="touchUpInside" id="r5O-gp-EUW"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-Fh-UMf">
-                                                <rect key="frame" x="20" y="119" width="30" height="30"/>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-Fh-UMf">
+                                                <rect key="frame" x="20" y="139" width="23" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="P7s-I8-9th"/>
-                                                    <constraint firstAttribute="height" constant="30" id="nKZ-VC-Z4r"/>
+                                                    <constraint firstAttribute="width" constant="23" id="P7s-I8-9th"/>
+                                                    <constraint firstAttribute="height" constant="20" id="nKZ-VC-Z4r"/>
                                                 </constraints>
                                                 <state key="normal" image="icon_sport_camera"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xav-Dr-0vc">
-                                                <rect key="frame" x="285" y="119" width="30" height="30"/>
+                                                <rect key="frame" x="290" y="19" width="20" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="BSh-gU-Xt9"/>
-                                                    <constraint firstAttribute="height" constant="30" id="CUx-Hl-NmO"/>
+                                                    <constraint firstAttribute="width" constant="20" id="BSh-gU-Xt9"/>
+                                                    <constraint firstAttribute="height" constant="20" id="CUx-Hl-NmO"/>
                                                 </constraints>
                                                 <state key="normal" image="icon_sport_lock"/>
+                                                <connections>
+                                                    <action selector="lockAction:" destination="34r-i3-l5i" eventType="touchUpInside" id="xXt-Xc-T7m"/>
+                                                    <action selector="unlockAction:" destination="34r-i3-l5i" eventType="touchDownRepeat" id="MVx-ww-NMu"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llE-GB-SKz">
-                                                <rect key="frame" x="550" y="119" width="30" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双击按钮解锁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emS-IN-Vg8">
+                                                <rect key="frame" x="240" y="61" width="120" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Dxb-iE-Cwg"/>
-                                                    <constraint firstAttribute="width" constant="30" id="xN4-lR-Frb"/>
+                                                    <constraint firstAttribute="height" constant="21" id="IVh-4c-A9U"/>
+                                                    <constraint firstAttribute="width" constant="120" id="fbh-3y-aw8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llE-GB-SKz">
+                                                <rect key="frame" x="560" y="139" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Dxb-iE-Cwg"/>
+                                                    <constraint firstAttribute="width" constant="20" id="xN4-lR-Frb"/>
                                                 </constraints>
                                                 <state key="normal" image="icon_sport_setting"/>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="oNu-f4-zqY" firstAttribute="centerY" secondItem="hv6-hT-e4n" secondAttribute="centerY" constant="-30" id="9Zk-rE-U6a"/>
-                                            <constraint firstAttribute="bottom" secondItem="x8o-Fh-UMf" secondAttribute="bottom" constant="30" id="Elq-hB-y3W"/>
+                                            <constraint firstItem="emS-IN-Vg8" firstAttribute="top" secondItem="Xav-Dr-0vc" secondAttribute="bottom" constant="22" id="ESn-p1-HLo"/>
+                                            <constraint firstAttribute="bottom" secondItem="x8o-Fh-UMf" secondAttribute="bottom" constant="20" id="Elq-hB-y3W"/>
                                             <constraint firstItem="oNu-f4-zqY" firstAttribute="centerX" secondItem="hv6-hT-e4n" secondAttribute="centerX" id="Mrd-DB-iW4"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xav-Dr-0vc" secondAttribute="bottom" constant="140" id="RPY-FY-szx"/>
                                             <constraint firstAttribute="trailing" secondItem="llE-GB-SKz" secondAttribute="trailing" constant="20" id="X2U-1p-zdw"/>
                                             <constraint firstItem="Xav-Dr-0vc" firstAttribute="centerX" secondItem="hv6-hT-e4n" secondAttribute="centerX" id="a3K-d5-Efw"/>
-                                            <constraint firstAttribute="bottom" secondItem="Xav-Dr-0vc" secondAttribute="bottom" constant="30" id="cia-i2-PXv"/>
-                                            <constraint firstAttribute="bottom" secondItem="llE-GB-SKz" secondAttribute="bottom" constant="30" id="dZ8-2g-2C7"/>
+                                            <constraint firstAttribute="bottom" secondItem="llE-GB-SKz" secondAttribute="bottom" constant="20" id="dZ8-2g-2C7"/>
+                                            <constraint firstItem="emS-IN-Vg8" firstAttribute="centerX" secondItem="hv6-hT-e4n" secondAttribute="centerX" id="p6Y-nV-gNj"/>
                                             <constraint firstItem="x8o-Fh-UMf" firstAttribute="leading" secondItem="hv6-hT-e4n" secondAttribute="leading" constant="20" id="uPm-Rc-K0V"/>
                                         </constraints>
                                     </view>
@@ -404,6 +423,7 @@
                         <outlet property="controlView" destination="hv6-hT-e4n" id="Iyh-5D-gkO"/>
                         <outlet property="countdownView" destination="QBo-TG-5tX" id="OQP-Ny-MLp"/>
                         <outlet property="dataDisplayView" destination="Kpo-Ht-SEs" id="hoC-iJ-SKL"/>
+                        <outlet property="doubleClickLabel" destination="emS-IN-Vg8" id="hDG-Jr-w2e"/>
                         <outlet property="lockButton" destination="Xav-Dr-0vc" id="5bA-He-wV7"/>
                         <outlet property="mapView" destination="So6-lS-Ncz" id="cha-aD-Xc1"/>
                         <outlet property="mapViewHeight" destination="7sw-fs-Ppj" id="NVe-jl-4rS"/>
@@ -419,6 +439,7 @@
                         <outlet property="sportStateViewBottom" destination="lCW-dC-ehP" id="abw-6L-Xpy"/>
                         <outlet property="sportStateViewHeight" destination="f2T-ZR-itR" id="unh-Dq-HcI"/>
                         <outlet property="stopButton" destination="oNu-f4-zqY" id="9tf-cZ-pWi"/>
+                        <outlet property="unlockButtonBottom" destination="RPY-FY-szx" id="nhb-a7-VJ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mf-07-O2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -437,6 +458,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Oa-rj-pPV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5AA-YX-glK">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-LW-dl4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoK-zl-HIl">
                                 <rect key="frame" x="15" y="20" width="20" height="20"/>
                                 <constraints>
@@ -448,35 +481,59 @@
                                     <action selector="closeAction:" destination="vax-Jk-lur" eventType="touchUpInside" id="j2v-b9-D5u"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCh-jl-Vsm" customClass="SportAccumulationView">
-                                <rect key="frame" x="25" y="123" width="240" height="231"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8Oa-rj-pPV" firstAttribute="leading" secondItem="gUX-T6-wXQ" secondAttribute="leading" id="0ds-Tg-Zej"/>
                             <constraint firstItem="SoK-zl-HIl" firstAttribute="leading" secondItem="gUX-T6-wXQ" secondAttribute="leading" constant="15" id="ABk-Rh-5tv"/>
+                            <constraint firstAttribute="trailing" secondItem="7mx-LW-dl4" secondAttribute="trailing" id="Eg9-se-bbl"/>
+                            <constraint firstItem="7mx-LW-dl4" firstAttribute="leading" secondItem="gUX-T6-wXQ" secondAttribute="leading" id="InP-v6-Z92"/>
                             <constraint firstItem="SoK-zl-HIl" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" id="QbB-4K-Cu7"/>
+                            <constraint firstItem="JBz-ta-Zna" firstAttribute="top" secondItem="8Oa-rj-pPV" secondAttribute="bottom" id="VL0-vd-Y2D"/>
+                            <constraint firstItem="JBz-ta-Zna" firstAttribute="top" secondItem="7mx-LW-dl4" secondAttribute="bottom" id="aY1-A2-k8r"/>
+                            <constraint firstItem="7mx-LW-dl4" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" constant="-20" id="gIt-lX-1Oc"/>
+                            <constraint firstItem="8Oa-rj-pPV" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" constant="-20" id="sPO-dT-EyM"/>
+                            <constraint firstAttribute="trailing" secondItem="8Oa-rj-pPV" secondAttribute="trailing" id="uWK-aR-Rdo"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="SoK-zl-HIl" id="Y0J-0D-Vxu"/>
+                        <outlet property="menuTableView" destination="7mx-LW-dl4" id="Kya-Ea-zwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBB-MD-Baj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="535" y="1710"/>
         </scene>
+        <!--Pedometer View Controller-->
+        <scene sceneID="JT6-SY-8vI">
+            <objects>
+                <viewController storyboardIdentifier="pedometerViewController" id="gxz-zl-daN" customClass="PedometerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NCg-h1-baY"/>
+                        <viewControllerLayoutGuide type="bottom" id="V53-zs-tXy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ien-87-UrI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wCS-ZT-0EG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqN-bi-3la" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1375" y="1710"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_main_setting_close" width="32" height="32"/>
         <image name="icon_main_sport_menu" width="45" height="31"/>
-        <image name="icon_sport_camera" width="38" height="31"/>
-        <image name="icon_sport_lock" width="26" height="31"/>
-        <image name="icon_sport_setting" width="32" height="32"/>
+        <image name="icon_sport_camera" width="32" height="27"/>
+        <image name="icon_sport_lock" width="25" height="34"/>
+        <image name="icon_sport_setting" width="30" height="29"/>
         <image name="icon_sport_stop" width="64" height="64"/>
-        <image name="sport_background_bike" width="1524" height="1727"/>
-        <image name="sport_background_climb" width="600" height="655"/>
+        <image name="sport_background_bike" width="750" height="1334"/>
+        <image name="sport_background_climb" width="750" height="1334"/>
         <image name="sport_background_run" width="1282" height="1943"/>
     </resources>
 </document>

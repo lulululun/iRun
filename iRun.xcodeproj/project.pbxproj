@@ -17,6 +17,12 @@
 		DD43750F1CB49D0A0044D862 /* MainSportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4375091CB49D0A0044D862 /* MainSportViewController.m */; };
 		DD4375151CB4A6070044D862 /* SportAccumulationCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4375141CB4A6070044D862 /* SportAccumulationCircleView.m */; };
 		E549F8C01CBB9258007154F9 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E549F8BF1CBB9258007154F9 /* AMapLocationKit.framework */; };
+		E549F8C81CBCD995007154F9 /* iRun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E549F8C61CBCD995007154F9 /* iRun.xcdatamodeld */; };
+		E549F8CD1CBCDA0F007154F9 /* CommonDao.m in Sources */ = {isa = PBXBuildFile; fileRef = E549F8CA1CBCDA0F007154F9 /* CommonDao.m */; };
+		E549F8CE1CBCDA0F007154F9 /* ContextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E549F8CC1CBCDA0F007154F9 /* ContextManager.m */; };
+		E549F8DE1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E549F8DC1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m */; };
+		E549F8DF1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E549F8DD1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib */; };
+		E549F8E21CBE35EE007154F9 /* PedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E549F8E11CBE35EE007154F9 /* PedometerViewController.m */; };
 		E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384BD1CB4D95600ED951E /* MAMapKit.framework */; };
 		E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56384C11CB4D9D600ED951E /* AMap.bundle */; };
 		E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C31CB4DA0700ED951E /* UIKit.framework */; };
@@ -54,6 +60,16 @@
 		DD4375131CB4A6070044D862 /* SportAccumulationCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAccumulationCircleView.h; sourceTree = "<group>"; };
 		DD4375141CB4A6070044D862 /* SportAccumulationCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportAccumulationCircleView.m; sourceTree = "<group>"; };
 		E549F8BF1CBB9258007154F9 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		E549F8C71CBCD995007154F9 /* iRun.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRun.xcdatamodel; sourceTree = "<group>"; };
+		E549F8C91CBCDA0F007154F9 /* CommonDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDao.h; path = Common/CommonDao.h; sourceTree = "<group>"; };
+		E549F8CA1CBCDA0F007154F9 /* CommonDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonDao.m; path = Common/CommonDao.m; sourceTree = "<group>"; };
+		E549F8CB1CBCDA0F007154F9 /* ContextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextManager.h; path = Common/ContextManager.h; sourceTree = "<group>"; };
+		E549F8CC1CBCDA0F007154F9 /* ContextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContextManager.m; path = Common/ContextManager.m; sourceTree = "<group>"; };
+		E549F8DB1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuAppLogoTableViewCell.h; path = Cell/MenuAppLogoTableViewCell.h; sourceTree = "<group>"; };
+		E549F8DC1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuAppLogoTableViewCell.m; path = Cell/MenuAppLogoTableViewCell.m; sourceTree = "<group>"; };
+		E549F8DD1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuAppLogoTableViewCell.xib; path = Cell/MenuAppLogoTableViewCell.xib; sourceTree = "<group>"; };
+		E549F8E01CBE35EE007154F9 /* PedometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PedometerViewController.h; path = Menu/PedometerViewController.h; sourceTree = "<group>"; };
+		E549F8E11CBE35EE007154F9 /* PedometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PedometerViewController.m; path = Menu/PedometerViewController.m; sourceTree = "<group>"; };
 		E56384BD1CB4D95600ED951E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		E56384C11CB4D9D600ED951E /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
 		E56384C31CB4DA0700ED951E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -142,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				DD4374E61CB49ADC0044D862 /* main.m */,
+				E549F8C61CBCD995007154F9 /* iRun.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -149,6 +166,7 @@
 		DD4374FC1CB49D0A0044D862 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E549F8DA1CBDDCB8007154F9 /* Cell */,
 				DD4374FE1CB49D0A0044D862 /* SportAccumulationView.h */,
 				DD4374FF1CB49D0A0044D862 /* SportAccumulationView.m */,
 				DD4375001CB49D0A0044D862 /* SportAccumulationView.xib */,
@@ -181,6 +199,16 @@
 			path = Sports;
 			sourceTree = "<group>";
 		};
+		E549F8DA1CBDDCB8007154F9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E549F8DB1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.h */,
+				E549F8DC1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m */,
+				E549F8DD1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		E56384BC1CB4D93900ED951E /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +236,10 @@
 			isa = PBXGroup;
 			children = (
 				E56384F51CB62AB400ED951E /* Define.h */,
+				E549F8C91CBCDA0F007154F9 /* CommonDao.h */,
+				E549F8CA1CBCDA0F007154F9 /* CommonDao.m */,
+				E549F8CB1CBCDA0F007154F9 /* ContextManager.h */,
+				E549F8CC1CBCDA0F007154F9 /* ContextManager.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -217,6 +249,8 @@
 			children = (
 				E56384F71CB7A84100ED951E /* MainMenuViewController.h */,
 				E56384F81CB7A84100ED951E /* MainMenuViewController.m */,
+				E549F8E01CBE35EE007154F9 /* PedometerViewController.h */,
+				E549F8E11CBE35EE007154F9 /* PedometerViewController.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -284,6 +318,7 @@
 				DD4374F21CB49ADC0044D862 /* Assets.xcassets in Resources */,
 				E56384EA1CB6032900ED951E /* CountdownView.xib in Resources */,
 				DD4374F01CB49ADC0044D862 /* Main.storyboard in Resources */,
+				E549F8DF1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +333,12 @@
 				DD43750F1CB49D0A0044D862 /* MainSportViewController.m in Sources */,
 				E56384F91CB7A84100ED951E /* MainMenuViewController.m in Sources */,
 				DD4375151CB4A6070044D862 /* SportAccumulationCircleView.m in Sources */,
+				E549F8C81CBCD995007154F9 /* iRun.xcdatamodeld in Sources */,
 				DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */,
+				E549F8CE1CBCDA0F007154F9 /* ContextManager.m in Sources */,
+				E549F8CD1CBCDA0F007154F9 /* CommonDao.m in Sources */,
+				E549F8DE1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m in Sources */,
+				E549F8E21CBE35EE007154F9 /* PedometerViewController.m in Sources */,
 				E56384ED1CB6052D00ED951E /* SportViewController.m in Sources */,
 				E56384E31CB5F6B500ED951E /* CountdownView.m in Sources */,
 				DD4374E71CB49ADC0044D862 /* main.m in Sources */,
@@ -469,6 +509,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E549F8C61CBCD995007154F9 /* iRun.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E549F8C71CBCD995007154F9 /* iRun.xcdatamodel */,
+			);
+			currentVersion = E549F8C71CBCD995007154F9 /* iRun.xcdatamodel */;
+			path = iRun.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD4374DA1CB49ADC0044D862 /* Project object */;
 }

@@ -33,6 +33,9 @@
     self.contentViewConstraint.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 3;
     self.climbViewLeading.constant = CGRectGetWidth([UIScreen mainScreen].bounds);
     self.bikeViewLeading.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 2;
+    
+    self.menuViewHeight.constant = CGRectGetHeight([UIScreen mainScreen].bounds);
+    self.menuViewTop.constant = CGRectGetHeight([UIScreen mainScreen].bounds);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,9 +92,16 @@
 
 // 点击菜单按钮事件
 - (IBAction)menuAction:(id)sender {
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT), NO, 1);
+    [self.view drawViewHierarchyInRect:CGRectMake(0, 0, CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT) afterScreenUpdates:NO];
+    UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MainMenuViewController *settingVC = [storyboard instantiateViewControllerWithIdentifier:@"mainMenuViewController"];
-    [self presentViewController:settingVC animated:YES completion:nil];
+    MainMenuViewController *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"mainMenuViewController"];
+    [menuVC setBgImage:snapshot];
+    [self presentViewController:menuVC animated:YES completion:nil];
 }
 
 // 点击开始运动按钮事件

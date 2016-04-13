@@ -2,17 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "未标题-3-dot.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "未标题-3.png",
+      "filename" : "Setting_64px_1154212_easyicon.net.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "未标题-3-@3x.png",
+      "filename" : "Setting_72px_1154212_easyicon.net.png",
       "scale" : "3x"
     }
   ],

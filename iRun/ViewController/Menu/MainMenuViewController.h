@@ -1,4 +1,3 @@
-
 //
 //  MainMenuViewController.h
 //  iRun
@@ -9,9 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainMenuViewController : UIViewController
+typedef struct {
+    __unsafe_unretained NSString *imageName;
+    __unsafe_unretained NSString *itemName;
+} MenuTableViewData;
 
+@interface MainMenuViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+// 关闭按钮
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
+// 菜单列表
+@property (strong, nonatomic) IBOutlet UITableView *menuTableView;
+// 背景图（做毛玻璃效果用）
+@property (strong, nonatomic) UIImage *bgImage;
+
+// 关闭按钮事件
 - (IBAction)closeAction:(id)sender;
 
 @end

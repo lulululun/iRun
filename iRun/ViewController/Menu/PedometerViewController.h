@@ -37,6 +37,8 @@ typedef struct {
 // 乐心设备管理
 @property (retain, nonatomic) LSBLEDeviceManager *deviceManager;
 @property (strong, nonatomic) IBOutlet UIButton *scanAndBundButton;
+@property (weak, nonatomic) IBOutlet UIImageView *leftSignalImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *rightSignalImageView;
 
 - (IBAction)backToMenuAction:(id)sender;
 - (IBAction)scanAndBindAction:(id)sender;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qFL-92-lgM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qFL-92-lgM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -86,7 +86,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54J-r4-xDj">
                                 <rect key="frame" x="220" y="460" width="160" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.29675738099999999" blue="0.77681424990000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59655613149999998" green="0.3557110014" blue="0.6072071335" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="H13-in-CzQ"/>
                                     <constraint firstAttribute="width" constant="160" id="kV7-TR-CwC"/>
@@ -550,29 +550,29 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_pedometer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-or-4Yk">
-                                <rect key="frame" x="270" y="144" width="60" height="207"/>
+                                <rect key="frame" x="270" y="124" width="60" height="207"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CFE-or-4Yk" secondAttribute="height" multiplier="1:3.45" id="6eD-hU-zOh"/>
                                     <constraint firstAttribute="width" constant="60" id="L18-pI-Uy1"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_left_none" translatesAutoresizingMaskIntoConstraints="NO" id="xVI-vN-haT" userLabel="Left Image View">
-                                <rect key="frame" x="210" y="223" width="30" height="48"/>
+                                <rect key="frame" x="210" y="203" width="30" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xVI-vN-haT" secondAttribute="height" multiplier="1:1.6" id="Ga4-Ue-Szs"/>
                                     <constraint firstAttribute="width" constant="30" id="Rm4-8D-Ga0"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_right_none" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-DI-Hvf" userLabel="Right Image View">
-                                <rect key="frame" x="360" y="223" width="30" height="48"/>
+                                <rect key="frame" x="360" y="203" width="30" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ud2-DI-Hvf" secondAttribute="height" multiplier="1:1.6" id="OmZ-M4-PlY"/>
                                     <constraint firstAttribute="width" constant="30" id="w4I-0v-nwL"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-0Z-45X">
-                                <rect key="frame" x="20" y="401" width="560" height="35"/>
-                                <color key="backgroundColor" red="1" green="0.29675738099999999" blue="0.77681424990000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="40" y="381" width="520" height="35"/>
+                                <color key="backgroundColor" red="0.59655613147462749" green="0.35571100142818729" blue="0.60720713350785338" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="oAx-5q-Gbl"/>
                                 </constraints>
@@ -587,17 +587,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xVI-vN-haT" firstAttribute="centerY" secondItem="CFE-or-4Yk" secondAttribute="centerY" id="2Ac-6Y-03f"/>
-                            <constraint firstItem="OIi-0Z-45X" firstAttribute="leading" secondItem="ien-87-UrI" secondAttribute="leading" constant="20" id="2dr-oh-oZR"/>
+                            <constraint firstItem="OIi-0Z-45X" firstAttribute="leading" secondItem="ien-87-UrI" secondAttribute="leading" constant="40" id="2dr-oh-oZR"/>
                             <constraint firstAttribute="trailing" secondItem="Jvt-mm-Hfk" secondAttribute="trailing" id="7Fp-m5-58N"/>
                             <constraint firstItem="Ud2-DI-Hvf" firstAttribute="leading" secondItem="CFE-or-4Yk" secondAttribute="trailing" constant="30" id="Dul-Do-vkD"/>
                             <constraint firstItem="Jvt-mm-Hfk" firstAttribute="leading" secondItem="ien-87-UrI" secondAttribute="leading" id="LcD-ZK-1JA"/>
                             <constraint firstAttribute="trailing" secondItem="xpT-bU-WEc" secondAttribute="trailing" id="Qvw-Qr-6u8"/>
-                            <constraint firstAttribute="trailing" secondItem="OIi-0Z-45X" secondAttribute="trailing" constant="20" id="SHZ-r9-Kjd"/>
+                            <constraint firstAttribute="trailing" secondItem="OIi-0Z-45X" secondAttribute="trailing" constant="40" id="SHZ-r9-Kjd"/>
                             <constraint firstItem="xpT-bU-WEc" firstAttribute="top" secondItem="NCg-h1-baY" secondAttribute="bottom" constant="-1" id="SM8-eD-WnB"/>
                             <constraint firstItem="Ud2-DI-Hvf" firstAttribute="centerY" secondItem="CFE-or-4Yk" secondAttribute="centerY" id="TDm-BO-n1D"/>
                             <constraint firstItem="xpT-bU-WEc" firstAttribute="leading" secondItem="ien-87-UrI" secondAttribute="leading" id="VCs-Se-P6c"/>
                             <constraint firstItem="CFE-or-4Yk" firstAttribute="centerX" secondItem="ien-87-UrI" secondAttribute="centerX" id="Wof-kg-JaK"/>
-                            <constraint firstItem="CFE-or-4Yk" firstAttribute="top" secondItem="NCg-h1-baY" secondAttribute="bottom" constant="80" id="XHo-w9-54G"/>
+                            <constraint firstItem="CFE-or-4Yk" firstAttribute="top" secondItem="NCg-h1-baY" secondAttribute="bottom" constant="60" id="XHo-w9-54G"/>
                             <constraint firstItem="OIi-0Z-45X" firstAttribute="top" secondItem="CFE-or-4Yk" secondAttribute="bottom" constant="50" id="XOg-Jw-hSs"/>
                             <constraint firstItem="V53-zs-tXy" firstAttribute="top" secondItem="Jvt-mm-Hfk" secondAttribute="bottom" id="YNC-RZ-mOe"/>
                             <constraint firstItem="Jvt-mm-Hfk" firstAttribute="top" secondItem="NCg-h1-baY" secondAttribute="bottom" constant="-64" id="eYX-JZ-SvZ"/>
@@ -612,6 +612,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="leftSignalImageView" destination="xVI-vN-haT" id="xBI-7N-GB7"/>
+                        <outlet property="rightSignalImageView" destination="Ud2-DI-Hvf" id="8od-Gv-hBT"/>
                         <outlet property="scanAndBundButton" destination="OIi-0Z-45X" id="uKE-DX-DO6"/>
                     </connections>
                 </viewController>

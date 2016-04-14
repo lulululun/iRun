@@ -7,6 +7,7 @@
 //
 
 #import "PedometerViewController.h"
+#import "UIImage+TintColor.h"
 #import "Define.h"
 
 @interface PedometerViewController ()
@@ -24,6 +25,27 @@
     
     [self.scanAndBundButton.layer setMasksToBounds:YES];
     [self.scanAndBundButton.layer setCornerRadius:17];
+    
+    [self.rightSignalImageView setImage:[[UIImage imageNamed:@"icon_menu_signal_right_three"] imageWithTintColor:[UIColor colorWithRed:0.973 green:0.980 blue:0.976 alpha:1]]];
+    [self.leftSignalImageView setImage:[[UIImage imageNamed:@"icon_menu_signal_left_three"] imageWithTintColor:[UIColor colorWithRed:0.973 green:0.980 blue:0.976 alpha:1]]];
+    
+    UIColor *animationImageColor = [UIColor colorWithRed:0.620 green:0.863 blue:0.922 alpha:1];
+    // 信号动画
+    [self.leftSignalImageView setAnimationImages:[NSArray arrayWithObjects:
+                                                 [[UIImage imageNamed:@"icon_menu_signal_left_one"]imageWithTintColor:animationImageColor],
+                                                 [[UIImage imageNamed:@"icon_menu_signal_left_two"] imageWithTintColor:animationImageColor],
+                                                  [[UIImage imageNamed:@"icon_menu_signal_left_three"]imageWithTintColor:animationImageColor],
+                                                 [[UIImage imageNamed:@"icon_menu_signal_none"] imageWithTintColor:animationImageColor],nil]];
+    [self.leftSignalImageView setAnimationDuration:1];
+    [self.leftSignalImageView setAnimationRepeatCount:0];
+    
+    [self.rightSignalImageView setAnimationImages:[NSArray arrayWithObjects:
+                                                  [[UIImage imageNamed:@"icon_menu_signal_right_one"] imageWithTintColor:animationImageColor],
+                                                  [[UIImage imageNamed:@"icon_menu_signal_right_two"] imageWithTintColor:animationImageColor],
+                                                  [[UIImage imageNamed:@"icon_menu_signal_right_three"] imageWithTintColor:animationImageColor],
+                                                  [[UIImage imageNamed:@"icon_menu_signal_none"] imageWithTintColor:animationImageColor], nil]];
+    [self.rightSignalImageView setAnimationDuration:1];
+    [self.rightSignalImageView setAnimationRepeatCount:0];
     
     self.deviceManager = [LSBLEDeviceManager defaultLsBleManager];
     
@@ -112,26 +134,28 @@
         [self.scanAndBundButton setTitle:@"扫描中..." forState:UIControlStateNormal];
         [self.scanAndBundButton setBackgroundColor:[UIColor lightGrayColor]];
         
-        [self.deviceManager searchLsBleDevice:@[@(LS_PEDOMETER)] ofBroadcastType:BROADCAST_TYPE_PAIR searchCompletion:^(LSDeviceInfo *lsDevice) {
-            [self.deviceManager stopSearch];
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"扫描结果" message:@"扫描到手环，是否绑定？" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                [self.scanAndBundButton setEnabled:YES];
-                [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
-                [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
-            }];
-            
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                [self.scanAndBundButton setTitle:@"配对中..." forState:UIControlStateNormal];
-                [self.deviceManager pairWithLsDeviceInfo:lsDevice pairedDelegate:self];
-            }];
-            
-            [alertController addAction:cancelAction];
-            [alertController addAction:okAction];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-        }];
+        [self.rightSignalImageView startAnimating];
+        [self.leftSignalImageView startAnimating];
+//        [self.deviceManager searchLsBleDevice:@[@(LS_PEDOMETER)] ofBroadcastType:BROADCAST_TYPE_PAIR searchCompletion:^(LSDeviceInfo *lsDevice) {
+//            [self.deviceManager stopSearch];
+//            
+//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"扫描结果" message:@"扫描到手环，是否绑定？" preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+//                [self.scanAndBundButton setEnabled:YES];
+//                [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
+//                [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
+//            }];
+//            
+//            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//                [self.scanAndBundButton setTitle:@"配对中..." forState:UIControlStateNormal];
+//                [self.deviceManager pairWithLsDeviceInfo:lsDevice pairedDelegate:self];
+//            }];
+//            
+//            [alertController addAction:cancelAction];
+//            [alertController addAction:okAction];
+//            
+//            [self presentViewController:alertController animated:YES completion:nil];
+//        }];
     }
 }
 

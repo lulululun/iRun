@@ -7,6 +7,7 @@
 //
 
 #import "PedometerViewController.h"
+#import "Define.h"
 
 @interface PedometerViewController ()
 
@@ -16,22 +17,150 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:self.bgImage]];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    
+    [self.scanAndBundButton.layer setMasksToBounds:YES];
+    [self.scanAndBundButton.layer setCornerRadius:17];
+    
+    self.deviceManager = [LSBLEDeviceManager defaultLsBleManager];
+    
+    // 如果已经绑定了设备，则将该设备添加到管理对象中；如果添加失败，则回到没有添加设备的状态
+    if ([USERDEFAULT stringForKey:BROAD_CAST_ID]) {
+        BOOL addDeviceResult = [self.deviceManager addMeasureDevice:[self convertStruct:[USERDEFAULT objectForKey:LS_DEVICE_INFO]]];
+        
+        if (addDeviceResult) {
+            [self.scanAndBundButton setTitle:@"解除绑定" forState:UIControlStateNormal];
+        } else {
+            [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
+            [USERDEFAULT removeObjectForKey:BROAD_CAST_ID];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - LSBlePairingDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)bleManagerDidDiscoverUserList:(NSDictionary *)userlist {
+    NSLog(@"%@", userlist);
 }
-*/
+
+- (void)bleManagerDidDiscoveredDeviceInfo:(LSDeviceInfo *)deviceInfo {
+    NSLog(@"%@", deviceInfo);
+}
+
+- (void)bleManagerDidPairedResults:(LSDeviceInfo *)lsDevice pairStatus:(int)pairStatus {
+    UIAlertController *alertController;
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        if (pairStatus == 1) {
+            [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
+            [self.scanAndBundButton setTitle:@"解除绑定" forState:UIControlStateNormal];
+            [self.scanAndBundButton setEnabled:YES];
+        } else {
+            [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
+        }
+    }];
+    
+    if (pairStatus == 1) {
+        [USERDEFAULT setObject:lsDevice.broadcastId forKey:BROAD_CAST_ID];
+        alertController = [UIAlertController alertControllerWithTitle:@"绑定结果" message:@"绑定成功" preferredStyle:UIAlertControllerStyleAlert];
+        
+        LSDeviceInfoStruct deviceInfo = {lsDevice.deviceId, lsDevice.deviceSn, lsDevice.deviceName, lsDevice.modelNumber, lsDevice.password, lsDevice.broadcastId, lsDevice.protocolType, lsDevice.preparePair, lsDevice.deviceType, lsDevice.supportDownloadInfoFeature, lsDevice.maxUserQuantity, lsDevice.softwareVersion, lsDevice.hardwareVersion, lsDevice.firmwareVersion, lsDevice.manufactureName, lsDevice.systemId, lsDevice.peripheralIdentifier, lsDevice.deviceUserNumber};
+        NSData *deviceInfoData = [NSData dataWithBytes:&deviceInfo length:sizeof(LSDeviceInfoStruct)];
+        [USERDEFAULT setObject:deviceInfoData forKey:LS_DEVICE_INFO];
+        
+        [self.deviceManager addMeasureDevice:lsDevice];
+    } else {
+        alertController = [UIAlertController alertControllerWithTitle:@"绑定结果" message:@"绑定失败，请重新扫描绑定" preferredStyle:UIAlertControllerStyleAlert];
+    }
+    
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - Action
+
+- (IBAction)backToMenuAction:(id)sender {
+    [self.deviceManager stopSearch];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)scanAndBindAction:(id)sender {
+    
+    if ([USERDEFAULT stringForKey:BROAD_CAST_ID]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确认操作" message:@"确定解绑手环吗？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self.deviceManager deleteMeasureDevice:[USERDEFAULT stringForKey:BROAD_CAST_ID]];
+            [USERDEFAULT removeObjectForKey:BROAD_CAST_ID];
+            [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
+        }];
+        
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    } else {
+        [self.scanAndBundButton setEnabled:NO];
+        [self.scanAndBundButton setTitle:@"扫描中..." forState:UIControlStateNormal];
+        [self.scanAndBundButton setBackgroundColor:[UIColor lightGrayColor]];
+        
+        [self.deviceManager searchLsBleDevice:@[@(LS_PEDOMETER)] ofBroadcastType:BROADCAST_TYPE_PAIR searchCompletion:^(LSDeviceInfo *lsDevice) {
+            [self.deviceManager stopSearch];
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"扫描结果" message:@"扫描到手环，是否绑定？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                [self.scanAndBundButton setEnabled:YES];
+                [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
+                [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
+            }];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [self.scanAndBundButton setTitle:@"配对中..." forState:UIControlStateNormal];
+                [self.deviceManager pairWithLsDeviceInfo:lsDevice pairedDelegate:self];
+            }];
+            
+            [alertController addAction:cancelAction];
+            [alertController addAction:okAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
+    }
+}
+
+- (LSDeviceInfo *)convertStruct:(NSData *)deviceInfoData {
+    LSDeviceInfo *deviceInfo = [[LSDeviceInfo alloc] init];
+    LSDeviceInfoStruct deviceInfoStruct;
+    
+    [deviceInfoData getBytes:&deviceInfoStruct length:sizeof(LSDeviceInfoStruct)];
+    
+    deviceInfo.deviceId = deviceInfoStruct.deviceId;
+    deviceInfo.deviceSn = deviceInfoStruct.deviceSn;
+    deviceInfo.deviceName = deviceInfoStruct.deviceName;
+    deviceInfo.modelNumber = deviceInfoStruct.modelNumber;
+    deviceInfo.password = deviceInfoStruct.password;
+    deviceInfo.broadcastId = deviceInfoStruct.broadcastId;
+    deviceInfo.protocolType = deviceInfoStruct.protocolType;
+    deviceInfo.preparePair = deviceInfoStruct.preparePair;
+    deviceInfo.deviceType = deviceInfoStruct.deviceType;
+    deviceInfo.supportDownloadInfoFeature = deviceInfoStruct.supportDownloadInfoFeature;
+    deviceInfo.maxUserQuantity = deviceInfoStruct.maxUserQuantity;
+    deviceInfo.softwareVersion = deviceInfoStruct.softwareVersion;
+    deviceInfo.hardwareVersion = deviceInfoStruct.hardwareVersion;
+    deviceInfo.firmwareVersion = deviceInfoStruct.firmwareVersion;
+    deviceInfo.manufactureName = deviceInfoStruct.manufactureName;
+    deviceInfo.systemId = deviceInfoStruct.systemId;
+    deviceInfo.peripheralIdentifier = deviceInfoStruct.peripheralIdentifier;
+    deviceInfo.deviceUserNumber = deviceInfoStruct.deviceUserNumber;
+    
+    return deviceInfo;
+}
 
 @end

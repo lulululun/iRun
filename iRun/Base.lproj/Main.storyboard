@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Main Sport View Controller-->
@@ -145,6 +146,7 @@
                         <outlet property="sportChooseScrollView" destination="mMr-1Z-prI" id="S0X-XP-R6f"/>
                         <outlet property="sportPageControl" destination="KPs-BQ-kq1" id="LhF-qq-84b"/>
                         <outlet property="startSportButton" destination="54J-r4-xDj" id="TOn-uu-TYj"/>
+                        <segue destination="qZb-HA-lEf" kind="show" identifier="toMenuViewControllerSegue" id="I9y-z7-VMb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62S-hR-hIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,42 +472,57 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoK-zl-HIl">
-                                <rect key="frame" x="15" y="20" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="0bR-qA-pmK"/>
-                                    <constraint firstAttribute="width" constant="20" id="F3X-rd-nbM"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="icon_main_setting_close"/>
-                                <connections>
-                                    <action selector="closeAction:" destination="vax-Jk-lur" eventType="touchUpInside" id="j2v-b9-D5u"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8Oa-rj-pPV" firstAttribute="leading" secondItem="gUX-T6-wXQ" secondAttribute="leading" id="0ds-Tg-Zej"/>
-                            <constraint firstItem="SoK-zl-HIl" firstAttribute="leading" secondItem="gUX-T6-wXQ" secondAttribute="leading" constant="15" id="ABk-Rh-5tv"/>
                             <constraint firstAttribute="trailing" secondItem="7mx-LW-dl4" secondAttribute="trailing" id="Eg9-se-bbl"/>
                             <constraint firstItem="7mx-LW-dl4" firstAttribute="leading" secondItem="gUX-T6-wXQ" secondAttribute="leading" id="InP-v6-Z92"/>
-                            <constraint firstItem="SoK-zl-HIl" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" id="QbB-4K-Cu7"/>
                             <constraint firstItem="JBz-ta-Zna" firstAttribute="top" secondItem="8Oa-rj-pPV" secondAttribute="bottom" id="VL0-vd-Y2D"/>
                             <constraint firstItem="JBz-ta-Zna" firstAttribute="top" secondItem="7mx-LW-dl4" secondAttribute="bottom" id="aY1-A2-k8r"/>
-                            <constraint firstItem="7mx-LW-dl4" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" constant="-20" id="gIt-lX-1Oc"/>
-                            <constraint firstItem="8Oa-rj-pPV" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" constant="-20" id="sPO-dT-EyM"/>
+                            <constraint firstItem="7mx-LW-dl4" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" constant="-64" id="gIt-lX-1Oc"/>
+                            <constraint firstItem="8Oa-rj-pPV" firstAttribute="top" secondItem="Z79-h4-egZ" secondAttribute="bottom" constant="-64" id="sPO-dT-EyM"/>
                             <constraint firstAttribute="trailing" secondItem="8Oa-rj-pPV" secondAttribute="trailing" id="uWK-aR-Rdo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ork-rn-Ho4">
+                        <barButtonItem key="leftBarButtonItem" image="icon_main_setting_close" id="dSy-cf-7tj">
+                            <connections>
+                                <action selector="closeAction:" destination="vax-Jk-lur" id="Mvm-05-66Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="closeButton" destination="SoK-zl-HIl" id="Y0J-0D-Vxu"/>
+                        <outlet property="closeButton" destination="dSy-cf-7tj" id="1xo-z4-Km7"/>
                         <outlet property="menuTableView" destination="7mx-LW-dl4" id="Kya-Ea-zwB"/>
+                        <segue destination="gxz-zl-daN" kind="show" identifier="toPedometerVCSegue" id="47e-hF-VXU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBB-MD-Baj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="1710"/>
+            <point key="canvasLocation" x="1328" y="1718"/>
         </scene>
-        <!--Pedometer View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="WKL-vn-IAO">
+            <objects>
+                <navigationController id="qZb-HA-lEf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ve-1I-ZCN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.96862745098039216" green="0.97254901960784312" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vax-Jk-lur" kind="relationship" relationship="rootViewController" id="Squ-EK-G9m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9S-7g-ZSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="1718"/>
+        </scene>
+        <!--手环-->
         <scene sceneID="JT6-SY-8vI">
             <objects>
                 <viewController storyboardIdentifier="pedometerViewController" id="gxz-zl-daN" customClass="PedometerViewController" sceneMemberID="viewController">
@@ -516,18 +533,100 @@
                     <view key="view" contentMode="scaleToFill" id="ien-87-UrI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvt-mm-Hfk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JRe-dK-xFY">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpT-bU-WEc" userLabel="Line View">
+                                <rect key="frame" x="0.0" y="63" width="600" height="1"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="dUG-XK-pA7"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_pedometer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-or-4Yk">
+                                <rect key="frame" x="270" y="144" width="60" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CFE-or-4Yk" secondAttribute="height" multiplier="1:3.45" id="6eD-hU-zOh"/>
+                                    <constraint firstAttribute="width" constant="60" id="L18-pI-Uy1"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_left_none" translatesAutoresizingMaskIntoConstraints="NO" id="xVI-vN-haT" userLabel="Left Image View">
+                                <rect key="frame" x="210" y="223" width="30" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xVI-vN-haT" secondAttribute="height" multiplier="1:1.6" id="Ga4-Ue-Szs"/>
+                                    <constraint firstAttribute="width" constant="30" id="Rm4-8D-Ga0"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_right_none" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-DI-Hvf" userLabel="Right Image View">
+                                <rect key="frame" x="360" y="223" width="30" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ud2-DI-Hvf" secondAttribute="height" multiplier="1:1.6" id="OmZ-M4-PlY"/>
+                                    <constraint firstAttribute="width" constant="30" id="w4I-0v-nwL"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIi-0Z-45X">
+                                <rect key="frame" x="20" y="401" width="560" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.29675738099999999" blue="0.77681424990000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="oAx-5q-Gbl"/>
+                                </constraints>
+                                <state key="normal" title="点击扫描">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.97254901959999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanAndBindAction:" destination="gxz-zl-daN" eventType="touchUpInside" id="3u9-3G-LiU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xVI-vN-haT" firstAttribute="centerY" secondItem="CFE-or-4Yk" secondAttribute="centerY" id="2Ac-6Y-03f"/>
+                            <constraint firstItem="OIi-0Z-45X" firstAttribute="leading" secondItem="ien-87-UrI" secondAttribute="leading" constant="20" id="2dr-oh-oZR"/>
+                            <constraint firstAttribute="trailing" secondItem="Jvt-mm-Hfk" secondAttribute="trailing" id="7Fp-m5-58N"/>
+                            <constraint firstItem="Ud2-DI-Hvf" firstAttribute="leading" secondItem="CFE-or-4Yk" secondAttribute="trailing" constant="30" id="Dul-Do-vkD"/>
+                            <constraint firstItem="Jvt-mm-Hfk" firstAttribute="leading" secondItem="ien-87-UrI" secondAttribute="leading" id="LcD-ZK-1JA"/>
+                            <constraint firstAttribute="trailing" secondItem="xpT-bU-WEc" secondAttribute="trailing" id="Qvw-Qr-6u8"/>
+                            <constraint firstAttribute="trailing" secondItem="OIi-0Z-45X" secondAttribute="trailing" constant="20" id="SHZ-r9-Kjd"/>
+                            <constraint firstItem="xpT-bU-WEc" firstAttribute="top" secondItem="NCg-h1-baY" secondAttribute="bottom" constant="-1" id="SM8-eD-WnB"/>
+                            <constraint firstItem="Ud2-DI-Hvf" firstAttribute="centerY" secondItem="CFE-or-4Yk" secondAttribute="centerY" id="TDm-BO-n1D"/>
+                            <constraint firstItem="xpT-bU-WEc" firstAttribute="leading" secondItem="ien-87-UrI" secondAttribute="leading" id="VCs-Se-P6c"/>
+                            <constraint firstItem="CFE-or-4Yk" firstAttribute="centerX" secondItem="ien-87-UrI" secondAttribute="centerX" id="Wof-kg-JaK"/>
+                            <constraint firstItem="CFE-or-4Yk" firstAttribute="top" secondItem="NCg-h1-baY" secondAttribute="bottom" constant="80" id="XHo-w9-54G"/>
+                            <constraint firstItem="OIi-0Z-45X" firstAttribute="top" secondItem="CFE-or-4Yk" secondAttribute="bottom" constant="50" id="XOg-Jw-hSs"/>
+                            <constraint firstItem="V53-zs-tXy" firstAttribute="top" secondItem="Jvt-mm-Hfk" secondAttribute="bottom" id="YNC-RZ-mOe"/>
+                            <constraint firstItem="Jvt-mm-Hfk" firstAttribute="top" secondItem="NCg-h1-baY" secondAttribute="bottom" constant="-64" id="eYX-JZ-SvZ"/>
+                            <constraint firstItem="xVI-vN-haT" firstAttribute="trailing" secondItem="CFE-or-4Yk" secondAttribute="leading" constant="-30" id="kkI-Uh-1yF"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wCS-ZT-0EG"/>
+                    <navigationItem key="navigationItem" title="手环" id="wCS-ZT-0EG">
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu_pedometer_back" id="FWb-3Q-FAb">
+                            <connections>
+                                <action selector="backToMenuAction:" destination="gxz-zl-daN" id="0sP-ZE-Hsb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scanAndBundButton" destination="OIi-0Z-45X" id="uKE-DX-DO6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqN-bi-3la" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375" y="1710"/>
+            <point key="canvasLocation" x="2100" y="1718"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon_main_setting_close" width="32" height="32"/>
         <image name="icon_main_sport_menu" width="45" height="31"/>
+        <image name="icon_menu_pedometer_back" width="31" height="23"/>
+        <image name="icon_menu_pedometer_logo" width="77" height="268"/>
+        <image name="icon_menu_signal_left_none" width="47" height="76"/>
+        <image name="icon_menu_signal_right_none" width="47" height="76"/>
         <image name="icon_sport_camera" width="32" height="27"/>
         <image name="icon_sport_lock" width="25" height="34"/>
         <image name="icon_sport_setting" width="30" height="29"/>

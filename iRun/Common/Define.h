@@ -19,4 +19,11 @@
 
 #define iOS9 [[[UIDevice currentDevice]systemVersion] floatValue] >= 9.0
 
+#define USERDEFAULT [NSUserDefaults standardUserDefaults]
+
+// 手环广播ID
+#define BROAD_CAST_ID            @"broadCastid"
+
+#define LS_DEVICE_INFO @"lsdeviceinfo"
+
 #endif /* Define_h */

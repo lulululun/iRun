@@ -41,6 +41,9 @@
 		E56384EA1CB6032900ED951E /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56384E91CB6032900ED951E /* CountdownView.xib */; };
 		E56384ED1CB6052D00ED951E /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56384EC1CB6052D00ED951E /* SportViewController.m */; };
 		E56384F91CB7A84100ED951E /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56384F81CB7A84100ED951E /* MainMenuViewController.m */; };
+		E59AAE461CBF66D5004EDA7B /* UIImage+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE451CBF66D5004EDA7B /* UIImage+TintColor.m */; };
+		E59AAE481CBF7BB1004EDA7B /* LifesenseBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59AAE471CBF7BB1004EDA7B /* LifesenseBluetooth.framework */; };
+		E59AAE4A1CBF7C19004EDA7B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59AAE491CBF7C19004EDA7B /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +95,10 @@
 		E56384F51CB62AB400ED951E /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Define.h; path = Common/Define.h; sourceTree = "<group>"; };
 		E56384F71CB7A84100ED951E /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuViewController.h; path = Menu/MainMenuViewController.h; sourceTree = "<group>"; };
 		E56384F81CB7A84100ED951E /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuViewController.m; path = Menu/MainMenuViewController.m; sourceTree = "<group>"; };
+		E59AAE441CBF66D5004EDA7B /* UIImage+TintColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+TintColor.h"; path = "Category/UIImage+TintColor.h"; sourceTree = "<group>"; };
+		E59AAE451CBF66D5004EDA7B /* UIImage+TintColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+TintColor.m"; path = "Category/UIImage+TintColor.m"; sourceTree = "<group>"; };
+		E59AAE471CBF7BB1004EDA7B /* LifesenseBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LifesenseBluetooth.framework; sourceTree = "<group>"; };
+		E59AAE491CBF7C19004EDA7B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59AAE4A1CBF7C19004EDA7B /* CoreBluetooth.framework in Frameworks */,
 				E56384DA1CB4DA9200ED951E /* Security.framework in Frameworks */,
 				E56384D81CB4DA8A00ED951E /* libc++.tbd in Frameworks */,
 				E56384D61CB4DA7800ED951E /* libstdc++.6.0.9.tbd in Frameworks */,
@@ -113,6 +121,7 @@
 				E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */,
 				E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */,
 				E549F8C01CBB9258007154F9 /* AMapLocationKit.framework in Frameworks */,
+				E59AAE481CBF7BB1004EDA7B /* LifesenseBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +149,7 @@
 		DD4374E41CB49ADC0044D862 /* iRun */ = {
 			isa = PBXGroup;
 			children = (
+				E59AAE3D1CBF6678004EDA7B /* Category */,
 				E56384F41CB62A9200ED951E /* Common */,
 				DD4374FC1CB49D0A0044D862 /* View */,
 				DD4375031CB49D0A0044D862 /* ViewController */,
@@ -212,6 +222,8 @@
 		E56384BC1CB4D93900ED951E /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				E59AAE491CBF7C19004EDA7B /* CoreBluetooth.framework */,
+				E59AAE471CBF7BB1004EDA7B /* LifesenseBluetooth.framework */,
 				E549F8BF1CBB9258007154F9 /* AMapLocationKit.framework */,
 				E56384D91CB4DA9200ED951E /* Security.framework */,
 				E56384D71CB4DA8A00ED951E /* libc++.tbd */,
@@ -253,6 +265,15 @@
 				E549F8E11CBE35EE007154F9 /* PedometerViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		E59AAE3D1CBF6678004EDA7B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E59AAE441CBF66D5004EDA7B /* UIImage+TintColor.h */,
+				E59AAE451CBF66D5004EDA7B /* UIImage+TintColor.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +354,7 @@
 				DD43750F1CB49D0A0044D862 /* MainSportViewController.m in Sources */,
 				E56384F91CB7A84100ED951E /* MainMenuViewController.m in Sources */,
 				DD4375151CB4A6070044D862 /* SportAccumulationCircleView.m in Sources */,
+				E59AAE461CBF66D5004EDA7B /* UIImage+TintColor.m in Sources */,
 				E549F8C81CBCD995007154F9 /* iRun.xcdatamodeld in Sources */,
 				DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */,
 				E549F8CE1CBCDA0F007154F9 /* ContextManager.m in Sources */,

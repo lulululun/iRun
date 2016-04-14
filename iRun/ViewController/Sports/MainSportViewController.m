@@ -9,6 +9,7 @@
 #import "MainSportViewController.h"
 #import "MainMenuViewController.h"
 #import "SportViewController.h"
+#import "UIImage+TintColor.h"
 
 @interface MainSportViewController () {
     SportType sportType;
@@ -25,6 +26,8 @@
     [self.startSportButton.layer setCornerRadius:20.f];
     sportType = SportTypeRun;
     
+    [self.menuButton setImage:[[UIImage imageNamed:@"icon_main_sport_menu"] imageWithTintColor:[UIColor colorWithRed:0.824 green:0.831 blue:0.851 alpha:1]] forState:UIControlStateNormal];
+    
     [self loadDataSource];
 }
 
@@ -40,6 +43,17 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT), NO, 1);
+    [self.view drawViewHierarchyInRect:CGRectMake(0, 0, CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT) afterScreenUpdates:NO];
+    UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UINavigationController *destinationVC = segue.destinationViewController;
+    MainMenuViewController *menuVC = destinationVC.viewControllers[0];
+    [menuVC setBgImage:snapshot];
 }
 
 - (void)dealloc {
@@ -92,16 +106,7 @@
 
 // 点击菜单按钮事件
 - (IBAction)menuAction:(id)sender {
-    
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT), NO, 1);
-    [self.view drawViewHierarchyInRect:CGRectMake(0, 0, CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT) afterScreenUpdates:NO];
-    UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MainMenuViewController *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"mainMenuViewController"];
-    [menuVC setBgImage:snapshot];
-    [self presentViewController:menuVC animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"toMenuViewControllerSegue" sender:self];
 }
 
 // 点击开始运动按钮事件

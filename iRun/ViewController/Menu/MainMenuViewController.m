@@ -23,6 +23,8 @@
     [super viewDidLoad];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:self.bgImage]];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     
     [self.menuTableView setBackgroundColor:[UIColor clearColor]];
     [self.menuTableView setDelegate:self];
@@ -61,10 +63,10 @@
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
-// - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//     PedometerViewController *destinationVC = segue.destinationViewController;
-//     [destinationVC setBgImage:self.bgImage];
-// }
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     PedometerViewController *pedometerVC = segue.destinationViewController;
+     [pedometerVC setBgImage:self.bgImage];
+ }
 
 
 #pragma mark - UITableViewDataSource
@@ -99,6 +101,7 @@
             [cell setBackgroundColor:[UIColor clearColor]];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            [cell.textLabel setTextColor:[UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:1]];
         }
         
         MenuTableViewData cellData;
@@ -114,17 +117,11 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    
     NSInteger row = indexPath.row;
     
     switch (row) {
-        case 2: {
-            PedometerViewController *pedometerVC = [storyboard instantiateViewControllerWithIdentifier:@"pedometerViewController"];
-            [pedometerVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-            [self presentViewController:pedometerVC animated:YES completion:nil];
-        }
+        case 2:
+            [self performSegueWithIdentifier:@"toPedometerVCSegue" sender:self];
             break;
             
         default:
@@ -153,7 +150,7 @@
 }
 
 - (IBAction)closeAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

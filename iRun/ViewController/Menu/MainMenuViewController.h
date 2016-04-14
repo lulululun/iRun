@@ -16,7 +16,7 @@ typedef struct {
 @interface MainMenuViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 // 关闭按钮
-@property (strong, nonatomic) IBOutlet UIButton *closeButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *closeButton;
 // 菜单列表
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
 // 背景图（做毛玻璃效果用）

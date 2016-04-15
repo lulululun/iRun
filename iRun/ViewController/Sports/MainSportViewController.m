@@ -12,7 +12,7 @@
 #import "UIImage+TintColor.h"
 
 @interface MainSportViewController () {
-    SportType sportType;
+    SportTypes sportType;
 }
 
 @end

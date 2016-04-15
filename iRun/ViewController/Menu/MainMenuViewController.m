@@ -10,6 +10,7 @@
 #import "MenuAppLogoTableViewCell.h"
 #import "PedometerViewController.h"
 #import "Define.h"
+#import "SettingViewController.h"
 
 @interface MainMenuViewController() {
     NSMutableArray *dataSource;
@@ -64,8 +65,14 @@
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     PedometerViewController *pedometerVC = segue.destinationViewController;
-     [pedometerVC setBgImage:self.bgImage];
+     if ([segue.identifier isEqualToString:@"toSettingViewControllerSegue"]) {
+         SettingViewController *settingVC = segue.destinationViewController;
+         [settingVC setBgImage:self.bgImage];
+         
+     } else if([segue.identifier isEqualToString:@"toPedometerVCSegue"]) {
+         PedometerViewController *pedometerVC = segue.destinationViewController;
+         [pedometerVC setBgImage:self.bgImage];
+     }
  }
 
 
@@ -120,6 +127,10 @@
     NSInteger row = indexPath.row;
     
     switch (row) {
+        case 1:
+            [self performSegueWithIdentifier:@"toSettingViewControllerSegue" sender:self];
+            break;
+            
         case 2:
             [self performSegueWithIdentifier:@"toPedometerVCSegue" sender:self];
             break;

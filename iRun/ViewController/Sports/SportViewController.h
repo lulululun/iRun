@@ -12,15 +12,9 @@
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "Define.h"
 
-typedef enum {
-    SportTypeRun,
-    SportTypeClimb,
-    SportTypeBike
-} SportType;
-
 @interface SportViewController : UIViewController<MAMapViewDelegate>
 
-@property (nonatomic) SportType sportType;
+@property (nonatomic) SportTypes sportType;
 
 // 倒计时视图
 @property (strong, nonatomic) IBOutlet CountdownView *countdownView;

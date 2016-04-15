@@ -7,11 +7,14 @@
 //
 
 #import "SportViewController.h"
+#import "SportDataLogic.h"
+#import "SportDataDto.h"
 
 @interface SportViewController () {
     NSTimer *_sportTimer;
     NSDate *_startSportDate;
     CLLocationDistance distance;
+    NSInteger deltaTime;
     CLLocation *oldLocation;
     CLLocation *nowLocation;
 }
@@ -174,7 +177,24 @@
 - (IBAction)sportStopAction:(id)sender {
     [_sportTimer invalidate];
     oldLocation = nil;
-    [self dismissViewControllerAnimated:NO completion:nil];
+//    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        SportDataDto *data = [[SportDataDto alloc] init];
+        [data setSportType:self.sportType];
+        [data setStartDate:_startSportDate];
+        [data setEndDate:[NSDate date]];
+        [data setDistance:[NSNumber numberWithFloat:distance]];
+        [data setTimer:[NSNumber numberWithInteger:deltaTime]];
+        
+        [SportDataLogic updateSportData:data];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+        });
+    });
+    
 }
 
 #pragma mark - Private Method
@@ -227,7 +247,7 @@
 
 // 生成计时器
 - (void)loadSportTime:(NSTimer *)sender {
-    NSInteger deltaTime = [sender.fireDate timeIntervalSinceDate:_startSportDate];
+    deltaTime = [sender.fireDate timeIntervalSinceDate:_startSportDate];
     NSString *clockStr = [[NSString stringWithFormat:@"%2.ld:%2.ld:%2.ld", deltaTime/3600, (deltaTime%3600)/60, deltaTime%60] stringByReplacingOccurrencesOfString:@" " withString:@"0"];
     
     [self.bottomRightArg setText:clockStr];

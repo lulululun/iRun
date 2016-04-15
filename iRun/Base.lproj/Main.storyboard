@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qFL-92-lgM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qFL-92-lgM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62S-hR-hIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="405"/>
+            <point key="canvasLocation" x="535" y="697"/>
         </scene>
         <!--Sport View Controller-->
         <scene sceneID="xaD-HX-V3U">
@@ -446,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mf-07-O2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="405"/>
+            <point key="canvasLocation" x="1328" y="697"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="zpX-nC-hgQ">
@@ -496,6 +496,7 @@
                         <outlet property="closeButton" destination="dSy-cf-7tj" id="1xo-z4-Km7"/>
                         <outlet property="menuTableView" destination="7mx-LW-dl4" id="Kya-Ea-zwB"/>
                         <segue destination="gxz-zl-daN" kind="show" identifier="toPedometerVCSegue" id="47e-hF-VXU"/>
+                        <segue destination="dzY-Qx-5Rp" kind="show" identifier="toSettingViewControllerSegue" id="HhO-mN-cTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBB-MD-Baj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,14 +557,14 @@
                                     <constraint firstAttribute="width" constant="60" id="L18-pI-Uy1"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_left_none" translatesAutoresizingMaskIntoConstraints="NO" id="xVI-vN-haT" userLabel="Left Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_left_three" translatesAutoresizingMaskIntoConstraints="NO" id="xVI-vN-haT" userLabel="Left Image View">
                                 <rect key="frame" x="210" y="203" width="30" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xVI-vN-haT" secondAttribute="height" multiplier="1:1.6" id="Ga4-Ue-Szs"/>
                                     <constraint firstAttribute="width" constant="30" id="Rm4-8D-Ga0"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_right_none" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-DI-Hvf" userLabel="Right Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_menu_signal_right_three" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-DI-Hvf" userLabel="Right Image View">
                                 <rect key="frame" x="360" y="203" width="30" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ud2-DI-Hvf" secondAttribute="height" multiplier="1:1.6" id="OmZ-M4-PlY"/>
@@ -621,14 +622,76 @@
             </objects>
             <point key="canvasLocation" x="2100" y="1718"/>
         </scene>
+        <!--设置-->
+        <scene sceneID="mZf-dC-ett">
+            <objects>
+                <viewController storyboardIdentifier="settingViewController" id="dzY-Qx-5Rp" customClass="SettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3bA-Eo-BPX"/>
+                        <viewControllerLayoutGuide type="bottom" id="XAg-68-4ez"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HhO-eL-wNx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZt-lQ-deR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BGM-1I-KZJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0F-oL-QyU" userLabel="Line View">
+                                <rect key="frame" x="0.0" y="63" width="600" height="1"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="xdG-u6-p7T"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-6m-4aO">
+                                <rect key="frame" x="0.0" y="74" width="600" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UFY-6m-4aO" firstAttribute="leading" secondItem="HhO-eL-wNx" secondAttribute="leading" id="237-Du-KDl"/>
+                            <constraint firstItem="qZt-lQ-deR" firstAttribute="leading" secondItem="HhO-eL-wNx" secondAttribute="leading" id="2GG-9N-q0H"/>
+                            <constraint firstAttribute="trailing" secondItem="c0F-oL-QyU" secondAttribute="trailing" id="3LA-bb-lRC"/>
+                            <constraint firstAttribute="trailing" secondItem="UFY-6m-4aO" secondAttribute="trailing" id="4Z2-Ff-Fxs"/>
+                            <constraint firstItem="XAg-68-4ez" firstAttribute="top" secondItem="UFY-6m-4aO" secondAttribute="bottom" id="AHq-Zb-Mfp"/>
+                            <constraint firstItem="qZt-lQ-deR" firstAttribute="top" secondItem="3bA-Eo-BPX" secondAttribute="bottom" constant="-64" id="MpC-CF-pON"/>
+                            <constraint firstAttribute="trailing" secondItem="qZt-lQ-deR" secondAttribute="trailing" id="Q7o-Vr-Oqh"/>
+                            <constraint firstItem="UFY-6m-4aO" firstAttribute="top" secondItem="3bA-Eo-BPX" secondAttribute="bottom" constant="10" id="SBN-lY-bbm"/>
+                            <constraint firstItem="c0F-oL-QyU" firstAttribute="leading" secondItem="HhO-eL-wNx" secondAttribute="leading" id="Vc9-3e-spi"/>
+                            <constraint firstItem="XAg-68-4ez" firstAttribute="top" secondItem="qZt-lQ-deR" secondAttribute="bottom" id="btF-14-7h2"/>
+                            <constraint firstItem="c0F-oL-QyU" firstAttribute="top" secondItem="3bA-Eo-BPX" secondAttribute="bottom" constant="-1" id="ff6-Ln-FYH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="设置" id="jbt-Ss-U1n">
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu_pedometer_back" id="qG7-w7-ilb">
+                            <connections>
+                                <action selector="backToMenuAction:" destination="dzY-Qx-5Rp" id="5fd-HS-FDI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="settingTableView" destination="UFY-6m-4aO" id="3gI-am-h8c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oxh-ae-HIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="2587"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_main_setting_close" width="32" height="32"/>
         <image name="icon_main_sport_menu" width="45" height="31"/>
-        <image name="icon_menu_pedometer_back" width="31" height="23"/>
+        <image name="icon_menu_pedometer_back" width="32" height="32"/>
         <image name="icon_menu_pedometer_logo" width="77" height="268"/>
-        <image name="icon_menu_signal_left_none" width="47" height="76"/>
-        <image name="icon_menu_signal_right_none" width="47" height="76"/>
+        <image name="icon_menu_signal_left_three" width="47" height="76"/>
+        <image name="icon_menu_signal_right_three" width="47" height="76"/>
         <image name="icon_sport_camera" width="32" height="27"/>
         <image name="icon_sport_lock" width="25" height="34"/>
         <image name="icon_sport_setting" width="30" height="29"/>

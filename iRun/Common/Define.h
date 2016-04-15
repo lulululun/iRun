@@ -21,9 +21,22 @@
 
 #define USERDEFAULT [NSUserDefaults standardUserDefaults]
 
+#define TABLEVIEW_TEXT_COLOR [UIColor colorWithRed:0.965 green:0.965 blue:0.965 alpha:1]
+#define TABLEVIEW_LINE_COLOR [UIColor colorWithRed:0.753 green:0.757 blue:0.776 alpha:1]
+
 // 手环广播ID
 #define BROAD_CAST_ID            @"broadCastid"
 
 #define LS_DEVICE_INFO @"lsdeviceinfo"
+
+#define USER_SETTING_AGE @"usersettingage"
+#define USER_SETTING_BIRTHDAY @"usersettingbirthday"
+#define USER_SETTING_SEX @"usersettingsex"
+
+typedef enum {
+    SportTypeRun = 0,
+    SportTypeClimb = 1,
+    SportTypeBike = 2
+} SportTypes;
 
 #endif /* Define_h */

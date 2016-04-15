@@ -20,8 +20,6 @@
     [super viewDidLoad];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:self.bgImage]];
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     
     [self.scanAndBundButton.layer setMasksToBounds:YES];
     [self.scanAndBundButton.layer setCornerRadius:17];
@@ -77,12 +75,18 @@
 }
 
 - (void)bleManagerDidPairedResults:(LSDeviceInfo *)lsDevice pairStatus:(int)pairStatus {
+    [self.rightSignalImageView setImage:[[UIImage imageNamed:@"icon_menu_signal_right_three"] imageWithTintColor:[UIColor colorWithRed:0.973 green:0.980 blue:0.976 alpha:1]]];
+    [self.leftSignalImageView setImage:[[UIImage imageNamed:@"icon_menu_signal_left_three"] imageWithTintColor:[UIColor colorWithRed:0.973 green:0.980 blue:0.976 alpha:1]]];
+    [self.rightSignalImageView stopAnimating];
+    [self.leftSignalImageView stopAnimating];
+    
     UIAlertController *alertController;
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
+        [self.scanAndBundButton setEnabled:YES];
+        
         if (pairStatus == 1) {
-            [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
             [self.scanAndBundButton setTitle:@"解除绑定" forState:UIControlStateNormal];
-            [self.scanAndBundButton setEnabled:YES];
         } else {
             [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
         }
@@ -136,26 +140,26 @@
         
         [self.rightSignalImageView startAnimating];
         [self.leftSignalImageView startAnimating];
-//        [self.deviceManager searchLsBleDevice:@[@(LS_PEDOMETER)] ofBroadcastType:BROADCAST_TYPE_PAIR searchCompletion:^(LSDeviceInfo *lsDevice) {
-//            [self.deviceManager stopSearch];
-//            
-//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"扫描结果" message:@"扫描到手环，是否绑定？" preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-//                [self.scanAndBundButton setEnabled:YES];
-//                [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
-//                [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
-//            }];
-//            
-//            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//                [self.scanAndBundButton setTitle:@"配对中..." forState:UIControlStateNormal];
-//                [self.deviceManager pairWithLsDeviceInfo:lsDevice pairedDelegate:self];
-//            }];
-//            
-//            [alertController addAction:cancelAction];
-//            [alertController addAction:okAction];
-//            
-//            [self presentViewController:alertController animated:YES completion:nil];
-//        }];
+        [self.deviceManager searchLsBleDevice:@[@(LS_PEDOMETER)] ofBroadcastType:BROADCAST_TYPE_PAIR searchCompletion:^(LSDeviceInfo *lsDevice) {
+            [self.deviceManager stopSearch];
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"扫描结果" message:@"扫描到手环，是否绑定？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                [self.scanAndBundButton setEnabled:YES];
+                [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
+                [self.scanAndBundButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.263 blue:0.749 alpha:1]];
+            }];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [self.scanAndBundButton setTitle:@"配对中..." forState:UIControlStateNormal];
+                [self.deviceManager pairWithLsDeviceInfo:lsDevice pairedDelegate:self];
+            }];
+            
+            [alertController addAction:cancelAction];
+            [alertController addAction:okAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
     }
 }
 

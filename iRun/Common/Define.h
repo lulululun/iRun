@@ -9,7 +9,7 @@
 #ifndef Define_h
 #define Define_h
 
-// 应用API KEY
+// 地图应用API KEY
 #define MAMAP_API_KEY @"ccd7b7623f60a5e1a1bb7fd2012a847e"
 
 // 当前屏幕的宽度
@@ -27,11 +27,14 @@
 // 手环广播ID
 #define BROAD_CAST_ID            @"broadCastid"
 
-#define LS_DEVICE_INFO @"lsdeviceinfo"
+#define LS_DEVICE_INFO           @"lsdeviceinfo"
 
-#define USER_SETTING_AGE @"usersettingage"
-#define USER_SETTING_BIRTHDAY @"usersettingbirthday"
-#define USER_SETTING_SEX @"usersettingsex"
+// 用户设置
+#define USER_SETTING_AGE         @"usersettingage"
+#define USER_SETTING_BIRTHDAY    @"usersettingbirthday"
+#define USER_SETTING_SEX         @"usersettingsex"
+#define USER_SETTING_HEIGHT      @"usersettingheight"
+#define USER_SETTING_WEIGHT      @"usersettingwight"
 
 typedef enum {
     SportTypeRun = 0,

@@ -442,11 +442,30 @@
                         <outlet property="sportStateViewHeight" destination="f2T-ZR-itR" id="unh-Dq-HcI"/>
                         <outlet property="stopButton" destination="oNu-f4-zqY" id="9tf-cZ-pWi"/>
                         <outlet property="unlockButtonBottom" destination="RPY-FY-szx" id="nhb-a7-VJ2"/>
+                        <segue destination="RgU-yM-ciP" kind="show" id="K4v-pr-wec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mf-07-O2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1328" y="697"/>
+        </scene>
+        <!--Sport Result View Controller-->
+        <scene sceneID="O8v-c3-PIn">
+            <objects>
+                <viewController id="RgU-yM-ciP" customClass="SportResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rt2-8j-4DD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ykw-z2-X05"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hdu-dL-Ry0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5Q-8B-pmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="697"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="zpX-nC-hgQ">

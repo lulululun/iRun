@@ -11,6 +11,7 @@
 #import "SettingAgeWeightSexCell.h"
 #import "Define.h"
 #import "DateUtil.h"
+#import "HeightPickerView.h"
 
 @interface SettingViewController ()
 
@@ -57,7 +58,7 @@
             break;
             
         default:
-            return 3;
+            return 4;
             break;
     }
 }
@@ -157,20 +158,30 @@
         switch (indexPath.row) {
             case 0:
                 [bodyIndexCell.textLabel setText:@"年龄(岁)"];
+                
                 if ([USERDEFAULT stringForKey:USER_SETTING_AGE]) {
                     [bodyIndexCell.valueLabel setText:[USERDEFAULT stringForKey:USER_SETTING_AGE]];
                 } else {
                     [bodyIndexCell.valueLabel setText:@""];
                 }
                 break;
-                
             case 1:
+                [bodyIndexCell.textLabel setText:@"身高(cm)"];
+                
+                if ([USERDEFAULT stringForKey:USER_SETTING_HEIGHT]) {
+                    [bodyIndexCell.valueLabel setText:[NSString stringWithFormat:@"%d", [USERDEFAULT stringForKey:USER_SETTING_HEIGHT].intValue]];
+                } else {
+                    [bodyIndexCell.valueLabel setText:@""];
+                }
+                break;
+            case 2:
                 [bodyIndexCell.textLabel setText:@"体重(kg)"];
-//                if ([USERDEFAULT stringForKey:USER_SETTING_AGE]) {
-//                    [bodyIndexCell.valueLabel setText:[USERDEFAULT stringForKey:USER_SETTING_AGE]];
-//                } else {
-//                    [bodyIndexCell.valueLabel setText:@""];
-//                }
+                
+                if ([USERDEFAULT stringForKey:USER_SETTING_WEIGHT]) {
+                    [bodyIndexCell.valueLabel setText:[NSString stringWithFormat:@"%d", [USERDEFAULT stringForKey:USER_SETTING_WEIGHT].intValue]];
+                } else {
+                    [bodyIndexCell.valueLabel setText:@""];
+                }
                 break;
                 
             default:
@@ -244,8 +255,57 @@
         }
             break;
             
-        case 1:
-            [self performSegueWithIdentifier:@"toPedometerVCSegue" sender:self];
+        case 1: {
+            NSString *title = @"\n\n\n\n\n";
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            HeightPickerView *heightPickerView = [[HeightPickerView alloc] initWithFrame:CGRectMake(0, 0, CURREN_SCREEN_WIDTH-20, 120)];
+            
+            if ([USERDEFAULT stringForKey:USER_SETTING_HEIGHT]) {
+                [heightPickerView setCurrentValue:[USERDEFAULT stringForKey:USER_SETTING_HEIGHT]];
+            }
+            
+            [alertController.view addSubview:heightPickerView];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            
+            __block HeightPickerView *blockView = heightPickerView;
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [USERDEFAULT setObject:[blockView getSelectedValue] forKey:USER_SETTING_HEIGHT];
+                [tableView reloadData];
+            }];
+            
+            [alertController addAction:cancelAction];
+            [alertController addAction:okAction];
+        }
+            break;
+            
+        case 2: {
+            NSString *title = @"\n\n\n\n\n";
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            
+            HeightPickerView *weightPickerView = [[HeightPickerView alloc] initWithFrame:CGRectMake(0, 0, CURREN_SCREEN_WIDTH-20, 120)];
+            if ([USERDEFAULT stringForKey:USER_SETTING_WEIGHT]) {
+                [weightPickerView setCurrentValue:[USERDEFAULT stringForKey:USER_SETTING_WEIGHT]];
+            }
+            
+            [alertController.view addSubview:weightPickerView];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            
+            __block HeightPickerView *blockView = weightPickerView;
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [USERDEFAULT setObject:[blockView getSelectedValue] forKey:USER_SETTING_WEIGHT];
+                [tableView reloadData];
+            }];
+            
+            [alertController addAction:cancelAction];
+            [alertController addAction:okAction];
+        }
             break;
             
         default: {

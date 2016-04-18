@@ -23,6 +23,7 @@
 		E549F8DE1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E549F8DC1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m */; };
 		E549F8DF1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E549F8DD1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib */; };
 		E549F8E21CBE35EE007154F9 /* PedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E549F8E11CBE35EE007154F9 /* PedometerViewController.m */; };
+		E55D79EA1CC4C7F50088930C /* SportResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D79E91CC4C7F50088930C /* SportResultViewController.m */; };
 		E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384BD1CB4D95600ED951E /* MAMapKit.framework */; };
 		E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56384C11CB4D9D600ED951E /* AMap.bundle */; };
 		E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C31CB4DA0700ED951E /* UIKit.framework */; };
@@ -46,7 +47,7 @@
 		E57C746A1CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C74681CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m */; };
 		E57C746B1CC0C03B00A56DF8 /* SettingAgeWeightSexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C74691CC0C03B00A56DF8 /* SettingAgeWeightSexCell.xib */; };
 		E57C746E1CC0D8AA00A56DF8 /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C746D1CC0D8AA00A56DF8 /* DateUtil.m */; };
-		E57C74711CC0EA8900A56DF8 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C74701CC0EA8900A56DF8 /* DatePickerView.m */; };
+		E57C74711CC0EA8900A56DF8 /* HeightPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C74701CC0EA8900A56DF8 /* HeightPickerView.m */; };
 		E59AAE461CBF66D5004EDA7B /* UIImage+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE451CBF66D5004EDA7B /* UIImage+TintColor.m */; };
 		E59AAE481CBF7BB1004EDA7B /* LifesenseBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59AAE471CBF7BB1004EDA7B /* LifesenseBluetooth.framework */; };
 		E59AAE4A1CBF7C19004EDA7B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59AAE491CBF7C19004EDA7B /* CoreBluetooth.framework */; };
@@ -84,6 +85,8 @@
 		E549F8DD1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuAppLogoTableViewCell.xib; path = Cell/MenuAppLogoTableViewCell.xib; sourceTree = "<group>"; };
 		E549F8E01CBE35EE007154F9 /* PedometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PedometerViewController.h; path = Menu/PedometerViewController.h; sourceTree = "<group>"; };
 		E549F8E11CBE35EE007154F9 /* PedometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PedometerViewController.m; path = Menu/PedometerViewController.m; sourceTree = "<group>"; };
+		E55D79E81CC4C7F50088930C /* SportResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportResultViewController.h; sourceTree = "<group>"; };
+		E55D79E91CC4C7F50088930C /* SportResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportResultViewController.m; sourceTree = "<group>"; };
 		E56384BD1CB4D95600ED951E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		E56384C11CB4D9D600ED951E /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
 		E56384C31CB4DA0700ED951E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -114,8 +117,8 @@
 		E57C74691CC0C03B00A56DF8 /* SettingAgeWeightSexCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingAgeWeightSexCell.xib; path = Cell/SettingAgeWeightSexCell.xib; sourceTree = "<group>"; };
 		E57C746C1CC0D8AA00A56DF8 /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtil.h; path = Common/DateUtil.h; sourceTree = "<group>"; };
 		E57C746D1CC0D8AA00A56DF8 /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtil.m; path = Common/DateUtil.m; sourceTree = "<group>"; };
-		E57C746F1CC0EA8900A56DF8 /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerView.h; sourceTree = "<group>"; };
-		E57C74701CC0EA8900A56DF8 /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerView.m; sourceTree = "<group>"; };
+		E57C746F1CC0EA8900A56DF8 /* HeightPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightPickerView.h; sourceTree = "<group>"; };
+		E57C74701CC0EA8900A56DF8 /* HeightPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightPickerView.m; sourceTree = "<group>"; };
 		E59AAE441CBF66D5004EDA7B /* UIImage+TintColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+TintColor.h"; path = "Category/UIImage+TintColor.h"; sourceTree = "<group>"; };
 		E59AAE451CBF66D5004EDA7B /* UIImage+TintColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+TintColor.m"; path = "Category/UIImage+TintColor.m"; sourceTree = "<group>"; };
 		E59AAE471CBF7BB1004EDA7B /* LifesenseBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LifesenseBluetooth.framework; sourceTree = "<group>"; };
@@ -217,8 +220,8 @@
 				E56384E11CB5F6B500ED951E /* CountdownView.h */,
 				E56384E21CB5F6B500ED951E /* CountdownView.m */,
 				E56384E91CB6032900ED951E /* CountdownView.xib */,
-				E57C746F1CC0EA8900A56DF8 /* DatePickerView.h */,
-				E57C74701CC0EA8900A56DF8 /* DatePickerView.m */,
+				E57C746F1CC0EA8900A56DF8 /* HeightPickerView.h */,
+				E57C74701CC0EA8900A56DF8 /* HeightPickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +242,8 @@
 				DD4375091CB49D0A0044D862 /* MainSportViewController.m */,
 				E56384EB1CB6052D00ED951E /* SportViewController.h */,
 				E56384EC1CB6052D00ED951E /* SportViewController.m */,
+				E55D79E81CC4C7F50088930C /* SportResultViewController.h */,
+				E55D79E91CC4C7F50088930C /* SportResultViewController.m */,
 			);
 			path = Sports;
 			sourceTree = "<group>";
@@ -455,8 +460,9 @@
 				E56384ED1CB6052D00ED951E /* SportViewController.m in Sources */,
 				E59AAE541CC08B06004EDA7B /* SportEntity.m in Sources */,
 				E57C746A1CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m in Sources */,
+				E55D79EA1CC4C7F50088930C /* SportResultViewController.m in Sources */,
 				E56384E31CB5F6B500ED951E /* CountdownView.m in Sources */,
-				E57C74711CC0EA8900A56DF8 /* DatePickerView.m in Sources */,
+				E57C74711CC0EA8900A56DF8 /* HeightPickerView.m in Sources */,
 				DD4374E71CB49ADC0044D862 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,6 +28,9 @@
 - (void)awakeFromNib {
     self.view = [[[NSBundle mainBundle] loadNibNamed:@"SportAccumulationView" owner:self options:nil] lastObject];
     [self addSubview:self.view];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    [self addGestureRecognizer:tapRecognizer];
 }
 
 #pragma mark - Load data
@@ -35,6 +38,10 @@
 - (void)loadViewData:(id)data {
     [self.accumulationLabel setText:[data valueForKey:@"accumulation"]];
     [self.accumulationUnits setText:[data valueForKey:@"units"]];
+}
+
+- (void)tapAction {
+    [self.delegate accumulationViewTap:self];
 }
 
 @end

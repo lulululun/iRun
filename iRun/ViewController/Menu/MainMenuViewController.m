@@ -11,6 +11,7 @@
 #import "PedometerViewController.h"
 #import "Define.h"
 #import "SettingViewController.h"
+#import "SportHistoryViewController.h"
 
 @interface MainMenuViewController() {
     NSMutableArray *dataSource;
@@ -72,6 +73,10 @@
      } else if([segue.identifier isEqualToString:@"toPedometerVCSegue"]) {
          PedometerViewController *pedometerVC = segue.destinationViewController;
          [pedometerVC setBgImage:self.bgImage];
+         
+     } else if ([segue.identifier isEqualToString:@"toSportHistoryFromMainMenu"]) {
+         SportHistoryViewController *historyVC = segue.destinationViewController;
+         [historyVC setBgImage:self.bgImage];
      }
  }
 
@@ -133,6 +138,10 @@
             
         case 2:
             [self performSegueWithIdentifier:@"toPedometerVCSegue" sender:self];
+            break;
+        
+        case 3:
+            [self performSegueWithIdentifier:@"toSportHistoryFromMainMenu" sender:self];
             break;
             
         default:

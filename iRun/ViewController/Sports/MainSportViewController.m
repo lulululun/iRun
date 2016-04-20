@@ -10,6 +10,7 @@
 #import "MainMenuViewController.h"
 #import "SportViewController.h"
 #import "UIImage+TintColor.h"
+#import "SportHistoryViewController.h"
 
 @interface MainSportViewController () {
     SportTypes sportType;
@@ -22,11 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    
     [self.sportChooseScrollView setDelegate:self];
     [self.startSportButton.layer setCornerRadius:20.f];
     sportType = SportTypeRun;
     
-    [self.menuButton setImage:[[UIImage imageNamed:@"icon_main_sport_menu"] imageWithTintColor:[UIColor colorWithRed:0.824 green:0.831 blue:0.851 alpha:1]] forState:UIControlStateNormal];
+    [self.runView setDelegate:self];
+    [self.climbView setDelegate:self];
+    [self.bikeView setDelegate:self];
     
     [self loadDataSource];
 }
@@ -36,9 +42,6 @@
     self.contentViewConstraint.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 3;
     self.climbViewLeading.constant = CGRectGetWidth([UIScreen mainScreen].bounds);
     self.bikeViewLeading.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 2;
-    
-    self.menuViewHeight.constant = CGRectGetHeight([UIScreen mainScreen].bounds);
-    self.menuViewTop.constant = CGRectGetHeight([UIScreen mainScreen].bounds);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,14 +49,25 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT), NO, 1);
     [self.view drawViewHierarchyInRect:CGRectMake(0, 0, CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT) afterScreenUpdates:NO];
     UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    UINavigationController *destinationVC = segue.destinationViewController;
-    MainMenuViewController *menuVC = destinationVC.viewControllers[0];
-    [menuVC setBgImage:snapshot];
+    if ([segue.identifier isEqualToString:@"toMenuViewControllerSegue"]) {
+        UINavigationController *destinationVC = segue.destinationViewController;
+        MainMenuViewController *menuVC = destinationVC.viewControllers[0];
+        [menuVC setBgImage:snapshot];
+        
+    } else if([segue.identifier isEqualToString:@"toSportViewControllerSegue"]) {
+        SportViewController *sportVC = segue.destinationViewController;
+        [sportVC setSportType:sportType];
+        
+    } else if([segue.identifier isEqualToString:@"toSportHistoryFromMainSport"]) {
+        SportHistoryViewController *sportHistoryVC = segue.destinationViewController;
+        [sportHistoryVC setBgImage:snapshot];
+    }
 }
 
 - (void)dealloc {
@@ -102,6 +116,12 @@
     [self.startSportButton setEnabled:YES];
 }
 
+#pragma mark - SportAccumulationDelegate
+
+- (void)accumulationViewTap:(SportAccumulationView *)view {
+    [self performSegueWithIdentifier:@"toSportHistoryFromMainSport" sender:self];
+}
+
 #pragma mark - Action & Private method
 
 // 点击菜单按钮事件
@@ -111,10 +131,7 @@
 
 // 点击开始运动按钮事件
 - (IBAction)startSportAction:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SportViewController *sportVC = [storyboard instantiateViewControllerWithIdentifier:@"sportViewController"];
-    [sportVC setSportType:sportType];
-    [self presentViewController:sportVC animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"toSportViewControllerSegue" sender:self];
 }
 
 // 加载首页运动数据

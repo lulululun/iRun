@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本月累计" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRu-kI-bHu">
-                    <rect key="frame" x="240" y="500" width="120" height="21"/>
+                    <rect key="frame" x="240" y="460" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="SVx-0Z-Dvg"/>
                         <constraint firstAttribute="width" constant="120" id="enr-SY-r8E"/>
@@ -28,7 +28,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNw-rC-zP9" userLabel="Circle View" customClass="SportAccumulationCircleView">
-                    <rect key="frame" x="70" y="80" width="460" height="460"/>
+                    <rect key="frame" x="70" y="40" width="460" height="460"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOh-9S-ran">
                             <rect key="frame" x="0.0" y="205" width="460" height="50"/>
@@ -64,7 +64,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="aNw-rC-zP9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JTx-QJ-czg"/>
-                <constraint firstItem="aNw-rC-zP9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="Jqz-VW-Z91"/>
+                <constraint firstItem="aNw-rC-zP9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="Jqz-VW-Z91"/>
                 <constraint firstItem="JRu-kI-bHu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Uj7-x1-0T5"/>
                 <constraint firstItem="JRu-kI-bHu" firstAttribute="top" secondItem="aNw-rC-zP9" secondAttribute="bottom" constant="-40" id="eMO-UT-Rkx"/>
                 <constraint firstAttribute="trailing" secondItem="aNw-rC-zP9" secondAttribute="trailing" constant="70" id="glP-v2-wSp"/>

@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SportDataDto.h"
 
-@interface SportResultViewController : UIViewController
+typedef struct {
+    __unsafe_unretained NSString *leftItemImage;
+    __unsafe_unretained NSString *leftItemValue;
+    __unsafe_unretained NSString *leftItemTip;
+    __unsafe_unretained NSString *rightItemImage;
+    __unsafe_unretained NSString *rightItemValue;
+    __unsafe_unretained NSString *rightItemTip;
+} SportDataStruct;
+
+@interface SportResultViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) SportDataDto *data;
+
+@property (strong, nonatomic) IBOutlet UITableView *sportResultTableView;
+
+- (IBAction)backToSportAction:(id)sender;
 
 @end

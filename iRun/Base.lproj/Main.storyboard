@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qFL-92-lgM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gn9-5F-6H2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main Sport View Controller-->
@@ -29,21 +30,21 @@
                                 <rect key="frame" x="0.0" y="-20" width="600" height="620"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMr-1Z-prI">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIf-zI-5zl" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="1800" height="580"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1800" height="536"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNC-o7-2hd" userLabel="Run View" customClass="SportAccumulationView">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybr-pS-lNq" userLabel="Climb View" customClass="SportAccumulationView">
-                                                <rect key="frame" x="600" y="0.0" width="600" height="580"/>
+                                                <rect key="frame" x="600" y="0.0" width="600" height="536"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-dW-e3B" userLabel="Bike View" customClass="SportAccumulationView">
-                                                <rect key="frame" x="1200" y="0.0" width="600" height="580"/>
+                                                <rect key="frame" x="1200" y="0.0" width="600" height="536"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -73,17 +74,6 @@
                                     <constraint firstItem="kIf-zI-5zl" firstAttribute="leading" secondItem="mMr-1Z-prI" secondAttribute="leading" id="lNU-dT-0M4"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2o-P3-9xB" userLabel="menu Button">
-                                <rect key="frame" x="20" y="28" width="25" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="9sK-WQ-n2u"/>
-                                    <constraint firstAttribute="width" constant="25" id="ldT-32-Gfd"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="icon_main_sport_menu"/>
-                                <connections>
-                                    <action selector="menuAction:" destination="qFL-92-lgM" eventType="touchUpInside" id="gdu-Wj-a1J"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54J-r4-xDj">
                                 <rect key="frame" x="220" y="460" width="160" height="40"/>
                                 <color key="backgroundColor" red="0.59655613149999998" green="0.3557110014" blue="0.6072071335" alpha="1" colorSpace="calibratedRGB"/>
@@ -114,24 +104,29 @@
                             <constraint firstAttribute="trailing" secondItem="UEt-qE-rXO" secondAttribute="trailing" id="6PO-uk-dY2"/>
                             <constraint firstItem="mMr-1Z-prI" firstAttribute="leading" secondItem="9bt-8A-lF4" secondAttribute="leading" id="7Ju-Du-BQ8"/>
                             <constraint firstItem="ny0-vJ-nXq" firstAttribute="top" secondItem="54J-r4-xDj" secondAttribute="bottom" constant="100" id="8xn-yD-0Ru"/>
-                            <constraint firstItem="g2o-P3-9xB" firstAttribute="top" secondItem="3Dc-Rd-AlO" secondAttribute="bottom" constant="8" id="GQJ-vF-Eg6"/>
-                            <constraint firstItem="UEt-qE-rXO" firstAttribute="top" secondItem="3Dc-Rd-AlO" secondAttribute="bottom" constant="-20" id="Kus-Re-FCX"/>
+                            <constraint firstItem="UEt-qE-rXO" firstAttribute="top" secondItem="3Dc-Rd-AlO" secondAttribute="bottom" constant="-64" id="Kus-Re-FCX"/>
                             <constraint firstItem="KPs-BQ-kq1" firstAttribute="bottom" secondItem="54J-r4-xDj" secondAttribute="top" constant="-100" id="KwM-c8-B6i"/>
                             <constraint firstItem="ny0-vJ-nXq" firstAttribute="top" secondItem="UEt-qE-rXO" secondAttribute="bottom" id="Oiv-EZ-1Cd"/>
-                            <constraint firstItem="hWL-AA-JhL" firstAttribute="top" secondItem="3Dc-Rd-AlO" secondAttribute="bottom" constant="-20" id="Qop-wX-nxv"/>
+                            <constraint firstItem="hWL-AA-JhL" firstAttribute="top" secondItem="3Dc-Rd-AlO" secondAttribute="bottom" constant="-64" id="Qop-wX-nxv"/>
                             <constraint firstItem="hWL-AA-JhL" firstAttribute="leading" secondItem="9bt-8A-lF4" secondAttribute="leading" id="X8t-me-k6y"/>
                             <constraint firstAttribute="trailing" secondItem="hWL-AA-JhL" secondAttribute="trailing" id="ZLs-hg-vwZ"/>
                             <constraint firstItem="UEt-qE-rXO" firstAttribute="leading" secondItem="9bt-8A-lF4" secondAttribute="leading" id="dNj-QG-uZE"/>
                             <constraint firstItem="4Cf-lM-9pn" firstAttribute="leading" secondItem="9bt-8A-lF4" secondAttribute="leading" id="fLy-VO-kxZ"/>
                             <constraint firstItem="4Cf-lM-9pn" firstAttribute="top" secondItem="9bt-8A-lF4" secondAttribute="top" constant="-20" id="gM8-sh-9Ez"/>
                             <constraint firstItem="ny0-vJ-nXq" firstAttribute="top" secondItem="4Cf-lM-9pn" secondAttribute="bottom" id="gcK-cq-AjQ"/>
-                            <constraint firstItem="g2o-P3-9xB" firstAttribute="leading" secondItem="9bt-8A-lF4" secondAttribute="leading" constant="20" id="kIV-fA-9AD"/>
                             <constraint firstItem="mMr-1Z-prI" firstAttribute="top" secondItem="3Dc-Rd-AlO" secondAttribute="bottom" id="oRq-Xh-0mH"/>
                             <constraint firstAttribute="trailing" secondItem="mMr-1Z-prI" secondAttribute="trailing" id="tnh-ik-xTO"/>
                             <constraint firstItem="ny0-vJ-nXq" firstAttribute="top" secondItem="hWL-AA-JhL" secondAttribute="bottom" id="vVI-nu-B8A"/>
                             <constraint firstAttribute="trailing" secondItem="4Cf-lM-9pn" secondAttribute="trailing" id="zdc-Un-orf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="29l-YR-0Cx">
+                        <barButtonItem key="leftBarButtonItem" image="icon_main_sport_menu" id="E7q-Hc-shz">
+                            <connections>
+                                <action selector="menuAction:" destination="qFL-92-lgM" id="yay-Q2-WPO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bikeBackgroundImageView" destination="4Cf-lM-9pn" id="mn2-EZ-gtn"/>
                         <outlet property="bikeView" destination="xsn-dW-e3B" id="iCq-9m-nRt"/>
@@ -140,18 +135,145 @@
                         <outlet property="climbView" destination="ybr-pS-lNq" id="f6k-8n-v2I"/>
                         <outlet property="climbViewLeading" destination="JPr-pJ-RNX" id="sVL-WA-Hug"/>
                         <outlet property="contentViewConstraint" destination="TRU-tP-nuu" id="5v5-tT-Nlv"/>
-                        <outlet property="menuButton" destination="g2o-P3-9xB" id="U8T-oP-UEZ"/>
+                        <outlet property="menuButton" destination="E7q-Hc-shz" id="lUj-sE-u8a"/>
                         <outlet property="runBackgroundImageView" destination="UEt-qE-rXO" id="Mna-sp-Ti4"/>
                         <outlet property="runView" destination="tNC-o7-2hd" id="2Uf-eC-9SY"/>
                         <outlet property="sportChooseScrollView" destination="mMr-1Z-prI" id="S0X-XP-R6f"/>
                         <outlet property="sportPageControl" destination="KPs-BQ-kq1" id="LhF-qq-84b"/>
                         <outlet property="startSportButton" destination="54J-r4-xDj" id="TOn-uu-TYj"/>
                         <segue destination="qZb-HA-lEf" kind="show" identifier="toMenuViewControllerSegue" id="I9y-z7-VMb"/>
+                        <segue destination="34r-i3-l5i" kind="show" identifier="toSportViewControllerSegue" id="uDN-Bp-2kU"/>
+                        <segue destination="Xke-R3-liI" kind="show" identifier="toSportHistoryFromMainSport" id="KXg-Lz-hQR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62S-hR-hIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="535" y="697"/>
+        </scene>
+        <!--运动记录-->
+        <scene sceneID="J3U-la-GNe">
+            <objects>
+                <viewController id="Xke-R3-liI" customClass="SportHistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uDI-BR-jCQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="BAi-U1-2SG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Izp-NW-lZn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-2e-YmW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mc0-hi-xq7">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bp6-Sk-Ues" userLabel="Line View">
+                                <rect key="frame" x="0.0" y="64" width="600" height="1"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="PwX-OX-2ya"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nkn-2e-YmW" firstAttribute="leading" secondItem="Izp-NW-lZn" secondAttribute="leading" id="1py-m5-Wx5"/>
+                            <constraint firstItem="bp6-Sk-Ues" firstAttribute="leading" secondItem="Izp-NW-lZn" secondAttribute="leading" id="31C-ue-540"/>
+                            <constraint firstAttribute="trailing" secondItem="Nkn-2e-YmW" secondAttribute="trailing" id="9qK-oB-Q2t"/>
+                            <constraint firstItem="BAi-U1-2SG" firstAttribute="top" secondItem="Nkn-2e-YmW" secondAttribute="bottom" id="Epf-hH-bYI"/>
+                            <constraint firstItem="bp6-Sk-Ues" firstAttribute="top" secondItem="Izp-NW-lZn" secondAttribute="top" constant="64" id="gtn-vD-dMH"/>
+                            <constraint firstAttribute="trailing" secondItem="bp6-Sk-Ues" secondAttribute="trailing" id="sfJ-bB-JJU"/>
+                            <constraint firstItem="Nkn-2e-YmW" firstAttribute="top" secondItem="Izp-NW-lZn" secondAttribute="top" id="zmf-jc-gdK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="运动记录" id="3Ci-2n-Kt9">
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu_pedometer_back" id="Tce-WL-Ypt">
+                            <connections>
+                                <action selector="backAction:" destination="Xke-R3-liI" id="mZt-OI-Wvq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="趋势" id="4A0-5M-5Rv">
+                            <connections>
+                                <action selector="trendAction:" destination="Xke-R3-liI" id="cut-8V-kfK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="fen-me-prM" kind="show" id="Vs3-Fi-RRp"/>
+                        <segue destination="n4y-Aj-g5H" kind="show" identifier="toSportTrendSegue" id="4Sc-Io-lup"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9v-R9-CPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1328" y="697"/>
+        </scene>
+        <!--趋势-->
+        <scene sceneID="4Yl-99-G9Q">
+            <objects>
+                <viewController id="n4y-Aj-g5H" customClass="SportTrendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xhk-Re-lZB"/>
+                        <viewControllerLayoutGuide type="bottom" id="PvI-wD-T9n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cLm-ZA-jAH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oS-Ax-93b">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qoW-hB-w1P">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yc9-c9-AUA" userLabel="Line View">
+                                <rect key="frame" x="0.0" y="64" width="600" height="1"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="Y6W-0a-Wcd"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ueK-OR-tr2">
+                                <rect key="frame" x="40" y="74" width="520" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="AXG-9M-Nfm"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="本周"/>
+                                    <segment title="本月"/>
+                                </segments>
+                                <color key="tintColor" red="0.51764705882352946" green="0.26666666666666666" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Yc9-c9-AUA" secondAttribute="trailing" id="AFp-Ac-lQn"/>
+                            <constraint firstAttribute="trailing" secondItem="ueK-OR-tr2" secondAttribute="trailing" constant="40" id="EM0-RU-j1n"/>
+                            <constraint firstItem="ueK-OR-tr2" firstAttribute="leading" secondItem="cLm-ZA-jAH" secondAttribute="leading" constant="40" id="Ebx-mh-ZuF"/>
+                            <constraint firstItem="Yc9-c9-AUA" firstAttribute="leading" secondItem="cLm-ZA-jAH" secondAttribute="leading" id="OqJ-vJ-2kB"/>
+                            <constraint firstItem="0oS-Ax-93b" firstAttribute="leading" secondItem="cLm-ZA-jAH" secondAttribute="leading" id="SnW-Jo-ydB"/>
+                            <constraint firstItem="PvI-wD-T9n" firstAttribute="top" secondItem="0oS-Ax-93b" secondAttribute="bottom" id="avP-4V-AAE"/>
+                            <constraint firstItem="Yc9-c9-AUA" firstAttribute="top" secondItem="cLm-ZA-jAH" secondAttribute="topMargin" constant="64" id="bWt-hS-h1b"/>
+                            <constraint firstItem="0oS-Ax-93b" firstAttribute="top" secondItem="cLm-ZA-jAH" secondAttribute="top" id="h3y-68-hN6"/>
+                            <constraint firstItem="ueK-OR-tr2" firstAttribute="top" secondItem="xhk-Re-lZB" secondAttribute="bottom" constant="10" id="qAr-Q4-yUt"/>
+                            <constraint firstAttribute="trailing" secondItem="0oS-Ax-93b" secondAttribute="trailing" id="vai-Wh-INf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="趋势" id="sK5-yl-lHG">
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu_pedometer_back" id="GrZ-qV-xcp">
+                            <connections>
+                                <action selector="backAction:" destination="n4y-Aj-g5H" id="ir9-5w-EUS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AFD-rQ-0v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="697"/>
         </scene>
         <!--Sport View Controller-->
         <scene sceneID="xaD-HX-V3U">
@@ -170,7 +292,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="So6-lS-Ncz" customClass="MAMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="7sw-fs-Ppj"/>
@@ -407,7 +529,7 @@
                             <constraint firstAttribute="trailing" secondItem="QBo-TG-5tX" secondAttribute="trailing" id="G2M-Sh-sgv"/>
                             <constraint firstItem="So6-lS-Ncz" firstAttribute="top" secondItem="zAD-E9-qJS" secondAttribute="bottom" constant="-20" id="YHW-cb-jBC"/>
                             <constraint firstItem="QBo-TG-5tX" firstAttribute="leading" secondItem="3Dm-hr-gMo" secondAttribute="leading" id="anX-M6-eaQ"/>
-                            <constraint firstItem="QBo-TG-5tX" firstAttribute="top" secondItem="zAD-E9-qJS" secondAttribute="bottom" constant="-20" id="b9g-zJ-ZL6"/>
+                            <constraint firstItem="QBo-TG-5tX" firstAttribute="top" secondItem="zAD-E9-qJS" secondAttribute="bottom" constant="-64" id="b9g-zJ-ZL6"/>
                             <constraint firstItem="ajf-gM-zeP" firstAttribute="top" secondItem="QBo-TG-5tX" secondAttribute="bottom" id="l2h-2E-ZE7"/>
                             <constraint firstItem="ajf-gM-zeP" firstAttribute="top" secondItem="ZHL-RD-tGJ" secondAttribute="bottom" id="lCW-dC-ehP"/>
                             <constraint firstItem="ZHL-RD-tGJ" firstAttribute="leading" secondItem="3Dm-hr-gMo" secondAttribute="leading" id="mTb-Xp-fc3"/>
@@ -442,30 +564,32 @@
                         <outlet property="sportStateViewHeight" destination="f2T-ZR-itR" id="unh-Dq-HcI"/>
                         <outlet property="stopButton" destination="oNu-f4-zqY" id="9tf-cZ-pWi"/>
                         <outlet property="unlockButtonBottom" destination="RPY-FY-szx" id="nhb-a7-VJ2"/>
-                        <segue destination="RgU-yM-ciP" kind="show" id="K4v-pr-wec"/>
+                        <segue destination="fen-me-prM" kind="show" identifier="toSportResultSegue" id="A7o-y7-akW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mf-07-O2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1328" y="697"/>
+            <point key="canvasLocation" x="1328" y="-143"/>
         </scene>
-        <!--Sport Result View Controller-->
-        <scene sceneID="O8v-c3-PIn">
+        <!--Navigation Controller-->
+        <scene sceneID="wRI-Ew-hVT">
             <objects>
-                <viewController id="RgU-yM-ciP" customClass="SportResultViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rt2-8j-4DD"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ykw-z2-X05"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Hdu-dL-Ry0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m5Q-8B-pmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="gn9-5F-6H2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rRu-l8-K22">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.97254901959999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96862745100000003" green="0.97254901959999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qFL-92-lgM" kind="relationship" relationship="rootViewController" id="gx0-Ry-XqC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsB-6P-m7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="697"/>
+            <point key="canvasLocation" x="-241" y="697"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="zpX-nC-hgQ">
@@ -516,6 +640,7 @@
                         <outlet property="menuTableView" destination="7mx-LW-dl4" id="Kya-Ea-zwB"/>
                         <segue destination="gxz-zl-daN" kind="show" identifier="toPedometerVCSegue" id="47e-hF-VXU"/>
                         <segue destination="dzY-Qx-5Rp" kind="show" identifier="toSettingViewControllerSegue" id="HhO-mN-cTW"/>
+                        <segue destination="Xke-R3-liI" kind="show" identifier="toSportHistoryFromMainMenu" id="Ki7-97-ppV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBB-MD-Baj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -639,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqN-bi-3la" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="1718"/>
+            <point key="canvasLocation" x="2154" y="1718"/>
         </scene>
         <!--设置-->
         <scene sceneID="mZf-dC-ett">
@@ -701,7 +826,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxh-ae-HIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="2587"/>
+            <point key="canvasLocation" x="2154" y="2585"/>
+        </scene>
+        <!--Sport Result View Controller-->
+        <scene sceneID="tZq-Ua-1EN">
+            <objects>
+                <viewController id="fen-me-prM" customClass="SportResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jmA-7K-wMk"/>
+                        <viewControllerLayoutGuide type="bottom" id="yvj-0j-pGE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UGl-Nm-E9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-XW-fAU" userLabel="Line View">
+                                <rect key="frame" x="0.0" y="63" width="600" height="1"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="q0w-kb-n4C"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9gy-5w-3B7" userLabel="Sport Result Table View">
+                                <rect key="frame" x="0.0" y="74" width="600" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yvj-0j-pGE" firstAttribute="top" secondItem="9gy-5w-3B7" secondAttribute="bottom" id="6xy-80-LXc"/>
+                            <constraint firstItem="9gy-5w-3B7" firstAttribute="top" secondItem="jmA-7K-wMk" secondAttribute="bottom" constant="10" id="9W0-kg-xDG"/>
+                            <constraint firstItem="cX5-XW-fAU" firstAttribute="leading" secondItem="UGl-Nm-E9Z" secondAttribute="leading" id="HHU-BI-mbD"/>
+                            <constraint firstItem="9gy-5w-3B7" firstAttribute="leading" secondItem="UGl-Nm-E9Z" secondAttribute="leading" id="TOY-lt-6ZX"/>
+                            <constraint firstAttribute="trailing" secondItem="9gy-5w-3B7" secondAttribute="trailing" id="Uz9-Bp-Vyu"/>
+                            <constraint firstAttribute="trailing" secondItem="cX5-XW-fAU" secondAttribute="trailing" id="WcW-2z-wJF"/>
+                            <constraint firstItem="cX5-XW-fAU" firstAttribute="top" secondItem="jmA-7K-wMk" secondAttribute="bottom" constant="-1" id="c3P-uA-mEx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MfJ-Ow-erF">
+                        <barButtonItem key="leftBarButtonItem" image="icon_menu_pedometer_back" id="Xl0-hf-zjZ">
+                            <connections>
+                                <action selector="backToSportAction:" destination="fen-me-prM" id="iiS-CO-0E2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sportResultTableView" destination="9gy-5w-3B7" id="HPh-dA-vOo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="liV-XC-Bqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="-143"/>
         </scene>
     </scenes>
     <resources>
@@ -719,4 +894,8 @@
         <image name="sport_background_climb" width="750" height="1334"/>
         <image name="sport_background_run" width="1282" height="1943"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KXg-Lz-hQR"/>
+        <segue reference="Vs3-Fi-RRp"/>
+    </inferredMetricsTieBreakers>
 </document>

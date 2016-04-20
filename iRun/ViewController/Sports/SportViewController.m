@@ -9,6 +9,7 @@
 #import "SportViewController.h"
 #import "SportDataLogic.h"
 #import "SportDataDto.h"
+#import "SportResultViewController.h"
 
 @interface SportViewController () {
     NSTimer *_sportTimer;
@@ -17,6 +18,7 @@
     NSInteger deltaTime;
     CLLocation *oldLocation;
     CLLocation *nowLocation;
+    SportDataDto *data;
 }
 
 @end
@@ -28,6 +30,7 @@
     
     self.sportStateViewHidden = NO;
     [self.sportStateView setHidden:YES];
+    [self.navigationItem setHidesBackButton:TRUE animated:NO];
     [self mapViewInit];
     [self controlViewInit];
     
@@ -54,12 +57,20 @@
     
     self.sportStateViewHeight.constant = CURREN_SCREEN_HEIGHT*0.8;
     self.mapViewHeight.constant = CURREN_SCREEN_HEIGHT*0.8;
-    self.mapViewTop.constant = -CURREN_SCREEN_HEIGHT*0.3;
+    self.mapViewTop.constant = -CURREN_SCREEN_HEIGHT*0.4;
     self.bottomViewHeight.constant = CURREN_SCREEN_HEIGHT*0.2;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    SportResultViewController *destinationViewController = [segue destinationViewController];
+    [destinationViewController setData:data];
 }
 
 #pragma mark - MAMapViewDelegate
@@ -141,7 +152,7 @@
     if (self.sportStateViewHidden) {
         [UIView animateWithDuration:0.3 animations:^{
             self.sportStateViewBottom.constant = 0;
-            self.mapViewTop.constant = -CURREN_SCREEN_HEIGHT*0.3;
+            self.mapViewTop.constant = -CURREN_SCREEN_HEIGHT*0.4;
             [self.bottomView setAlpha:0];
             [self.dataDisplayView setAlpha:1];
             [self.view layoutIfNeeded];
@@ -151,7 +162,7 @@
     } else {
         [UIView animateWithDuration:0.3 animations:^{
             self.sportStateViewBottom.constant = -CURREN_SCREEN_HEIGHT*0.6;
-            self.mapViewTop.constant = -20;
+            self.mapViewTop.constant = -64;
             [self.bottomView setAlpha:1];
             [self.dataDisplayView setAlpha:0];
             [self.view layoutIfNeeded];
@@ -177,11 +188,13 @@
 - (IBAction)sportStopAction:(id)sender {
     [_sportTimer invalidate];
     oldLocation = nil;
-//    [self dismissViewControllerAnimated:NO completion:nil];
     
+    if (distance < 0) {
+        
+    }
     
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        SportDataDto *data = [[SportDataDto alloc] init];
+        data = [[SportDataDto alloc] init];
         [data setSportType:self.sportType];
         [data setStartDate:_startSportDate];
         [data setEndDate:[NSDate date]];
@@ -191,7 +204,7 @@
         [SportDataLogic updateSportData:data];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+            [self performSegueWithIdentifier:@"toSportResultSegue" sender:self];
         });
     });
     
@@ -210,10 +223,6 @@
         [self.mapView setUserTrackingMode:MAUserTrackingModeFollow];
         [self.mapView setCustomizeUserLocationAccuracyCircleRepresentation:YES];
         
-        //#ifdef iOS9
-        //        self.mapView.pausesLocationUpdatesAutomatically = NO;
-        //        self.mapView.allowsBackgroundLocationUpdates = YES;
-        //#endif
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapTapAction:)];
         [self.mapView addGestureRecognizer:tapGestureRecognizer];
     }

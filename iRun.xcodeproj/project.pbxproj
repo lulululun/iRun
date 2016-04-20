@@ -24,6 +24,15 @@
 		E549F8DF1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E549F8DD1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib */; };
 		E549F8E21CBE35EE007154F9 /* PedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E549F8E11CBE35EE007154F9 /* PedometerViewController.m */; };
 		E55D79EA1CC4C7F50088930C /* SportResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D79E91CC4C7F50088930C /* SportResultViewController.m */; };
+		E55D79F81CC5C59D0088930C /* SportDistanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D79F61CC5C59D0088930C /* SportDistanceCell.m */; };
+		E55D79F91CC5C59D0088930C /* SportDistanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55D79F71CC5C59D0088930C /* SportDistanceCell.xib */; };
+		E55D79FD1CC5C6D90088930C /* SportDetailItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D79FB1CC5C6D90088930C /* SportDetailItemCell.m */; };
+		E55D79FE1CC5C6D90088930C /* SportDetailItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55D79FC1CC5C6D90088930C /* SportDetailItemCell.xib */; };
+		E55D7A631CC74F2A0088930C /* LPLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A5E1CC74F2A0088930C /* LPLineChartView.m */; };
+		E55D7A641CC74F2A0088930C /* LPLineChartViewCustomLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A601CC74F2A0088930C /* LPLineChartViewCustomLayout.m */; };
+		E55D7A651CC74F2A0088930C /* LPLineChartViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A621CC74F2A0088930C /* LPLineChartViewLayout.m */; };
+		E55D7A681CC750150088930C /* SportHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A671CC750150088930C /* SportHistoryViewController.m */; };
+		E55D7A6B1CC750400088930C /* SportTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A6A1CC750400088930C /* SportTrendViewController.m */; };
 		E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384BD1CB4D95600ED951E /* MAMapKit.framework */; };
 		E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56384C11CB4D9D600ED951E /* AMap.bundle */; };
 		E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C31CB4DA0700ED951E /* UIKit.framework */; };
@@ -87,6 +96,22 @@
 		E549F8E11CBE35EE007154F9 /* PedometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PedometerViewController.m; path = Menu/PedometerViewController.m; sourceTree = "<group>"; };
 		E55D79E81CC4C7F50088930C /* SportResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportResultViewController.h; sourceTree = "<group>"; };
 		E55D79E91CC4C7F50088930C /* SportResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportResultViewController.m; sourceTree = "<group>"; };
+		E55D79F51CC5C59D0088930C /* SportDistanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportDistanceCell.h; path = Cell/SportDistanceCell.h; sourceTree = "<group>"; };
+		E55D79F61CC5C59D0088930C /* SportDistanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportDistanceCell.m; path = Cell/SportDistanceCell.m; sourceTree = "<group>"; };
+		E55D79F71CC5C59D0088930C /* SportDistanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SportDistanceCell.xib; path = Cell/SportDistanceCell.xib; sourceTree = "<group>"; };
+		E55D79FA1CC5C6D90088930C /* SportDetailItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportDetailItemCell.h; path = Cell/SportDetailItemCell.h; sourceTree = "<group>"; };
+		E55D79FB1CC5C6D90088930C /* SportDetailItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportDetailItemCell.m; path = Cell/SportDetailItemCell.m; sourceTree = "<group>"; };
+		E55D79FC1CC5C6D90088930C /* SportDetailItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SportDetailItemCell.xib; path = Cell/SportDetailItemCell.xib; sourceTree = "<group>"; };
+		E55D7A5D1CC74F2A0088930C /* LPLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPLineChartView.h; sourceTree = "<group>"; };
+		E55D7A5E1CC74F2A0088930C /* LPLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPLineChartView.m; sourceTree = "<group>"; };
+		E55D7A5F1CC74F2A0088930C /* LPLineChartViewCustomLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPLineChartViewCustomLayout.h; sourceTree = "<group>"; };
+		E55D7A601CC74F2A0088930C /* LPLineChartViewCustomLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPLineChartViewCustomLayout.m; sourceTree = "<group>"; };
+		E55D7A611CC74F2A0088930C /* LPLineChartViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPLineChartViewLayout.h; sourceTree = "<group>"; };
+		E55D7A621CC74F2A0088930C /* LPLineChartViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPLineChartViewLayout.m; sourceTree = "<group>"; };
+		E55D7A661CC750150088930C /* SportHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportHistoryViewController.h; path = Menu/SportHistoryViewController.h; sourceTree = "<group>"; };
+		E55D7A671CC750150088930C /* SportHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportHistoryViewController.m; path = Menu/SportHistoryViewController.m; sourceTree = "<group>"; };
+		E55D7A691CC750400088930C /* SportTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportTrendViewController.h; path = Menu/SportTrendViewController.h; sourceTree = "<group>"; };
+		E55D7A6A1CC750400088930C /* SportTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportTrendViewController.m; path = Menu/SportTrendViewController.m; sourceTree = "<group>"; };
 		E56384BD1CB4D95600ED951E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		E56384C11CB4D9D600ED951E /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
 		E56384C31CB4DA0700ED951E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -211,6 +236,7 @@
 		DD4374FC1CB49D0A0044D862 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E55D7A5C1CC74F2A0088930C /* LPLineChartView */,
 				E549F8DA1CBDDCB8007154F9 /* Cell */,
 				DD4374FE1CB49D0A0044D862 /* SportAccumulationView.h */,
 				DD4374FF1CB49D0A0044D862 /* SportAccumulationView.m */,
@@ -260,8 +286,27 @@
 				E57C74671CC0C03B00A56DF8 /* SettingAgeWeightSexCell.h */,
 				E57C74681CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m */,
 				E57C74691CC0C03B00A56DF8 /* SettingAgeWeightSexCell.xib */,
+				E55D79F51CC5C59D0088930C /* SportDistanceCell.h */,
+				E55D79F61CC5C59D0088930C /* SportDistanceCell.m */,
+				E55D79F71CC5C59D0088930C /* SportDistanceCell.xib */,
+				E55D79FA1CC5C6D90088930C /* SportDetailItemCell.h */,
+				E55D79FB1CC5C6D90088930C /* SportDetailItemCell.m */,
+				E55D79FC1CC5C6D90088930C /* SportDetailItemCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		E55D7A5C1CC74F2A0088930C /* LPLineChartView */ = {
+			isa = PBXGroup;
+			children = (
+				E55D7A5D1CC74F2A0088930C /* LPLineChartView.h */,
+				E55D7A5E1CC74F2A0088930C /* LPLineChartView.m */,
+				E55D7A5F1CC74F2A0088930C /* LPLineChartViewCustomLayout.h */,
+				E55D7A601CC74F2A0088930C /* LPLineChartViewCustomLayout.m */,
+				E55D7A611CC74F2A0088930C /* LPLineChartViewLayout.h */,
+				E55D7A621CC74F2A0088930C /* LPLineChartViewLayout.m */,
+			);
+			path = LPLineChartView;
 			sourceTree = "<group>";
 		};
 		E56384BC1CB4D93900ED951E /* Framework */ = {
@@ -312,6 +357,10 @@
 				E549F8E11CBE35EE007154F9 /* PedometerViewController.m */,
 				E59AAE5C1CC0B7CB004EDA7B /* SettingViewController.h */,
 				E59AAE5D1CC0B7CB004EDA7B /* SettingViewController.m */,
+				E55D7A661CC750150088930C /* SportHistoryViewController.h */,
+				E55D7A671CC750150088930C /* SportHistoryViewController.m */,
+				E55D7A691CC750400088930C /* SportTrendViewController.h */,
+				E55D7A6A1CC750400088930C /* SportTrendViewController.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -421,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55D79FE1CC5C6D90088930C /* SportDetailItemCell.xib in Resources */,
 				E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */,
 				DD4374F51CB49ADC0044D862 /* LaunchScreen.storyboard in Resources */,
 				E57C74661CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.xib in Resources */,
@@ -428,6 +478,7 @@
 				DD4374F21CB49ADC0044D862 /* Assets.xcassets in Resources */,
 				E56384EA1CB6032900ED951E /* CountdownView.xib in Resources */,
 				DD4374F01CB49ADC0044D862 /* Main.storyboard in Resources */,
+				E55D79F91CC5C59D0088930C /* SportDistanceCell.xib in Resources */,
 				E549F8DF1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.xib in Resources */,
 				E57C746B1CC0C03B00A56DF8 /* SettingAgeWeightSexCell.xib in Resources */,
 			);
@@ -448,20 +499,27 @@
 				DD4375151CB4A6070044D862 /* SportAccumulationCircleView.m in Sources */,
 				E59AAE461CBF66D5004EDA7B /* UIImage+TintColor.m in Sources */,
 				E549F8C81CBCD995007154F9 /* iRun.xcdatamodeld in Sources */,
+				E55D79FD1CC5C6D90088930C /* SportDetailItemCell.m in Sources */,
 				E57C74651CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.m in Sources */,
 				E59AAE5E1CC0B7CB004EDA7B /* SettingViewController.m in Sources */,
 				DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */,
+				E55D7A681CC750150088930C /* SportHistoryViewController.m in Sources */,
 				E549F8CE1CBCDA0F007154F9 /* ContextManager.m in Sources */,
 				E549F8CD1CBCDA0F007154F9 /* CommonDao.m in Sources */,
+				E55D7A641CC74F2A0088930C /* LPLineChartViewCustomLayout.m in Sources */,
 				E57C746E1CC0D8AA00A56DF8 /* DateUtil.m in Sources */,
 				E549F8DE1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m in Sources */,
+				E55D7A6B1CC750400088930C /* SportTrendViewController.m in Sources */,
 				E59AAE5B1CC08C74004EDA7B /* SportDataDto.m in Sources */,
 				E549F8E21CBE35EE007154F9 /* PedometerViewController.m in Sources */,
 				E56384ED1CB6052D00ED951E /* SportViewController.m in Sources */,
+				E55D7A651CC74F2A0088930C /* LPLineChartViewLayout.m in Sources */,
 				E59AAE541CC08B06004EDA7B /* SportEntity.m in Sources */,
 				E57C746A1CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m in Sources */,
 				E55D79EA1CC4C7F50088930C /* SportResultViewController.m in Sources */,
+				E55D7A631CC74F2A0088930C /* LPLineChartView.m in Sources */,
 				E56384E31CB5F6B500ED951E /* CountdownView.m in Sources */,
+				E55D79F81CC5C59D0088930C /* SportDistanceCell.m in Sources */,
 				E57C74711CC0EA8900A56DF8 /* HeightPickerView.m in Sources */,
 				DD4374E71CB49ADC0044D862 /* main.m in Sources */,
 			);

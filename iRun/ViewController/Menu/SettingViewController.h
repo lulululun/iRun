@@ -15,6 +15,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *settingTableView;
 @property (strong, nonatomic) IBOutlet UISwitch *switchButton;
 - (IBAction)switchAction:(id)sender;
-@property (strong, nonatomic) IBOutlet UILabel *valueLabel;
+
 - (IBAction)backToMenuAction:(id)sender;
 @end

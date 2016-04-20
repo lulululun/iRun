@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SportResultViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="225" id="KGk-i7-Jjw" customClass="SportDistanceCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBE-8B-Jio" userLabel="Distance Label">
+                        <rect key="frame" x="0.0" y="41" width="320" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="C1v-Im-vP1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8a-ak-oMq" userLabel="Distance Unit Label">
+                        <rect key="frame" x="0.0" y="141" width="320" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="SF9-v1-ZQq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="IBE-8B-Jio" secondAttribute="trailing" id="20k-Pq-0Vl"/>
+                    <constraint firstAttribute="trailing" secondItem="W8a-ak-oMq" secondAttribute="trailing" id="5V3-Os-qIc"/>
+                    <constraint firstItem="IBE-8B-Jio" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-21" id="5j2-u8-rj3"/>
+                    <constraint firstItem="W8a-ak-oMq" firstAttribute="top" secondItem="IBE-8B-Jio" secondAttribute="bottom" id="DO2-iI-MU1"/>
+                    <constraint firstItem="W8a-ak-oMq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="R2B-o2-070"/>
+                    <constraint firstItem="IBE-8B-Jio" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VcL-Qz-dbx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="distanceLabel" destination="IBE-8B-Jio" id="BJM-Wf-bNo"/>
+                <outlet property="distanceUnitLabel" destination="W8a-ak-oMq" id="Ivw-K6-KEH"/>
+            </connections>
+            <point key="canvasLocation" x="309" y="347.5"/>
+        </tableViewCell>
+    </objects>
+</document>

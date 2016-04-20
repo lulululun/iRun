@@ -8,12 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class SportAccumulationView;
+@protocol SportAccumulationDelegate <NSObject>
+
+- (void)accumulationViewTap:(SportAccumulationView *)view;
+
+@end
+
 @interface SportAccumulationView : UIView
 
 @property (nonatomic, strong) UIView *view;
 //@property (strong, nonatomic) IBOutlet UIView *testView;
 @property (strong, nonatomic) IBOutlet UILabel *accumulationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *accumulationUnits;
+
+@property (assign, nonatomic) id<SportAccumulationDelegate> delegate;
 
 - (void)loadViewData:(id)data;
 

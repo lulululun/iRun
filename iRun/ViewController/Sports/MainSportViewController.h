@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SportAccumulationView.h"
 
-@interface MainSportViewController : UIViewController<UIScrollViewDelegate>
+@interface MainSportViewController : UIViewController<UIScrollViewDelegate, SportAccumulationDelegate>
 
 // 跑步背景图
 @property (strong, nonatomic) IBOutlet UIImageView *runBackgroundImageView;
@@ -19,7 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bikeBackgroundImageView;
 
 // 更多按钮
-@property (strong, nonatomic) IBOutlet UIButton *menuButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 // 开始运动按钮
 @property (strong, nonatomic) IBOutlet UIButton *startSportButton;
 // 运动选择滑动内容视图宽度约束
@@ -38,8 +38,6 @@
 @property (strong, nonatomic) IBOutlet SportAccumulationView *climbView;
 // 骑行数据累计视图
 @property (strong, nonatomic) IBOutlet SportAccumulationView *bikeView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *menuViewHeight;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *menuViewTop;
 
 // 菜单按钮点击事件
 - (IBAction)menuAction:(id)sender;

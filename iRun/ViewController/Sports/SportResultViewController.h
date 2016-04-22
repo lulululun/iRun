@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SportDataDto.h"
+#import "Define.h"
 
 typedef struct {
     __unsafe_unretained NSString *leftItemImage;
@@ -21,6 +22,7 @@ typedef struct {
 @interface SportResultViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) SportDataDto *data;
+@property (nonatomic) SportTypes sportType;
 
 @property (strong, nonatomic) IBOutlet UITableView *sportResultTableView;
 

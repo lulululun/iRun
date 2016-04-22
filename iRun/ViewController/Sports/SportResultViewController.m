@@ -28,11 +28,21 @@
     [self.sportResultTableView setTableFooterView:[[UIView alloc] init]];
     
     dataSourceArr = [[NSMutableArray alloc] init];
+    NSInteger timer = self.data.timer.integerValue;
+    
+    NSNumber *pace = [NSNumber numberWithFloat:timer/60/self.data.distance.floatValue];
+    
+    NSString *timerStr = [[NSString stringWithFormat:@"%2.ld:%2.ld:%2.ld", timer/3600, (timer%3600)/60, timer%60] stringByReplacingOccurrencesOfString:@" " withString:@"0"];
+    NSString *paceStr = [NSString stringWithFormat:@"%ld'%0.0f''", pace.integerValue, (pace.floatValue-pace.integerValue)*60];
+    NSString *maxSpeedStr = [NSString stringWithFormat:@"%@", self.data.maxSpeed];
+    NSString *averageSpeed = [NSString stringWithFormat:@"%0.2f", self.data.distance.floatValue/self.data.timer.integerValue*3.6];
+    NSString *altitudeStr = [NSString stringWithFormat:@"%@", self.data.altitude];
+    NSString *calorieStr = [NSString stringWithFormat:@"%@", self.data.calorie];
     
     int size = sizeof(SportDataStruct);
-    SportDataStruct data1 = {@"icon_menu_setting", [NSString stringWithFormat:@"%@", self.data.timer], @"--", @"icon_menu_setting", @"--", @"--"};
-    SportDataStruct data2 = {@"icon_menu_setting", @"--", @"--", @"icon_menu_setting", @"--", @"--"};
-    SportDataStruct data3 = {@"icon_menu_setting", @"--", @"--", @"icon_menu_setting", @"--", @"--"};
+    SportDataStruct data1 = {@"icon_menu_setting", timerStr, @"时长", @"icon_menu_setting", paceStr, @"平均配速(分钟/公里)"};
+    SportDataStruct data2 = {@"icon_menu_setting", calorieStr, @"卡路里(大卡)", @"icon_menu_setting", averageSpeed, @"平均速度(公里/时)"};
+    SportDataStruct data3 = {@"icon_menu_setting", altitudeStr, @"爬坡值(米)", @"icon_menu_setting", maxSpeedStr, @"最大速度(公里/时)"};
     
     [dataSourceArr addObject:[NSData dataWithBytes:&data1 length:size]];
     [dataSourceArr addObject:[NSData dataWithBytes:&data2 length:size]];
@@ -62,9 +72,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 140.f;
+        return 180.f;
     } else {
-        return 60.f;
+        return 70.f;
     }
 }
 

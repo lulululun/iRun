@@ -18,5 +18,7 @@
 @property (nonatomic, retain) NSNumber *speed;
 @property (nonatomic, retain) NSNumber *calorie;
 @property (nonatomic, retain) NSNumber *timer;
+@property (nonatomic, retain) NSNumber *maxSpeed;
+@property (nonatomic, strong) NSNumber *altitude;
 
 @end

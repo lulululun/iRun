@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93A0E79C1CCDC38B006C0DB6 /* BeanUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A0E79B1CCDC38B006C0DB6 /* BeanUtils.m */; };
 		DD4374E71CB49ADC0044D862 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4374E61CB49ADC0044D862 /* main.m */; };
 		DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4374E91CB49ADC0044D862 /* AppDelegate.m */; };
 		DD4374F01CB49ADC0044D862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4374EE1CB49ADC0044D862 /* Main.storyboard */; };
@@ -68,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93A0E79A1CCDC38B006C0DB6 /* BeanUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeanUtils.h; path = Common/BeanUtils.h; sourceTree = "<group>"; };
+		93A0E79B1CCDC38B006C0DB6 /* BeanUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeanUtils.m; path = Common/BeanUtils.m; sourceTree = "<group>"; };
 		DD4374E21CB49ADC0044D862 /* iRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4374E61CB49ADC0044D862 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DD4374E81CB49ADC0044D862 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 				E549F8CC1CBCDA0F007154F9 /* ContextManager.m */,
 				E57C746C1CC0D8AA00A56DF8 /* DateUtil.h */,
 				E57C746D1CC0D8AA00A56DF8 /* DateUtil.m */,
+				93A0E79A1CCDC38B006C0DB6 /* BeanUtils.h */,
+				93A0E79B1CCDC38B006C0DB6 /* BeanUtils.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				E59AAE5E1CC0B7CB004EDA7B /* SettingViewController.m in Sources */,
 				DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */,
 				E55D7A681CC750150088930C /* SportHistoryViewController.m in Sources */,
+				93A0E79C1CCDC38B006C0DB6 /* BeanUtils.m in Sources */,
 				E549F8CE1CBCDA0F007154F9 /* ContextManager.m in Sources */,
 				E549F8CD1CBCDA0F007154F9 /* CommonDao.m in Sources */,
 				E55D7A641CC74F2A0088930C /* LPLineChartViewCustomLayout.m in Sources */,

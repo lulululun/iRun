@@ -35,6 +35,28 @@
     [self.bikeView setDelegate:self];
     
     [self loadDataSource];
+    
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self checkPedometer];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    if ([USERDEFAULT stringForKey:BROAD_CAST_ID]) {
+        BOOL stop = [self.deviceManager stopDataReceiveService];
+        if (!stop) {
+            NSLog(@"停止接收数据失败");
+        }
+//        [self.deviceManager deleteMeasureDevice:[USERDEFAULT stringForKey:BROAD_CAST_ID]];
+    }
+    
 }
 
 - (void)updateViewConstraints {
@@ -122,6 +144,22 @@
     [self performSegueWithIdentifier:@"toSportHistoryFromMainSport" sender:self];
 }
 
+#pragma mark - LSBleDataReceiveDelegate
+
+//接收计步器测量数据
+-(void)bleManagerDidReceivePedometerMeasuredData:(LSPedometerData*)data {
+    UIAlertController *alertController;
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    
+    NSString *messageStr = [NSString stringWithFormat:@"手环运动数据：%ld步", data.walkSteps + data.runSteps];
+    
+    alertController = [UIAlertController alertControllerWithTitle:@"接收到数据" message:messageStr preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 #pragma mark - Action & Private method
 
 // 点击菜单按钮事件
@@ -151,6 +189,37 @@
     [self.runView loadViewData:runDic];
     [self.climbView loadViewData:climbDic];
     [self.bikeView loadViewData:bikeDic];
+}
+
+// 检测手环
+
+- (void)checkPedometer {
+    if (!self.deviceManager) {
+        self.deviceManager = [LSBLEDeviceManager defaultLsBleManager];
+    }
+    
+    if ([USERDEFAULT stringForKey:BROAD_CAST_ID]) {
+        LSDeviceInfo *deviceInfo = (LSDeviceInfo *)[NSKeyedUnarchiver unarchiveObjectWithData:[USERDEFAULT objectForKey:LS_DEVICE_INFO]];
+
+        BOOL addDeviceResult = [self.deviceManager addMeasureDevice:deviceInfo];
+        
+        if (addDeviceResult) {
+            [self.deviceManager setIsBluetoothPowerOn:YES];
+            [self.deviceManager startDataReceiveService:self];
+        } else {
+            UIAlertController *alertController;
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                [USERDEFAULT removeObjectForKey:BROAD_CAST_ID];
+                [USERDEFAULT removeObjectForKey:LS_DEVICE_INFO];
+            }];
+            
+            alertController = [UIAlertController alertControllerWithTitle:@"手环异常" message:@"手环异常解除绑定，请重新扫描绑定" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:cancelAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }
 }
 
 @end

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SportAccumulationView.h"
+#import <LifesenseBluetooth/LSBLEDeviceManager.h>
 
-@interface MainSportViewController : UIViewController<UIScrollViewDelegate, SportAccumulationDelegate>
+@interface MainSportViewController : UIViewController<UIScrollViewDelegate, SportAccumulationDelegate, LSBleDataReceiveDelegate>
 
 // 跑步背景图
 @property (strong, nonatomic) IBOutlet UIImageView *runBackgroundImageView;
@@ -38,6 +39,9 @@
 @property (strong, nonatomic) IBOutlet SportAccumulationView *climbView;
 // 骑行数据累计视图
 @property (strong, nonatomic) IBOutlet SportAccumulationView *bikeView;
+
+// 乐心设备管理
+@property (retain, nonatomic) LSBLEDeviceManager *deviceManager;
 
 // 菜单按钮点击事件
 - (IBAction)menuAction:(id)sender;

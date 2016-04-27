@@ -9,6 +9,7 @@
 #import "PedometerViewController.h"
 #import "UIImage+TintColor.h"
 #import "Define.h"
+#import "BleDeviceInfo.h"
 
 @interface PedometerViewController ()
 
@@ -45,17 +46,21 @@
     [self.rightSignalImageView setAnimationDuration:1];
     [self.rightSignalImageView setAnimationRepeatCount:0];
     
-    self.deviceManager = [LSBLEDeviceManager defaultLsBleManager];
+    if (!self.deviceManager) {
+        self.deviceManager = [LSBLEDeviceManager defaultLsBleManager];
+    }
     
     // 如果已经绑定了设备，则将该设备添加到管理对象中；如果添加失败，则回到没有添加设备的状态
     if ([USERDEFAULT stringForKey:BROAD_CAST_ID]) {
-        BOOL addDeviceResult = [self.deviceManager addMeasureDevice:[self convertStruct:[USERDEFAULT objectForKey:LS_DEVICE_INFO]]];
+        LSDeviceInfo *deviceInfo = (LSDeviceInfo *)[NSKeyedUnarchiver unarchiveObjectWithData:[USERDEFAULT objectForKey:LS_DEVICE_INFO]];
+        BOOL addDeviceResult = [self.deviceManager addMeasureDevice:deviceInfo];
         
         if (addDeviceResult) {
             [self.scanAndBundButton setTitle:@"解除绑定" forState:UIControlStateNormal];
         } else {
             [self.scanAndBundButton setTitle:@"点击扫描" forState:UIControlStateNormal];
             [USERDEFAULT removeObjectForKey:BROAD_CAST_ID];
+            [USERDEFAULT removeObjectForKey:LS_DEVICE_INFO];
         }
     }
 }
@@ -96,8 +101,8 @@
         [USERDEFAULT setObject:lsDevice.broadcastId forKey:BROAD_CAST_ID];
         alertController = [UIAlertController alertControllerWithTitle:@"绑定结果" message:@"绑定成功" preferredStyle:UIAlertControllerStyleAlert];
         
-        LSDeviceInfoStruct deviceInfo = {lsDevice.deviceId, lsDevice.deviceSn, lsDevice.deviceName, lsDevice.modelNumber, lsDevice.password, lsDevice.broadcastId, lsDevice.protocolType, lsDevice.preparePair, lsDevice.deviceType, lsDevice.supportDownloadInfoFeature, lsDevice.maxUserQuantity, lsDevice.softwareVersion, lsDevice.hardwareVersion, lsDevice.firmwareVersion, lsDevice.manufactureName, lsDevice.systemId, lsDevice.peripheralIdentifier, lsDevice.deviceUserNumber};
-        NSData *deviceInfoData = [NSData dataWithBytes:&deviceInfo length:sizeof(LSDeviceInfoStruct)];
+        NSData *deviceInfoData = [NSKeyedArchiver archivedDataWithRootObject:[self convertDeviceInfo:lsDevice]];
+        
         [USERDEFAULT setObject:deviceInfoData forKey:LS_DEVICE_INFO];
         
         [self.deviceManager addMeasureDevice:lsDevice];
@@ -163,32 +168,29 @@
     }
 }
 
-- (LSDeviceInfo *)convertStruct:(NSData *)deviceInfoData {
-    LSDeviceInfo *deviceInfo = [[LSDeviceInfo alloc] init];
-    LSDeviceInfoStruct deviceInfoStruct;
+- (BleDeviceInfo *)convertDeviceInfo:(LSDeviceInfo *)deviceInfo {
+    BleDeviceInfo *bleDeviceInfo = [[BleDeviceInfo alloc] init];
     
-    [deviceInfoData getBytes:&deviceInfoStruct length:sizeof(LSDeviceInfoStruct)];
+    bleDeviceInfo.deviceId = deviceInfo.deviceId;
+    bleDeviceInfo.deviceSn = deviceInfo.deviceSn;
+    bleDeviceInfo.deviceName = deviceInfo.deviceName;
+    bleDeviceInfo.modelNumber = deviceInfo.modelNumber;
+    bleDeviceInfo.password = deviceInfo.password;
+    bleDeviceInfo.broadcastId = deviceInfo.broadcastId;
+    bleDeviceInfo.protocolType = deviceInfo.protocolType;
+    bleDeviceInfo.preparePair = [NSString stringWithFormat:@"%d", deviceInfo.preparePair?1:0];
+    bleDeviceInfo.deviceType = [NSString stringWithFormat:@"%d", deviceInfo.deviceType];
+    bleDeviceInfo.supportDownloadInfoFeature = [NSString stringWithFormat:@"%ld", deviceInfo.supportDownloadInfoFeature];
+    bleDeviceInfo.maxUserQuantity = [NSString stringWithFormat:@"%ld", deviceInfo.maxUserQuantity];
+    bleDeviceInfo.softwareVersion = deviceInfo.softwareVersion;
+    bleDeviceInfo.hardwareVersion = deviceInfo.hardwareVersion;
+    bleDeviceInfo.firmwareVersion = deviceInfo.firmwareVersion;
+    bleDeviceInfo.manufactureName = deviceInfo.manufactureName;
+    bleDeviceInfo.systemId = deviceInfo.systemId;
+    bleDeviceInfo.peripheralIdentifier = deviceInfo.peripheralIdentifier;
+    bleDeviceInfo.deviceUserNumber = [NSString stringWithFormat:@"%ld", deviceInfo.deviceUserNumber];
     
-    deviceInfo.deviceId = deviceInfoStruct.deviceId;
-    deviceInfo.deviceSn = deviceInfoStruct.deviceSn;
-    deviceInfo.deviceName = deviceInfoStruct.deviceName;
-    deviceInfo.modelNumber = deviceInfoStruct.modelNumber;
-    deviceInfo.password = deviceInfoStruct.password;
-    deviceInfo.broadcastId = deviceInfoStruct.broadcastId;
-    deviceInfo.protocolType = deviceInfoStruct.protocolType;
-    deviceInfo.preparePair = deviceInfoStruct.preparePair;
-    deviceInfo.deviceType = deviceInfoStruct.deviceType;
-    deviceInfo.supportDownloadInfoFeature = deviceInfoStruct.supportDownloadInfoFeature;
-    deviceInfo.maxUserQuantity = deviceInfoStruct.maxUserQuantity;
-    deviceInfo.softwareVersion = deviceInfoStruct.softwareVersion;
-    deviceInfo.hardwareVersion = deviceInfoStruct.hardwareVersion;
-    deviceInfo.firmwareVersion = deviceInfoStruct.firmwareVersion;
-    deviceInfo.manufactureName = deviceInfoStruct.manufactureName;
-    deviceInfo.systemId = deviceInfoStruct.systemId;
-    deviceInfo.peripheralIdentifier = deviceInfoStruct.peripheralIdentifier;
-    deviceInfo.deviceUserNumber = deviceInfoStruct.deviceUserNumber;
-    
-    return deviceInfo;
+    return bleDeviceInfo;
 }
 
 @end

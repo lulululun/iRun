@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gn9-5F-6H2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gn9-5F-6H2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -75,11 +75,11 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54J-r4-xDj">
-                                <rect key="frame" x="220" y="460" width="160" height="40"/>
+                                <rect key="frame" x="210" y="460" width="180" height="40"/>
                                 <color key="backgroundColor" red="0.59655613149999998" green="0.3557110014" blue="0.6072071335" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="H13-in-CzQ"/>
-                                    <constraint firstAttribute="width" constant="160" id="kV7-TR-CwC"/>
+                                    <constraint firstAttribute="width" constant="180" id="kV7-TR-CwC"/>
                                 </constraints>
                                 <state key="normal" title="开始跑步">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

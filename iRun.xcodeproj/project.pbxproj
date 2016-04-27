@@ -34,6 +34,7 @@
 		E55D7A651CC74F2A0088930C /* LPLineChartViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A621CC74F2A0088930C /* LPLineChartViewLayout.m */; };
 		E55D7A681CC750150088930C /* SportHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A671CC750150088930C /* SportHistoryViewController.m */; };
 		E55D7A6B1CC750400088930C /* SportTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A6A1CC750400088930C /* SportTrendViewController.m */; };
+		E56128941CD052F60060C720 /* BleDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E56128931CD052F60060C720 /* BleDeviceInfo.m */; };
 		E56384BE1CB4D95600ED951E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384BD1CB4D95600ED951E /* MAMapKit.framework */; };
 		E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E56384C11CB4D9D600ED951E /* AMap.bundle */; };
 		E56384C41CB4DA0700ED951E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56384C31CB4DA0700ED951E /* UIKit.framework */; };
@@ -115,6 +116,8 @@
 		E55D7A671CC750150088930C /* SportHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportHistoryViewController.m; path = Menu/SportHistoryViewController.m; sourceTree = "<group>"; };
 		E55D7A691CC750400088930C /* SportTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportTrendViewController.h; path = Menu/SportTrendViewController.h; sourceTree = "<group>"; };
 		E55D7A6A1CC750400088930C /* SportTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportTrendViewController.m; path = Menu/SportTrendViewController.m; sourceTree = "<group>"; };
+		E56128921CD052F60060C720 /* BleDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BleDeviceInfo.h; path = Model/Dto/BleDeviceInfo.h; sourceTree = "<group>"; };
+		E56128931CD052F60060C720 /* BleDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BleDeviceInfo.m; path = Model/Dto/BleDeviceInfo.m; sourceTree = "<group>"; };
 		E56384BD1CB4D95600ED951E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		E56384C11CB4D9D600ED951E /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
 		E56384C31CB4DA0700ED951E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -414,6 +417,8 @@
 			children = (
 				E59AAE591CC08C74004EDA7B /* SportDataDto.h */,
 				E59AAE5A1CC08C74004EDA7B /* SportDataDto.m */,
+				E56128921CD052F60060C720 /* BleDeviceInfo.h */,
+				E56128931CD052F60060C720 /* BleDeviceInfo.m */,
 			);
 			name = Dto;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				93A0E79C1CCDC38B006C0DB6 /* BeanUtils.m in Sources */,
 				E549F8CE1CBCDA0F007154F9 /* ContextManager.m in Sources */,
 				E549F8CD1CBCDA0F007154F9 /* CommonDao.m in Sources */,
+				E56128941CD052F60060C720 /* BleDeviceInfo.m in Sources */,
 				E55D7A641CC74F2A0088930C /* LPLineChartViewCustomLayout.m in Sources */,
 				E57C746E1CC0D8AA00A56DF8 /* DateUtil.m in Sources */,
 				E549F8DE1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m in Sources */,

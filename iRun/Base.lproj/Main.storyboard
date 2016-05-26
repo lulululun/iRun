@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gn9-5F-6H2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gn9-5F-6H2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -177,15 +177,24 @@
                                     <constraint firstAttribute="height" constant="0.5" id="PwX-OX-2ya"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gwf-wt-dBH">
+                                <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Nkn-2e-YmW" firstAttribute="leading" secondItem="Izp-NW-lZn" secondAttribute="leading" id="1py-m5-Wx5"/>
                             <constraint firstItem="bp6-Sk-Ues" firstAttribute="leading" secondItem="Izp-NW-lZn" secondAttribute="leading" id="31C-ue-540"/>
+                            <constraint firstItem="gwf-wt-dBH" firstAttribute="leading" secondItem="Izp-NW-lZn" secondAttribute="leading" id="67W-l1-lJa"/>
                             <constraint firstAttribute="trailing" secondItem="Nkn-2e-YmW" secondAttribute="trailing" id="9qK-oB-Q2t"/>
                             <constraint firstItem="BAi-U1-2SG" firstAttribute="top" secondItem="Nkn-2e-YmW" secondAttribute="bottom" id="Epf-hH-bYI"/>
+                            <constraint firstItem="gwf-wt-dBH" firstAttribute="top" secondItem="bp6-Sk-Ues" secondAttribute="bottom" id="Yv1-VB-mOR"/>
+                            <constraint firstItem="BAi-U1-2SG" firstAttribute="top" secondItem="gwf-wt-dBH" secondAttribute="bottom" id="a2s-yP-pai"/>
                             <constraint firstItem="bp6-Sk-Ues" firstAttribute="top" secondItem="Izp-NW-lZn" secondAttribute="top" constant="64" id="gtn-vD-dMH"/>
                             <constraint firstAttribute="trailing" secondItem="bp6-Sk-Ues" secondAttribute="trailing" id="sfJ-bB-JJU"/>
+                            <constraint firstAttribute="trailing" secondItem="gwf-wt-dBH" secondAttribute="trailing" id="wzt-bj-7IO"/>
                             <constraint firstItem="Nkn-2e-YmW" firstAttribute="top" secondItem="Izp-NW-lZn" secondAttribute="top" id="zmf-jc-gdK"/>
                         </constraints>
                     </view>
@@ -202,6 +211,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="historyTableView" destination="gwf-wt-dBH" id="sah-g4-3xo"/>
                         <segue destination="fen-me-prM" kind="show" id="Vs3-Fi-RRp"/>
                         <segue destination="n4y-Aj-g5H" kind="show" identifier="toSportTrendSegue" id="4Sc-Io-lup"/>
                     </connections>

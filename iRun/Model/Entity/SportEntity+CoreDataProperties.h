@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *speed;
 @property (nullable, nonatomic, retain) NSNumber *calorie;
 @property (nullable, nonatomic, retain) NSNumber *timer;
+@property (nullable, nonatomic, retain) NSNumber *maxSpeed;
 
 @end
 

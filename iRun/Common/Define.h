@@ -36,6 +36,8 @@
 #define USER_SETTING_HEIGHT      @"usersettingheight"
 #define USER_SETTING_WEIGHT      @"usersettingwight"
 
+#define FONT_NAME   @"Helvetica"
+
 typedef enum {
     SportTypeRun = 0,
     SportTypeClimb = 1,

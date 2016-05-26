@@ -67,6 +67,8 @@
 		E59AAE571CC08BE6004EDA7B /* SportDataLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE561CC08BE6004EDA7B /* SportDataLogic.m */; };
 		E59AAE5B1CC08C74004EDA7B /* SportDataDto.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE5A1CC08C74004EDA7B /* SportDataDto.m */; };
 		E59AAE5E1CC0B7CB004EDA7B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE5D1CC0B7CB004EDA7B /* SettingViewController.m */; };
+		E5F7CFB81CF2E1FC00BAF9E3 /* SportHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F7CFB61CF2E1FC00BAF9E3 /* SportHistoryCell.m */; };
+		E5F7CFB91CF2E1FC00BAF9E3 /* SportHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F7CFB71CF2E1FC00BAF9E3 /* SportHistoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +166,9 @@
 		E59AAE5A1CC08C74004EDA7B /* SportDataDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportDataDto.m; path = Model/Dto/SportDataDto.m; sourceTree = "<group>"; };
 		E59AAE5C1CC0B7CB004EDA7B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Menu/SettingViewController.h; sourceTree = "<group>"; };
 		E59AAE5D1CC0B7CB004EDA7B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Menu/SettingViewController.m; sourceTree = "<group>"; };
+		E5F7CFB51CF2E1FC00BAF9E3 /* SportHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportHistoryCell.h; path = Cell/SportHistoryCell.h; sourceTree = "<group>"; };
+		E5F7CFB61CF2E1FC00BAF9E3 /* SportHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportHistoryCell.m; path = Cell/SportHistoryCell.m; sourceTree = "<group>"; };
+		E5F7CFB71CF2E1FC00BAF9E3 /* SportHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SportHistoryCell.xib; path = Cell/SportHistoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +303,9 @@
 				E55D79FA1CC5C6D90088930C /* SportDetailItemCell.h */,
 				E55D79FB1CC5C6D90088930C /* SportDetailItemCell.m */,
 				E55D79FC1CC5C6D90088930C /* SportDetailItemCell.xib */,
+				E5F7CFB51CF2E1FC00BAF9E3 /* SportHistoryCell.h */,
+				E5F7CFB61CF2E1FC00BAF9E3 /* SportHistoryCell.m */,
+				E5F7CFB71CF2E1FC00BAF9E3 /* SportHistoryCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -483,6 +491,7 @@
 				E55D79FE1CC5C6D90088930C /* SportDetailItemCell.xib in Resources */,
 				E56384C21CB4D9D600ED951E /* AMap.bundle in Resources */,
 				DD4374F51CB49ADC0044D862 /* LaunchScreen.storyboard in Resources */,
+				E5F7CFB91CF2E1FC00BAF9E3 /* SportHistoryCell.xib in Resources */,
 				E57C74661CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.xib in Resources */,
 				DD43750C1CB49D0A0044D862 /* SportAccumulationView.xib in Resources */,
 				DD4374F21CB49ADC0044D862 /* Assets.xcassets in Resources */,
@@ -518,6 +527,7 @@
 				E549F8CE1CBCDA0F007154F9 /* ContextManager.m in Sources */,
 				E549F8CD1CBCDA0F007154F9 /* CommonDao.m in Sources */,
 				E56128941CD052F60060C720 /* BleDeviceInfo.m in Sources */,
+				E5F7CFB81CF2E1FC00BAF9E3 /* SportHistoryCell.m in Sources */,
 				E55D7A641CC74F2A0088930C /* LPLineChartViewCustomLayout.m in Sources */,
 				E57C746E1CC0D8AA00A56DF8 /* DateUtil.m in Sources */,
 				E549F8DE1CBDDCF8007154F9 /* MenuAppLogoTableViewCell.m in Sources */,

@@ -20,5 +20,6 @@
 @dynamic speed;
 @dynamic calorie;
 @dynamic timer;
+@dynamic maxSpeed;
 
 @end

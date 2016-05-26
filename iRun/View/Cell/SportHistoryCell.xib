@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SportHistoryViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="117" id="KGk-i7-Jjw" customClass="SportHistoryCell">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="117"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="371" height="116"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="55y-R1-Nqr">
+                        <rect key="frame" x="20" y="10" width="96" height="96"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="55y-R1-Nqr" secondAttribute="height" multiplier="1:1" id="66U-0W-s79"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxd-kj-Jes" userLabel="Left View">
+                        <rect key="frame" x="136" y="0.0" width="133" height="116"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKW-Tw-NgB">
+                                <rect key="frame" x="30" y="48" width="103" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.97254901959999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_sport_distance" translatesAutoresizingMaskIntoConstraints="NO" id="oKz-LP-Wde">
+                                <rect key="frame" x="0.0" y="48" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="JPX-YH-Xt3"/>
+                                    <constraint firstAttribute="width" secondItem="oKz-LP-Wde" secondAttribute="height" multiplier="1:1" id="g24-mk-OVL"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hKW-Tw-NgB" secondAttribute="trailing" id="Aa4-g4-hWh"/>
+                            <constraint firstItem="oKz-LP-Wde" firstAttribute="leading" secondItem="Nxd-kj-Jes" secondAttribute="leading" id="HAo-51-SVR"/>
+                            <constraint firstItem="hKW-Tw-NgB" firstAttribute="leading" secondItem="oKz-LP-Wde" secondAttribute="trailing" constant="10" id="LL3-JC-Nv9"/>
+                            <constraint firstItem="hKW-Tw-NgB" firstAttribute="height" secondItem="oKz-LP-Wde" secondAttribute="height" id="hrP-kc-ren"/>
+                            <constraint firstItem="hKW-Tw-NgB" firstAttribute="centerY" secondItem="Nxd-kj-Jes" secondAttribute="centerY" id="idm-LU-ik7"/>
+                            <constraint firstItem="oKz-LP-Wde" firstAttribute="centerY" secondItem="Nxd-kj-Jes" secondAttribute="centerY" id="jJJ-8f-FiF"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-v3-08R" userLabel="Right View">
+                        <rect key="frame" x="239" y="0.0" width="132" height="116"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugP-9k-suk">
+                                <rect key="frame" x="30" y="48" width="102" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.97254901959999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_sport_calorie" translatesAutoresizingMaskIntoConstraints="NO" id="Tjb-pU-01T">
+                                <rect key="frame" x="0.0" y="48" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="NcB-HZ-E0X"/>
+                                    <constraint firstAttribute="width" secondItem="Tjb-pU-01T" secondAttribute="height" multiplier="1:1" id="a5v-gu-GWU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tjb-pU-01T" firstAttribute="leading" secondItem="yFD-v3-08R" secondAttribute="leading" id="10W-2B-BUY"/>
+                            <constraint firstItem="ugP-9k-suk" firstAttribute="height" secondItem="Tjb-pU-01T" secondAttribute="height" id="L2u-gi-fyw"/>
+                            <constraint firstItem="ugP-9k-suk" firstAttribute="centerY" secondItem="yFD-v3-08R" secondAttribute="centerY" id="ZRg-Sb-HkB"/>
+                            <constraint firstItem="Tjb-pU-01T" firstAttribute="trailing" secondItem="ugP-9k-suk" secondAttribute="leading" constant="-10" id="jMk-0k-Y7d"/>
+                            <constraint firstItem="Tjb-pU-01T" firstAttribute="centerY" secondItem="yFD-v3-08R" secondAttribute="centerY" id="mnb-bh-Mcr"/>
+                            <constraint firstAttribute="trailing" secondItem="ugP-9k-suk" secondAttribute="trailing" id="yTZ-R2-OHV"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mej-W1-GJL">
+                        <rect key="frame" x="261" y="96" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="gNk-JR-EDg"/>
+                            <constraint firstAttribute="width" constant="100" id="puk-eu-2yp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.96862745100000003" green="0.97254901959999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="Nxd-kj-Jes" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="13I-dy-TaR"/>
+                    <constraint firstItem="55y-R1-Nqr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="2t6-gA-Phz"/>
+                    <constraint firstAttribute="bottom" secondItem="yFD-v3-08R" secondAttribute="bottom" id="Ahb-jr-WRC"/>
+                    <constraint firstAttribute="bottom" secondItem="Nxd-kj-Jes" secondAttribute="bottom" id="FWc-td-Fgp"/>
+                    <constraint firstAttribute="bottom" secondItem="55y-R1-Nqr" secondAttribute="bottom" constant="10" id="ObX-gV-lmS"/>
+                    <constraint firstAttribute="trailing" secondItem="yFD-v3-08R" secondAttribute="trailing" id="Sug-T4-Nyr"/>
+                    <constraint firstItem="55y-R1-Nqr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Xaw-zg-x0N"/>
+                    <constraint firstItem="Nxd-kj-Jes" firstAttribute="trailing" secondItem="yFD-v3-08R" secondAttribute="leading" constant="30" id="Zc6-e2-7g1"/>
+                    <constraint firstItem="yFD-v3-08R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="e2L-u4-oUU"/>
+                    <constraint firstItem="Mej-W1-GJL" firstAttribute="trailing" secondItem="yFD-v3-08R" secondAttribute="trailing" constant="-10" id="eKI-Q1-lIM"/>
+                    <constraint firstItem="Nxd-kj-Jes" firstAttribute="width" secondItem="yFD-v3-08R" secondAttribute="width" id="k6v-cs-fEo"/>
+                    <constraint firstAttribute="bottom" secondItem="Mej-W1-GJL" secondAttribute="bottom" id="sfD-Hf-0Eo"/>
+                    <constraint firstItem="Nxd-kj-Jes" firstAttribute="leading" secondItem="55y-R1-Nqr" secondAttribute="trailing" constant="20" id="u1m-7y-rSF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="calorie" destination="ugP-9k-suk" id="DzE-6E-hAq"/>
+                <outlet property="distance" destination="hKW-Tw-NgB" id="NH5-N1-Dkn"/>
+                <outlet property="endTime" destination="Mej-W1-GJL" id="KuV-Su-mmR"/>
+                <outlet property="sportTypeLogo" destination="55y-R1-Nqr" id="Oib-UJ-vHO"/>
+            </connections>
+            <point key="canvasLocation" x="423.5" y="376.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_sport_calorie" width="15" height="23"/>
+        <image name="icon_sport_distance" width="25" height="23"/>
+    </resources>
+</document>

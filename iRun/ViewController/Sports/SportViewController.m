@@ -205,44 +205,49 @@
 
 - (IBAction)sportStopAction:(id)sender {
     
-    if (distance <= 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"运动时间太短，是否结束？" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"继续运动" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *stopAction = [UIAlertAction actionWithTitle:@"结束" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [_sportTimer invalidate];
-            oldLocation = nil;
-            
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-        [alertController addAction:cancleAction];
-        [alertController addAction:stopAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    } else {
+//    if (distance <= 0) {
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"运动时间太短，是否结束？" preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"继续运动" style:UIAlertActionStyleCancel handler:nil];
+//        UIAlertAction *stopAction = [UIAlertAction actionWithTitle:@"结束" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//            [_sportTimer invalidate];
+//            oldLocation = nil;
+//            
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }];
+//        [alertController addAction:cancleAction];
+//        [alertController addAction:stopAction];
+//        
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    } else {
         [_sportTimer invalidate];
         oldLocation = nil;
         
         data = [[SportDataDto alloc] init];
+//        [data setSportType:self.sportType];
+//        [data setStartDate:_startSportDate];
+//        [data setEndDate:[NSDate date]];
+//        [data setDistance:[NSNumber numberWithFloat:distance]];
+//        [data setTimer:[NSNumber numberWithInteger:deltaTime]];
+//        [data setMaxSpeed:[NSNumber numberWithFloat:maxSpeed/3.6]];
+//        [data setAltitude:[NSNumber numberWithFloat:endAltitude-startAltitude]];
+        
         [data setSportType:self.sportType];
         [data setStartDate:_startSportDate];
         [data setEndDate:[NSDate date]];
-        [data setDistance:[NSNumber numberWithFloat:distance]];
-        [data setTimer:[NSNumber numberWithInteger:deltaTime]];
-        [data setMaxSpeed:[NSNumber numberWithFloat:maxSpeed/3.6]];
-        [data setAltitude:[NSNumber numberWithFloat:endAltitude-startAltitude]];
-        [data setCalorie:[self getCalorie]];
-    
-        [self performSegueWithIdentifier:@"toSportResultSegue" sender:self];
+        [data setDistance:[NSNumber numberWithFloat:1780]];
+        [data setTimer:[NSNumber numberWithInteger:2000]];
+        [data setMaxSpeed:[NSNumber numberWithFloat:2.7]];
+        [data setAltitude:[NSNumber numberWithFloat:45]];
         
         dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [SportDataLogic updateSportData:data];
             
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self performSegueWithIdentifier:@"toSportResultSegue" sender:self];
-//            });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"toSportResultSegue" sender:self];
+            });
         });
-    }
+//    }
 
 }
 
@@ -323,37 +328,6 @@
             [self.sportLeftAuxiliaryArg setText:clockStr];
             break;
     }
-}
-
-- (NSNumber *)getCalorie {
-    CGFloat weight = [USERDEFAULT stringForKey:USER_SETTING_WEIGHT].floatValue;
-    
-    CGFloat sportCPI = 30/((deltaTime/60)/(distance/400));
-    CGFloat sportTime = deltaTime/3600;
-    
-    //跑步热量（kcal）＝体重（kg）×运动时间（小时）×指数K
-    //指数K＝30÷速度（分钟/400米）
-    CGFloat calorie = weight*sportTime*sportCPI;
-    return [NSNumber numberWithFloat:calorie];
-    
-//    switch (self.sportType) {
-//        case SportTypeRun: {
-//            //跑步热量（kcal）＝体重（kg）×运动时间（小时）×指数K
-//            //指数K＝30÷速度（分钟/400米）
-//            CGFloat calorie = weight*sportTime*sportCPI;
-//            return [NSNumber numberWithFloat:calorie];
-//        }
-//            break;
-//            
-//        case SportTypeClimb:
-//            
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//    
-//    return nil;
 }
 
 @end

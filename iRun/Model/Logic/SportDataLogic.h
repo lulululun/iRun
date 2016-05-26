@@ -13,4 +13,6 @@
 
 + (void)updateSportData:(SportDataDto *)data;
 
++ (void)loadSportHistory:(NSMutableArray **)historyArr;
+
 @end

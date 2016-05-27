@@ -13,6 +13,6 @@
 
 + (void)updateSportData:(SportDataDto *)data;
 
-+ (void)loadSportHistory:(NSMutableArray **)historyArr;
++ (void)loadSportHistory:(NSMutableArray **)historyArr withPageNo:(int)pageNo pageSize:(int)pageSize;
 
 @end

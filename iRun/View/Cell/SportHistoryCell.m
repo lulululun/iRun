@@ -24,6 +24,7 @@
 }
 
 - (void)setCellData:(id)data {
+    
     SportDataDto *dto = (SportDataDto *)data;
     
     [self.calorie setText:[NSString stringWithFormat:@"卡路里:%@千卡", dto.calorie]];
@@ -56,6 +57,10 @@
             break;
     }
     
+    UIView *lineView = [[UIView alloc] init];
+    [lineView setFrame:CGRectMake(20, 59.5, CURREN_SCREEN_WIDTH-20, 0.5)];
+    [lineView setBackgroundColor:[UIColor colorWithRed:0.788 green:0.773 blue:0.757 alpha:1]];
+    [self addSubview:lineView];
 }
 
 @end

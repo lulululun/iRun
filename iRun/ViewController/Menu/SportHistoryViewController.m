@@ -11,7 +11,11 @@
 #import "SportHistoryCell.h"
 #import "SportDataLogic.h"
 
-@interface SportHistoryViewController ()
+@interface SportHistoryViewController () {
+    int pageNo;
+    UIButton *moreButton;
+    int pageSize;
+}
 
 @end
 
@@ -25,8 +29,16 @@
     [self.historyTableView setDelegate:self];
     [self.historyTableView setDataSource:self];
     [self.historyTableView setTableFooterView:[[UITableView alloc] init]];
-    
+    [self.historyTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+     
+    pageNo = 0;
+    pageSize = 10;
     [self loadDataSource];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    pageNo = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,16 +57,31 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSourceArr count];
+    return [self.dataSourceArr count] + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.dataSourceArr.count) {
+        return 35.f;
+    }
     return 60.f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifer = @"cell";
     SportHistoryCell *cell;
+    
+    if (indexPath.row == self.dataSourceArr.count) {
+        UITableViewCell *moreCell = [[UITableViewCell alloc] init];
+        [moreCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        [moreButton setFrame:CGRectMake(0, 0, CURREN_SCREEN_WIDTH, 35.f)];
+        [moreButton addTarget:self action:@selector(loadMoreData) forControlEvents:UIControlEventTouchUpInside];
+        
+        [moreCell setBackgroundColor:[UIColor clearColor]];
+        [moreCell addSubview:moreButton];
+        return moreCell;
+    }
     
     cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
     
@@ -89,14 +116,54 @@
     
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableArray *dataSource = [[NSMutableArray alloc] init];
-        [SportDataLogic loadSportHistory:&dataSource];
+        [SportDataLogic loadSportHistory:&dataSource withPageNo:pageNo pageSize:pageSize];
+        
+        moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (dataSource.count < pageSize) {
+                NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:@"没有更多数据了"];
+                [attributedStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:FONT_NAME size:12] range:NSMakeRange(0, 7)];
+                [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 7)];
+                [moreButton setAttributedTitle:attributedStr forState:UIControlStateNormal];
+                [moreButton setEnabled:NO];
+            } else {
+                NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:@"点击加载更多"];
+                [attributedStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:FONT_NAME size:12] range:NSMakeRange(0, 6)];
+                [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 6)];
+                [moreButton setAttributedTitle:attributedStr forState:UIControlStateNormal];
+            }
+            
             self.dataSourceArr = dataSource;
             [self.historyTableView reloadData];
         });
     });
 
+}
+
+- (void)loadMoreData {
+    
+    pageNo++;
+    
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSMutableArray *dataSource = [[NSMutableArray alloc] init];
+        [SportDataLogic loadSportHistory:&dataSource withPageNo:pageNo pageSize:pageSize];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (dataSource.count < pageSize) {
+                NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:@"没有更多数据了"];
+                [attributedStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:FONT_NAME size:12] range:NSMakeRange(0, 7)];
+                [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, 7)];
+                [moreButton setAttributedTitle:attributedStr forState:UIControlStateNormal];
+                [moreButton setEnabled:NO];
+            }
+            
+            [self.dataSourceArr addObjectsFromArray:dataSource];;
+            [self.historyTableView reloadData];
+        });
+    });
 }
 
 @end

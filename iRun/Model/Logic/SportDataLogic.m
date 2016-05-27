@@ -31,11 +31,13 @@
     }
 }
 
-+ (void)loadSportHistory:(NSMutableArray **)historyArr {
++ (void)loadSportHistory:(NSMutableArray **)historyArr withPageNo:(int)pageNo pageSize:(int)pageSize {
     NSArray *resultArr = [NSArray array];
     
+    
+    
     CommonDao *commonDao = [[CommonDao alloc] initWithContext:[[ContextManager instance] createNewContext]];
-    [commonDao getEntities:&resultArr withEntityClass:[SportEntity class] byConditionWithPredicate:nil orderBy:nil asc:0 fetchOffset:0 fetchLimit:10];
+    [commonDao getEntities:&resultArr withEntityClass:[SportEntity class] byConditionWithPredicate:nil orderBy:[NSArray arrayWithObject:@"endDate"] asc:0 fetchOffset:pageNo * pageSize fetchLimit:pageSize];
     
     SportDataDto *data;
     for (SportEntity *entity in resultArr) {

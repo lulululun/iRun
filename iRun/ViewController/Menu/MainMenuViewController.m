@@ -46,6 +46,7 @@
     MenuTableViewData setData = {@"icon_menu_setting", @"设置"};
     MenuTableViewData pedmeterData = {@"icon_menu_setting", @"配件"};
     MenuTableViewData recodData = {@"icon_menu_setting", @"运动记录"};
+    MenuTableViewData sendMailData = {@"icon_menu_setting", @"意见反馈"};
     MenuTableViewData shareData = {@"icon_menu_setting", @"分享"};
     MenuTableViewData aboutData = {@"icon_menu_setting", @"关于"};
     
@@ -53,6 +54,7 @@
     [dataSource addObject:[NSData dataWithBytes:&setData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&pedmeterData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&recodData length:sizeof(MenuTableViewData)]];
+    [dataSource addObject:[NSData dataWithBytes:&sendMailData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&shareData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&aboutData length:sizeof(MenuTableViewData)]];
 }
@@ -84,7 +86,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,6 +146,10 @@
             [self performSegueWithIdentifier:@"toSportHistoryFromMainMenu" sender:self];
             break;
             
+        case 4:
+            [self displayMailView];
+            break;
+            
         default:
             break;
     }
@@ -169,8 +175,68 @@
     }
 }
 
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSString *msg;
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            msg = @"用户取消编辑邮件";
+            break;
+        case MFMailComposeResultSaved:
+            msg = @"用户成功保存邮件";
+            break;
+        case MFMailComposeResultSent:
+            msg = @"用户点击发送";
+            break;
+        case MFMailComposeResultFailed:
+            msg = @"用户试图保存或者发送邮件失败";
+            break;
+        default:
+            msg = @"";
+            break;
+    }
+    
+    NSLog(@"%@", msg);
+}
+
+#pragma mark - Action
+
 - (IBAction)closeAction:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Private method
+
+- (void)displayMailView {
+    MFMailComposeViewController *mailPicker = [[MFMailComposeViewController alloc] init];
+    mailPicker.mailComposeDelegate = self;
+    
+    //设置主题
+    [mailPicker setSubject: @"意见反馈"];
+    //添加收件人
+    NSArray *toRecipients = [NSArray arrayWithObject: @"izhangyb@icloud.com"];
+    [mailPicker setToRecipients: toRecipients];
+    
+    //手机系统版本
+    NSString *phoneVersion = [NSString stringWithFormat:@"手机系统版本: %@", [[UIDevice currentDevice] systemVersion]];
+    
+    //手机型号
+    NSString *phoneModel = [NSString stringWithFormat:@"手机型号: %@", [[UIDevice currentDevice] model]];
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // 当前应用名称
+    NSString *appCurName = [NSString stringWithFormat:@"当前应用名称: %@", [infoDictionary objectForKey:@"CFBundleDisplayName"]];
+    
+    // 当前应用软件版本  比如：1.0.1
+    NSString *appCurVersion = [NSString stringWithFormat:@"当前应用软件版本: %@", [infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+    
+    NSString *emailBody = [NSString stringWithFormat:@"<br><br><br><br><font color='gray'>%@<br>%@<br>%@<br>%@</font>", appCurName, appCurVersion, phoneModel, phoneVersion];
+    [mailPicker setMessageBody:emailBody isHTML:YES];
+    [self presentViewController:mailPicker animated:YES completion:nil];
+    
 }
 
 @end

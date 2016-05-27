@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 typedef struct {
     __unsafe_unretained NSString *imageName;
     __unsafe_unretained NSString *itemName;
 } MenuTableViewData;
 
-@interface MainMenuViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MainMenuViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate>
 
 // 关闭按钮
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *closeButton;

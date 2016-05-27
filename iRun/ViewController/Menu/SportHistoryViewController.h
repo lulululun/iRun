@@ -19,6 +19,8 @@
 // Tableview datasource
 @property (strong, nonatomic) NSMutableArray *dataSourceArr;
 
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
 - (IBAction)trendAction:(id)sender;
 - (IBAction)backAction:(id)sender;
 

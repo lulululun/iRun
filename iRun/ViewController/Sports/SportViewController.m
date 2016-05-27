@@ -239,7 +239,7 @@
         [data setMaxSpeed:[NSNumber numberWithFloat:2.7]];
         [data setAltitude:[NSNumber numberWithFloat:45]];
         
-        dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
             [SportDataLogic updateSportData:data];
             

@@ -405,7 +405,8 @@ static CGFloat textInterval = 8;
     UIBezierPath *path = [UIBezierPath bezierPath];
     CAShapeLayer *layer = [CAShapeLayer layer];
     
-    for (NSUInteger i = _validRange.location; i < _validRange.location + _validRange.length; i++) {
+    //_validRange.location + _validRange.length
+    for (NSUInteger i = _validRange.location; i < _validRange.location + _validRange.length - self.zeroXCount; i++) {
         if (![self isValidUnit:i]) {
             continue;
         }
@@ -431,7 +432,8 @@ static CGFloat textInterval = 8;
     float intervalX = _countX == 1? 0: (_chartFrame.size.width - _axisEdge.right) / (_countX - 1);
     float unitY = (_chartFrame.size.height - _axisEdge.top) / _yRange.length;
     
-    for (NSUInteger i = _validRange.location; i < _validRange.location + _validRange.length; i++) {
+    // _validRange.location + _validRange.length
+    for (NSUInteger i = _validRange.location; i < _validRange.location + _validRange.length - self.zeroXCount; i++) {
         if (![self isValidUnit:i]) {
             continue;
         }

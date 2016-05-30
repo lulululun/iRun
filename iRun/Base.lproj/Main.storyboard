@@ -212,7 +212,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="historyTableView" destination="gwf-wt-dBH" id="sah-g4-3xo"/>
-                        <segue destination="fen-me-prM" kind="show" id="Vs3-Fi-RRp"/>
+                        <segue destination="fen-me-prM" kind="show" identifier="toSportDetailFromHistorySegue" id="Vs3-Fi-RRp"/>
                         <segue destination="n4y-Aj-g5H" kind="show" identifier="toSportTrendSegue" id="4Sc-Io-lup"/>
                     </connections>
                 </viewController>
@@ -280,6 +280,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="ueK-OR-tr2" id="5wG-He-LBF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFD-rQ-0v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -40,8 +40,9 @@
     [attributedStr1 addAttribute:NSFontAttributeName value:[UIFont fontWithName:FONT_NAME size:10] range:NSMakeRange(calorieStr.length - 2, 2)];
     [self.calorie setAttributedText:attributedStr1];
     
-    
-    [self.endTime setText:@"2016-05-24"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [self.endTime setText:[formatter stringFromDate:dto.endDate]];
     
     switch (dto.sportType) {
         case SportTypeRun:

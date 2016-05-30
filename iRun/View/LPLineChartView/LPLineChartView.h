@@ -40,4 +40,6 @@
 
 @property (strong, nonatomic) NSString *chartTitle;
 
+@property (nonatomic, assign) NSInteger zeroXCount;
+
 @end

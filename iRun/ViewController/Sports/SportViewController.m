@@ -233,7 +233,13 @@
         
         [data setSportType:self.sportType];
         [data setStartDate:_startSportDate];
-        [data setEndDate:[NSDate date]];
+    
+        NSDate *tempDate = [NSDate date];
+
+        NSInteger interval = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:tempDate];
+        tempDate = [tempDate dateByAddingTimeInterval:interval];
+    
+        [data setEndDate:tempDate];
         [data setDistance:[NSNumber numberWithFloat:1780]];
         [data setTimer:[NSNumber numberWithInteger:2000]];
         [data setMaxSpeed:[NSNumber numberWithFloat:2.7]];

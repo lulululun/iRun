@@ -48,6 +48,32 @@
     }
 }
 
++ (void)loadWeekData:(NSMutableArray **)weekDataArr monthData:(NSMutableArray **)monthDataArr {
+    
+    NSArray *resultArr = [NSArray array];
+    
+    CommonDao *commonDao = [[CommonDao alloc] initWithContext:[[ContextManager instance] createNewContext]];
+    
+    // 获取当前月份的第一天
+    NSDate *currentDate = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM"];
+    NSString *dateStr = [formatter stringFromDate:currentDate];
+    
+    NSDate *firstMonthDay = [formatter dateFromString:dateStr];
+    NSInteger interval = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:currentDate];
+    firstMonthDay = [firstMonthDay dateByAddingTimeInterval:interval];
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"endDate >= %@", firstMonthDay];
+    
+    [commonDao getEntities:&resultArr withEntityClass:[SportEntity class] byConditionWithPredicate:predicate];
+    
+    *weekDataArr = [self getWeekData:resultArr];
+    *monthDataArr = [self getMonthData:resultArr];
+}
+
 #pragma mark - Pirvate Method
 
 + (NSNumber *)getSpeedWithData:(SportDataDto *)data {
@@ -84,6 +110,107 @@
     //    }
     //
     //    return nil;
+}
+
++ (NSMutableArray *)getWeekData:(NSArray *)dataArr {
+    NSMutableArray *dataArrResult;
+    
+    if (dataArr && dataArr.count > 0) {
+        dataArrResult = [[NSMutableArray alloc] init];
+    } else {
+        return dataArrResult;
+    }
+    
+    NSMutableDictionary *temp;
+    
+    NSDate *tempDate = [NSDate date];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [calendar componentsInTimeZone:[NSTimeZone systemTimeZone] fromDate:tempDate];
+    
+    tempDate = [tempDate dateByAddingTimeInterval:-24*60*60];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+    NSString *dateStr = [formatter stringFromDate:tempDate];
+    
+    NSDate *firstWeekDayDate = [[formatter dateFromString:dateStr] dateByAddingTimeInterval:[[NSTimeZone systemTimeZone] secondsFromGMTForDate:tempDate]];
+    
+    NSMutableArray *tempArr = [[NSMutableArray alloc] init];
+    for (int i=0; i<dataArr.count; i++) {
+        if ([firstWeekDayDate earlierDate:((SportEntity *)dataArr[i]).endDate] == firstWeekDayDate) {
+            [tempArr addObject:dataArr[i]];
+        }
+    }
+    
+    for (int i=1; i<=dateComponents.weekday; i++) {
+        temp = [[NSMutableDictionary alloc] init];
+        
+        float calorie = 0.0;
+        float distance = 0.0;
+        
+        for (int j=0; j<tempArr.count; j++) {
+            if ([calendar componentsInTimeZone:[NSTimeZone systemTimeZone] fromDate:((SportEntity *)tempArr[j]).endDate].weekday == i) {
+                calorie += ((SportEntity *)tempArr[j]).calorie.floatValue;
+                distance += ((SportEntity *)tempArr[j]).distance.floatValue;
+            }
+        }
+        
+        [temp setValue:[NSString stringWithFormat:@"%f", calorie] forKey:@"calorie"];
+        [temp setValue:[NSString stringWithFormat:@"%f", distance] forKey:@"distance"];
+        
+        if (i ==1) {
+            [temp setValue:@"星期日" forKey:@"day"];
+        } else {
+            [temp setValue:[NSString stringWithFormat:@"%d", i-1] forKey:@"day"];
+        }
+        
+        [dataArrResult addObject:temp];
+    }
+    
+    
+    return dataArrResult;
+}
+
++ (NSMutableArray *)getMonthData:(NSArray *)dataArr {
+    NSMutableArray *dataArrResult;
+    
+    if (dataArr && dataArr.count > 0) {
+        dataArrResult = [[NSMutableArray alloc] init];
+    } else {
+        return dataArrResult;
+    }
+    
+    NSMutableDictionary *temp;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [calendar componentsInTimeZone:[NSTimeZone systemTimeZone] fromDate:[NSDate date]];
+    
+    for (int i=1; i<=dateComponents.day; i++) {
+        temp = [[NSMutableDictionary alloc] init];
+        
+        float calorie = 0.0;
+        float distance = 0.0;
+        
+        for (int j=0; j<dataArr.count; j++) {
+            
+            if ([calendar componentsInTimeZone:[NSTimeZone systemTimeZone] fromDate:((SportEntity *)dataArr[j]).endDate].day == i) {
+                calorie += ((SportEntity *)dataArr[j]).calorie.floatValue;
+                distance += ((SportEntity *)dataArr[j]).distance.floatValue;
+            }
+        }
+        
+        [temp setValue:[NSString stringWithFormat:@"%f", calorie] forKey:@"calorie"];
+        [temp setValue:[NSString stringWithFormat:@"%f", distance] forKey:@"distance"];
+        [temp setValue:[NSString stringWithFormat:@"%d", i] forKey:@"day"];
+        [temp setValue:[NSString stringWithFormat:@"%d", i] forKey:@"id"];
+        
+        [dataArrResult addObject:temp];
+    }
+    
+    
+    return dataArrResult;
 }
 
 @end

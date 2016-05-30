@@ -15,6 +15,8 @@
 // 背景图（做毛玻璃效果用）
 @property (strong, nonatomic) UIImage *bgImage;
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 - (IBAction)backAction:(id)sender;
 
 @end

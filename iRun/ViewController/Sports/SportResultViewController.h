@@ -21,6 +21,9 @@ typedef struct {
 
 @interface SportResultViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
+// 背景图（做毛玻璃效果用）
+@property (strong, nonatomic) UIImage *bgImage;
+
 @property (strong, nonatomic) SportDataDto *data;
 @property (nonatomic) SportTypes sportType;
 

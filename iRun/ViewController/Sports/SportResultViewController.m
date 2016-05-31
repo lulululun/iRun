@@ -22,6 +22,7 @@
     [super viewDidLoad];
     
 //    self.navigationController.navigationBar setBackgroundImage:
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:self.bgImage]];
     
     [self.sportResultTableView setDelegate:self];
     [self.sportResultTableView setDataSource:self];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -27,18 +27,20 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVt-kB-I72" userLabel="Left Value Label">
                                 <rect key="frame" x="50" y="15" width="110" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2j8-OE-pSz" userLabel="Left Tip Label">
                                 <rect key="frame" x="50" y="45" width="110" height="23"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ck9-Nj-mID" firstAttribute="height" secondItem="CuH-oH-uBr" secondAttribute="height" multiplier="1:3" id="1QX-Oc-dCs"/>
                             <constraint firstItem="nVt-kB-I72" firstAttribute="leading" secondItem="Ck9-Nj-mID" secondAttribute="trailing" constant="10" id="4Wh-tz-c84"/>
@@ -75,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="63h-dj-SUn" firstAttribute="leading" secondItem="OKQ-DL-rq8" secondAttribute="leading" id="1iI-cR-z8w"/>
                             <constraint firstItem="63h-dj-SUn" firstAttribute="height" secondItem="Q35-WB-9iK" secondAttribute="height" multiplier="1:4" id="BPA-vc-Z0l"/>
@@ -91,6 +93,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="CuH-oH-uBr" firstAttribute="width" secondItem="Q35-WB-9iK" secondAttribute="width" id="101-8r-RYV"/>
                     <constraint firstItem="Q35-WB-9iK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4m1-IG-Z9J"/>
@@ -102,6 +105,7 @@
                     <constraint firstItem="CuH-oH-uBr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qyi-JL-NSO"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="leftImageView" destination="Ck9-Nj-mID" id="pEH-K0-mK8"/>
                 <outlet property="leftTipLabel" destination="2j8-OE-pSz" id="gfJ-6E-iZl"/>

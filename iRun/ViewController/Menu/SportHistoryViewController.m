@@ -10,8 +10,11 @@
 #import "SportTrendViewController.h"
 #import "SportHistoryCell.h"
 #import "SportDataLogic.h"
+#import "SportResultViewController.h"
 
 @interface SportHistoryViewController () {
+    SportDataDto *data;
+    
     int pageNo;
     UIButton *moreButton;
     int pageSize;
@@ -50,8 +53,14 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    SportTrendViewController *trendVC = segue.destinationViewController;
-    [trendVC setBgImage:self.bgImage];
+    if ([segue.identifier isEqualToString:@"toSportTrendSegue"]) {
+        SportTrendViewController *trendVC = segue.destinationViewController;
+        [trendVC setBgImage:self.bgImage];
+    } else {
+        SportResultViewController *resultVC = segue.destinationViewController;
+        [resultVC setData:data];
+    }
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -98,6 +107,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"toSportDetailFromHistorySegue" sender:self];
+    
+    data = [self.dataSourceArr objectAtIndex:indexPath.row];
 }
 
 #pragma mark - Action

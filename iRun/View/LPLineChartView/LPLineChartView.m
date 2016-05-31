@@ -72,13 +72,6 @@ static CGFloat textInterval = 8;
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    UILabel *titlelabel = [[UILabel alloc] init];
-    [titlelabel setText:self.chartTitle];
-    [titlelabel setFrame:CGRectMake(40, -50, 100, 118)];
-    [titlelabel setTextColor:[UIColor grayColor]];
-    [titlelabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
-    [self addSubview:titlelabel];
-    
     self.data = _data;
     self.yRange = _yRange;
     self.ySpace = _ySpace;
@@ -92,6 +85,13 @@ static CGFloat textInterval = 8;
 }
 
 - (void)draw {
+    
+    UILabel *titlelabel = [[UILabel alloc] init];
+    [titlelabel setText:self.chartTitle];
+    [titlelabel setFrame:CGRectMake(40, -50, 100, 118)];
+    [titlelabel setTextColor:[UIColor grayColor]];
+    [titlelabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+    [self addSubview:titlelabel];
     
     [self.layer addSublayer:[self creatBackground]];
     [self.layer addSublayer:[self creatAxis:LPAxisX]];

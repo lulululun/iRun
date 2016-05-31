@@ -203,8 +203,13 @@
         
         [temp setValue:[NSString stringWithFormat:@"%f", calorie] forKey:@"calorie"];
         [temp setValue:[NSString stringWithFormat:@"%f", distance] forKey:@"distance"];
-        [temp setValue:[NSString stringWithFormat:@"%d", i] forKey:@"day"];
         [temp setValue:[NSString stringWithFormat:@"%d", i] forKey:@"id"];
+        
+        if (i ==1) {
+            [temp setValue:[NSString stringWithFormat:@"%ld.1", dateComponents.month] forKey:@"day"];
+        } else {
+            [temp setValue:[NSString stringWithFormat:@"%d", i] forKey:@"day"];
+        }
         
         [dataArrResult addObject:temp];
     }

@@ -23,6 +23,8 @@
     
     CLLocationDistance startAltitude;
     CLLocationDistance endAltitude;
+    
+    NSMutableArray *locationArr;
 }
 
 @end
@@ -42,6 +44,11 @@
     
     UIPanGestureRecognizer *unlockRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(unlockAction:)];
     [self.unlockView addGestureRecognizer:unlockRecognizer];
+    
+    NSTimer *locationTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(loadLocationDataSource) userInfo:nil repeats:YES];
+    NSRunLoop *run = [NSRunLoop currentRunLoop];
+    [run addTimer:locationTimer forMode:NSDefaultRunLoopMode];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -158,7 +165,16 @@
         accuracyCircleView.strokeColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.0];
         accuracyCircleView.fillColor =[UIColor colorWithRed:1 green:0 blue:0 alpha:0.0];
         return accuracyCircleView;
-    }   
+    } else if([overlay isKindOfClass:[MAPolyline class]]) {
+        MAPolylineView *polylineView = [[MAPolylineView alloc] initWithPolyline:overlay];
+        
+        polylineView.lineWidth = 5.f;
+        polylineView.strokeColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.6];
+        polylineView.lineJoinType = kMALineJoinRound;//连接类型
+        polylineView.lineCapType = kMALineCapRound;//端点类型
+        
+        return polylineView;
+    }
     
     return nil;
 }
@@ -205,55 +221,58 @@
 
 - (IBAction)sportStopAction:(id)sender {
     
-//    if (distance <= 0) {
-//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"运动时间太短，是否结束？" preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"继续运动" style:UIAlertActionStyleCancel handler:nil];
-//        UIAlertAction *stopAction = [UIAlertAction actionWithTitle:@"结束" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//            [_sportTimer invalidate];
-//            oldLocation = nil;
-//            
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }];
-//        [alertController addAction:cancleAction];
-//        [alertController addAction:stopAction];
-//        
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    } else {
-        [_sportTimer invalidate];
-        oldLocation = nil;
-        
-        data = [[SportDataDto alloc] init];
-//        [data setSportType:self.sportType];
-//        [data setStartDate:_startSportDate];
-//        [data setEndDate:[NSDate date]];
-//        [data setDistance:[NSNumber numberWithFloat:distance]];
-//        [data setTimer:[NSNumber numberWithInteger:deltaTime]];
-//        [data setMaxSpeed:[NSNumber numberWithFloat:maxSpeed/3.6]];
-//        [data setAltitude:[NSNumber numberWithFloat:endAltitude-startAltitude]];
-        
-        [data setSportType:self.sportType];
-        [data setStartDate:_startSportDate];
-    
-        NSDate *tempDate = [NSDate date];
-
-        NSInteger interval = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:tempDate];
-        tempDate = [tempDate dateByAddingTimeInterval:interval];
-    
-        [data setEndDate:tempDate];
-        [data setDistance:[NSNumber numberWithFloat:1780]];
-        [data setTimer:[NSNumber numberWithInteger:2000]];
-        [data setMaxSpeed:[NSNumber numberWithFloat:2.7]];
-        [data setAltitude:[NSNumber numberWithFloat:45]];
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    if (distance <= 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"运动时间太短，是否结束？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"继续运动" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *stopAction = [UIAlertAction actionWithTitle:@"结束" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [_sportTimer invalidate];
+            oldLocation = nil;
             
-            [SportDataLogic updateSportData:data];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [alertController addAction:cancleAction];
+        [alertController addAction:stopAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"确定要结束本次运动吗？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"继续运动" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *stopAction = [UIAlertAction actionWithTitle:@"结束" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [_sportTimer invalidate];
+            oldLocation = nil;
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSegueWithIdentifier:@"toSportResultSegue" sender:self];
+            data = [[SportDataDto alloc] init];
+            [data setSportType:self.sportType];
+            [data setStartDate:_startSportDate];
+            [data setDistance:[NSNumber numberWithFloat:distance]];
+            [data setTimer:[NSNumber numberWithInteger:deltaTime]];
+            [data setMaxSpeed:[NSNumber numberWithFloat:maxSpeed/3.6]];
+            [data setAltitude:[NSNumber numberWithFloat:endAltitude-startAltitude]];
+            
+            [data setSportType:self.sportType];
+            [data setStartDate:_startSportDate];
+            
+            NSDate *tempDate = [NSDate date];
+            
+            NSInteger interval = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:tempDate];
+            tempDate = [tempDate dateByAddingTimeInterval:interval];
+            
+            [data setEndDate:tempDate];
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                [SportDataLogic updateSportData:data];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self performSegueWithIdentifier:@"toSportResultSegue" sender:self];
+                });
             });
-        });
-//    }
+        }];
+        [alertController addAction:cancleAction];
+        [alertController addAction:stopAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 
 }
 
@@ -309,7 +328,7 @@
         default:
             [self.sportMainArgTip setText:@"距离(公里)"];
             [self.sportLeftAuxiliaryArgTip setText:@"时长"];
-            [self.sportRightAuxiliaryArgTip setText:@"配速(公里/时)"];
+            [self.sportRightAuxiliaryArgTip setText:@"配速(分钟/公里)"];
             
             break;
     }
@@ -334,6 +353,28 @@
             [self.sportLeftAuxiliaryArg setText:clockStr];
             break;
     }
+}
+
+- (void)loadLocationDataSource {
+    if (locationArr == nil) {
+        locationArr = [[NSMutableArray alloc] init];
+    }
+    
+    [locationArr addObject:nowLocation];
+    
+    CLLocationCoordinate2D *locations;
+    locations = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D)*locationArr.count);
+    
+    for (int i=0; i<locationArr.count; i++) {
+        locations[i] = ((CLLocation *)locationArr[i]).coordinate;
+    }
+    
+    //构造折线对象
+    MAPolyline *commonPolyline = [MAPolyline polylineWithCoordinates:locations count:locationArr.count];
+    //在地图上添加折线对象
+    [self.mapView addOverlay: commonPolyline];
+    
+    free(locations);
 }
 
 @end

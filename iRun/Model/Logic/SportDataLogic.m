@@ -113,13 +113,7 @@
 }
 
 + (NSMutableArray *)getWeekData:(NSArray *)dataArr {
-    NSMutableArray *dataArrResult;
-    
-    if (dataArr && dataArr.count > 0) {
-        dataArrResult = [[NSMutableArray alloc] init];
-    } else {
-        return dataArrResult;
-    }
+    NSMutableArray *dataArrResult = [[NSMutableArray alloc] init];
     
     NSMutableDictionary *temp;
     
@@ -174,13 +168,7 @@
 }
 
 + (NSMutableArray *)getMonthData:(NSArray *)dataArr {
-    NSMutableArray *dataArrResult;
-    
-    if (dataArr && dataArr.count > 0) {
-        dataArrResult = [[NSMutableArray alloc] init];
-    } else {
-        return dataArrResult;
-    }
+    NSMutableArray *dataArrResult = [[NSMutableArray alloc] init];
     
     NSMutableDictionary *temp;
     

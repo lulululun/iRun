@@ -41,7 +41,8 @@
 typedef enum {
     SportTypeRun = 0,
     SportTypeClimb = 1,
-    SportTypeBike = 2
+    SportTypeBike = 2,
+    SportTypePedometer = 3
 } SportTypes;
 
 #endif /* Define_h */

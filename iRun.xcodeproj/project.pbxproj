@@ -67,6 +67,7 @@
 		E59AAE571CC08BE6004EDA7B /* SportDataLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE561CC08BE6004EDA7B /* SportDataLogic.m */; };
 		E59AAE5B1CC08C74004EDA7B /* SportDataDto.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE5A1CC08C74004EDA7B /* SportDataDto.m */; };
 		E59AAE5E1CC0B7CB004EDA7B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59AAE5D1CC0B7CB004EDA7B /* SettingViewController.m */; };
+		E5BB42C01D002AAF001B939A /* MonthSportDataInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BB42BF1D002AAF001B939A /* MonthSportDataInfo.m */; };
 		E5F7CFB81CF2E1FC00BAF9E3 /* SportHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F7CFB61CF2E1FC00BAF9E3 /* SportHistoryCell.m */; };
 		E5F7CFB91CF2E1FC00BAF9E3 /* SportHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F7CFB71CF2E1FC00BAF9E3 /* SportHistoryCell.xib */; };
 /* End PBXBuildFile section */
@@ -166,6 +167,8 @@
 		E59AAE5A1CC08C74004EDA7B /* SportDataDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportDataDto.m; path = Model/Dto/SportDataDto.m; sourceTree = "<group>"; };
 		E59AAE5C1CC0B7CB004EDA7B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Menu/SettingViewController.h; sourceTree = "<group>"; };
 		E59AAE5D1CC0B7CB004EDA7B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Menu/SettingViewController.m; sourceTree = "<group>"; };
+		E5BB42BE1D002AAF001B939A /* MonthSportDataInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MonthSportDataInfo.h; path = Model/Dto/MonthSportDataInfo.h; sourceTree = "<group>"; };
+		E5BB42BF1D002AAF001B939A /* MonthSportDataInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MonthSportDataInfo.m; path = Model/Dto/MonthSportDataInfo.m; sourceTree = "<group>"; };
 		E5F7CFB51CF2E1FC00BAF9E3 /* SportHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportHistoryCell.h; path = Cell/SportHistoryCell.h; sourceTree = "<group>"; };
 		E5F7CFB61CF2E1FC00BAF9E3 /* SportHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportHistoryCell.m; path = Cell/SportHistoryCell.m; sourceTree = "<group>"; };
 		E5F7CFB71CF2E1FC00BAF9E3 /* SportHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SportHistoryCell.xib; path = Cell/SportHistoryCell.xib; sourceTree = "<group>"; };
@@ -427,6 +430,8 @@
 				E59AAE5A1CC08C74004EDA7B /* SportDataDto.m */,
 				E56128921CD052F60060C720 /* BleDeviceInfo.h */,
 				E56128931CD052F60060C720 /* BleDeviceInfo.m */,
+				E5BB42BE1D002AAF001B939A /* MonthSportDataInfo.h */,
+				E5BB42BF1D002AAF001B939A /* MonthSportDataInfo.m */,
 			);
 			name = Dto;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 				E57C746A1CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m in Sources */,
 				E55D79EA1CC4C7F50088930C /* SportResultViewController.m in Sources */,
 				E55D7A631CC74F2A0088930C /* LPLineChartView.m in Sources */,
+				E5BB42C01D002AAF001B939A /* MonthSportDataInfo.m in Sources */,
 				E56384E31CB5F6B500ED951E /* CountdownView.m in Sources */,
 				E55D79F81CC5C59D0088930C /* SportDistanceCell.m in Sources */,
 				E57C74711CC0EA8900A56DF8 /* HeightPickerView.m in Sources */,

@@ -31,6 +31,34 @@
     }
 }
 
++ (void)updatePedemoterData:(SportDataDto *)data {
+    NSArray *resultArr = [NSArray array];
+    CommonDao *commonDao = [[CommonDao alloc] initWithContext:[[ContextManager instance] createNewContext]];
+    
+    NSDate *currentDate = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateStr = [formatter stringFromDate:currentDate];
+    
+    NSDate *firstMonthDay = [formatter dateFromString:dateStr];
+    NSInteger interval = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:currentDate];
+    firstMonthDay = [firstMonthDay dateByAddingTimeInterval:interval];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"endDate >= %@ and sportType = %d", firstMonthDay, SportTypePedometer];
+    [commonDao getEntities:&resultArr withEntityClass:[SportEntity class] byConditionWithPredicate:predicate];
+    
+    if (resultArr.count > 0) {
+        [BeanUtils copyProperties:data dest:resultArr[0]];
+    } else {
+        SportEntity *entity = (SportEntity *)[commonDao createEntity:[SportEntity class]];
+        
+        [BeanUtils copyProperties:data dest:entity];
+    }
+    
+    [commonDao saveAction];
+}
+
 + (void)loadSportHistory:(NSMutableArray **)historyArr withPageNo:(int)pageNo pageSize:(int)pageSize {
     NSArray *resultArr = [NSArray array];
     
@@ -72,6 +100,10 @@
     
     *weekDataArr = [self getWeekData:resultArr];
     *monthDataArr = [self getMonthData:resultArr];
+}
+
++ (void)loadMonthData:(MonthSportDataInfo *)dataInfo {
+    
 }
 
 #pragma mark - Pirvate Method

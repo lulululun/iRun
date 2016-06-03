@@ -48,6 +48,10 @@
         case SportTypeRun:
             [self.sportTypeLogo setImage:[UIImage imageNamed:@"icon_sport_type_run"]];
             break;
+        
+        case SportTypePedometer:
+            [self.sportTypeLogo setImage:[UIImage imageNamed:@"icon_sport_type_run"]];
+            break;
             
         case SportTypeClimb:
             [self.sportTypeLogo setImage:[UIImage imageNamed:@"icon_sport_type_climb"]];

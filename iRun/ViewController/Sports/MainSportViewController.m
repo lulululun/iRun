@@ -11,6 +11,8 @@
 #import "SportViewController.h"
 #import "UIImage+TintColor.h"
 #import "SportHistoryViewController.h"
+#import "SportDataLogic.h"
+#import "SportDataDto.h"
 
 @interface MainSportViewController () {
     SportTypes sportType;
@@ -148,16 +150,20 @@
 
 //接收计步器测量数据
 -(void)bleManagerDidReceivePedometerMeasuredData:(LSPedometerData*)data {
-    UIAlertController *alertController;
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    SportDataDto *dto = [[SportDataDto alloc] init];
+    [dto setSportType:SportTypePedometer];
     
-    NSString *messageStr = [NSString stringWithFormat:@"手环运动数据：%ld步", data.walkSteps + data.runSteps];
+    NSDate *date = [NSDate date];
+    NSInteger interval = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:date];
+    date = [date dateByAddingTimeInterval:interval];
     
-    alertController = [UIAlertController alertControllerWithTitle:@"接收到数据" message:messageStr preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:cancelAction];
+    [dto setEndDate:date];
+    [dto setDistance:[NSNumber numberWithFloat:data.distance/1000.0f]];
+    [dto setCalorie:[NSNumber numberWithDouble:data.calories]];
     
-    [self presentViewController:alertController animated:YES completion:nil];
+    [SportDataLogic updatePedemoterData:dto];
+    
 }
 
 #pragma mark - Action & Private method
@@ -174,17 +180,20 @@
 
 // 加载首页运动数据
 - (void)loadDataSource {
+    MonthSportDataInfo *dataInfo = [[MonthSportDataInfo alloc] init];
+    [SportDataLogic loadMonthData:&dataInfo];
+    
     NSMutableDictionary *runDic = [[NSMutableDictionary alloc] init];
-    [runDic setValue:@"步" forKey:@"units"];
-    [runDic setValue:@"100000" forKey:@"accumulation"];
+    [runDic setValue:dataInfo.runDistanceTip forKey:@"units"];
+    [runDic setValue:[NSString stringWithFormat:@"%0.2f", dataInfo.runDistance] forKey:@"accumulation"];
     
     NSMutableDictionary *climbDic = [[NSMutableDictionary alloc] init];
-    [climbDic setValue:@"米(海拔落差)" forKey:@"units"];
-    [climbDic setValue:@"5678" forKey:@"accumulation"];
+    [climbDic setValue:dataInfo.climbAltitudeTip forKey:@"units"];
+    [climbDic setValue:[NSString stringWithFormat:@"%0.2f", dataInfo.climbAltitude] forKey:@"accumulation"];
     
     NSMutableDictionary *bikeDic = [[NSMutableDictionary alloc] init];
-    [bikeDic setValue:@"千米" forKey:@"units"];
-    [bikeDic setValue:@"999" forKey:@"accumulation"];
+    [bikeDic setValue:dataInfo.bikeDistanceTip forKey:@"units"];
+    [bikeDic setValue:[NSString stringWithFormat:@"%0.2f", dataInfo.bikeDistance] forKey:@"accumulation"];
     
     [self.runView loadViewData:runDic];
     [self.climbView loadViewData:climbDic];

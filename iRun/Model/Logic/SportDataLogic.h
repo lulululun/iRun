@@ -23,6 +23,6 @@
 // 获取本月以及本周的运动记录，用来绘制趋势图
 + (void)loadWeekData:(NSMutableArray **)weekDataArr monthData:(NSMutableArray **)monthDataArr;
 
-+ (void)loadMonthData:(MonthSportDataInfo *)dataInfo;
++ (void)loadMonthData:(MonthSportDataInfo **)dataInfo;
 
 @end

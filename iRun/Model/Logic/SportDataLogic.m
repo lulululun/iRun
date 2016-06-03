@@ -56,7 +56,11 @@
         [BeanUtils copyProperties:data dest:entity];
     }
     
-    [commonDao saveAction];
+    BOOL saveResult = [commonDao saveAction];
+    
+    if (saveResult) {
+        NSLog(@"Upadte sport data successfully.");
+    }
 }
 
 + (void)loadSportHistory:(NSMutableArray **)historyArr withPageNo:(int)pageNo pageSize:(int)pageSize {
@@ -102,8 +106,41 @@
     *monthDataArr = [self getMonthData:resultArr];
 }
 
-+ (void)loadMonthData:(MonthSportDataInfo *)dataInfo {
++ (void)loadMonthData:(MonthSportDataInfo **)dataInfo {
+    NSArray *resultArr = [NSArray array];
     
+    CommonDao *commonDao = [[CommonDao alloc] initWithContext:[[ContextManager instance] createNewContext]];
+    
+    // 获取当前月份的第一天
+    NSDate *currentDate = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM"];
+    NSString *dateStr = [formatter stringFromDate:currentDate];
+    
+    NSDate *firstMonthDay = [formatter dateFromString:dateStr];
+    NSInteger interval = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:currentDate];
+    firstMonthDay = [firstMonthDay dateByAddingTimeInterval:interval];
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"endDate >= %@", firstMonthDay];
+    
+    [commonDao getEntities:&resultArr withEntityClass:[SportEntity class] byConditionWithPredicate:predicate];
+    
+    MonthSportDataInfo *tempDataInfo = [[MonthSportDataInfo alloc] init];
+    
+    for (int i=0; i<resultArr.count; i++) {
+        SportEntity *entity = [resultArr objectAtIndex:i];
+        if (entity.sportType.integerValue ==0 || entity.sportType.integerValue == 3) {
+            tempDataInfo.runDistance += entity.distance.floatValue;
+        } else if (entity.sportType.integerValue == 1) {
+            tempDataInfo.climbAltitude += entity.distance.floatValue;
+        } else {
+            tempDataInfo.bikeDistance += entity.distance.floatValue;
+        }
+    }
+    
+    *dataInfo = tempDataInfo;
 }
 
 #pragma mark - Pirvate Method

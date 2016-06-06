@@ -76,7 +76,7 @@
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54J-r4-xDj">
                                 <rect key="frame" x="210" y="460" width="180" height="40"/>
-                                <color key="backgroundColor" red="0.59655613149999998" green="0.3557110014" blue="0.6072071335" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.51764705879999995" green="0.2666666667" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="H13-in-CzQ"/>
                                     <constraint firstAttribute="width" constant="180" id="kV7-TR-CwC"/>
@@ -841,10 +841,10 @@
             </objects>
             <point key="canvasLocation" x="2154" y="2585"/>
         </scene>
-        <!--Sport Result View Controller-->
+        <!--本次运动-->
         <scene sceneID="tZq-Ua-1EN">
             <objects>
-                <viewController id="fen-me-prM" customClass="SportResultViewController" sceneMemberID="viewController">
+                <viewController title="本次运动" id="fen-me-prM" customClass="SportResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jmA-7K-wMk"/>
                         <viewControllerLayoutGuide type="bottom" id="yvj-0j-pGE"/>
@@ -888,7 +888,7 @@
                             <constraint firstItem="2gO-I4-3hF" firstAttribute="top" secondItem="UGl-Nm-E9Z" secondAttribute="top" id="uYw-ki-u4y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MfJ-Ow-erF">
+                    <navigationItem key="navigationItem" title="本次运动" id="MfJ-Ow-erF">
                         <barButtonItem key="leftBarButtonItem" image="icon_menu_pedometer_back" id="Xl0-hf-zjZ">
                             <connections>
                                 <action selector="backToSportAction:" destination="fen-me-prM" id="iiS-CO-0E2"/>

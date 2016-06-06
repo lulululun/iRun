@@ -27,6 +27,8 @@ typedef struct {
 @property (strong, nonatomic) SportDataDto *data;
 @property (nonatomic) SportTypes sportType;
 
+@property (nonatomic, assign) int preVCTag;
+
 @property (strong, nonatomic) IBOutlet UITableView *sportResultTableView;
 
 - (IBAction)backToSportAction:(id)sender;

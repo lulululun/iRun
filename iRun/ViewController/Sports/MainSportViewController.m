@@ -151,6 +151,8 @@
 //接收计步器测量数据
 -(void)bleManagerDidReceivePedometerMeasuredData:(LSPedometerData*)data {
     
+    [self.runView.accumulationLabel setText:[NSString stringWithFormat:@"%0.2f", self.runView.accumulationLabel.text.floatValue + data.distance/1000.f]];
+    
     SportDataDto *dto = [[SportDataDto alloc] init];
     [dto setSportType:SportTypePedometer];
     

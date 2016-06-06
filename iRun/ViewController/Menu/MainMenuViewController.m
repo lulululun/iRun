@@ -12,6 +12,8 @@
 #import "Define.h"
 #import "SettingViewController.h"
 #import "SportHistoryViewController.h"
+#import "ShareViewController.h"
+#import "AboutViewController.h"
 
 @interface MainMenuViewController() {
     NSMutableArray *dataSource;
@@ -44,19 +46,19 @@
     }
     
     MenuTableViewData setData = {@"icon_menu_setting", @"设置"};
-    MenuTableViewData pedmeterData = {@"icon_menu_setting", @"配件"};
-    MenuTableViewData recodData = {@"icon_menu_setting", @"运动记录"};
-    MenuTableViewData sendMailData = {@"icon_menu_setting", @"意见反馈"};
-    MenuTableViewData shareData = {@"icon_menu_setting", @"分享"};
-    MenuTableViewData aboutData = {@"icon_menu_setting", @"关于"};
+    MenuTableViewData pedmeterData = {@"icon_menu_pedometer", @"配件"};
+    MenuTableViewData recodData = {@"icon_menu_history", @"运动记录"};
+    MenuTableViewData sendMailData = {@"icon_menu_advertisment", @"意见反馈"};
+    MenuTableViewData shareData = {@"icon_menu_share", @"分享"};
+    MenuTableViewData aboutData = {@"icon_menu_about", @"关于"};
     
     dataSource = [[NSMutableArray alloc] init];
     [dataSource addObject:[NSData dataWithBytes:&setData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&pedmeterData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&recodData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&sendMailData length:sizeof(MenuTableViewData)]];
-    [dataSource addObject:[NSData dataWithBytes:&shareData length:sizeof(MenuTableViewData)]];
     [dataSource addObject:[NSData dataWithBytes:&aboutData length:sizeof(MenuTableViewData)]];
+    [dataSource addObject:[NSData dataWithBytes:&shareData length:sizeof(MenuTableViewData)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,6 +133,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSInteger row = indexPath.row;
     
     switch (row) {
@@ -150,7 +153,18 @@
             [self displayMailView];
             break;
             
-        default:
+        case 5: {
+            AboutViewController *aboutVC = [[AboutViewController alloc] init];
+            [aboutVC setBgImage:[self getCurrentScreen]];
+            [self presentViewController:aboutVC animated:YES completion:nil];
+        }
+            break;
+            
+        default: {
+            ShareViewController *shareVC = [[ShareViewController alloc] init];
+            [shareVC setBgImage:[self getCurrentScreen]];
+            [self presentViewController:shareVC animated:YES completion:nil];
+        }
             break;
     }
 }
@@ -237,6 +251,15 @@
     [mailPicker setMessageBody:emailBody isHTML:YES];
     [self presentViewController:mailPicker animated:YES completion:nil];
     
+}
+
+- (UIImage *)getCurrentScreen {
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT), NO, 1);
+    [self.view drawViewHierarchyInRect:CGRectMake(0, 0, CURREN_SCREEN_WIDTH, CURREN_SCREEN_HEIGHT) afterScreenUpdates:NO];
+    UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return snapshot;
 }
 
 @end

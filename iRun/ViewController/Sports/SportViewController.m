@@ -85,6 +85,7 @@
     SportResultViewController *destinationViewController = [segue destinationViewController];
     [destinationViewController setSportType:self.sportType];
     [destinationViewController setData:data];
+    [destinationViewController setPreVCTag:0];
 }
 
 #pragma mark - MAMapViewDelegate

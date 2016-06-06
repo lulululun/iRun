@@ -59,6 +59,8 @@
     } else {
         SportResultViewController *resultVC = segue.destinationViewController;
         [resultVC setData:data];
+        [resultVC setPreVCTag:1];
+        [resultVC setBgImage:self.bgImage];
     }
     
 }
@@ -106,10 +108,12 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"toSportDetailFromHistorySegue" sender:self];
-    
-    data = [self.dataSourceArr objectAtIndex:indexPath.row];
+    if (indexPath.row != self.dataSourceArr.count) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self performSegueWithIdentifier:@"toSportDetailFromHistorySegue" sender:self];
+        
+        data = [self.dataSourceArr objectAtIndex:indexPath.row];
+    }
 }
 
 #pragma mark - Action

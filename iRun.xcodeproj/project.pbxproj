@@ -53,6 +53,10 @@
 		E56384EA1CB6032900ED951E /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56384E91CB6032900ED951E /* CountdownView.xib */; };
 		E56384ED1CB6052D00ED951E /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56384EC1CB6052D00ED951E /* SportViewController.m */; };
 		E56384F91CB7A84100ED951E /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56384F81CB7A84100ED951E /* MainMenuViewController.m */; };
+		E5730C511D0555A700DC9D06 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5730C4F1D0555A700DC9D06 /* ShareViewController.m */; };
+		E5730C521D0555A700DC9D06 /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5730C501D0555A700DC9D06 /* ShareViewController.xib */; };
+		E5730C561D05615000DC9D06 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5730C541D05615000DC9D06 /* AboutViewController.m */; };
+		E5730C571D05615000DC9D06 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5730C551D05615000DC9D06 /* AboutViewController.xib */; };
 		E57C74651CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C74631CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.m */; };
 		E57C74661CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57C74641CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.xib */; };
 		E57C746A1CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C74681CC0C03B00A56DF8 /* SettingAgeWeightSexCell.m */; };
@@ -143,6 +147,12 @@
 		E56384F51CB62AB400ED951E /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Define.h; path = Common/Define.h; sourceTree = "<group>"; };
 		E56384F71CB7A84100ED951E /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuViewController.h; path = Menu/MainMenuViewController.h; sourceTree = "<group>"; };
 		E56384F81CB7A84100ED951E /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuViewController.m; path = Menu/MainMenuViewController.m; sourceTree = "<group>"; };
+		E5730C4E1D0555A700DC9D06 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareViewController.h; path = Menu/ShareViewController.h; sourceTree = "<group>"; };
+		E5730C4F1D0555A700DC9D06 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareViewController.m; path = Menu/ShareViewController.m; sourceTree = "<group>"; };
+		E5730C501D0555A700DC9D06 /* ShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareViewController.xib; path = Menu/ShareViewController.xib; sourceTree = "<group>"; };
+		E5730C531D05615000DC9D06 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Menu/AboutViewController.h; sourceTree = "<group>"; };
+		E5730C541D05615000DC9D06 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Menu/AboutViewController.m; sourceTree = "<group>"; };
+		E5730C551D05615000DC9D06 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Menu/AboutViewController.xib; sourceTree = "<group>"; };
 		E57C74621CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingWithSwitchTableViewCell.h; path = Cell/SettingWithSwitchTableViewCell.h; sourceTree = "<group>"; };
 		E57C74631CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingWithSwitchTableViewCell.m; path = Cell/SettingWithSwitchTableViewCell.m; sourceTree = "<group>"; };
 		E57C74641CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingWithSwitchTableViewCell.xib; path = Cell/SettingWithSwitchTableViewCell.xib; sourceTree = "<group>"; };
@@ -380,6 +390,12 @@
 				E55D7A671CC750150088930C /* SportHistoryViewController.m */,
 				E55D7A691CC750400088930C /* SportTrendViewController.h */,
 				E55D7A6A1CC750400088930C /* SportTrendViewController.m */,
+				E5730C4E1D0555A700DC9D06 /* ShareViewController.h */,
+				E5730C4F1D0555A700DC9D06 /* ShareViewController.m */,
+				E5730C501D0555A700DC9D06 /* ShareViewController.xib */,
+				E5730C531D05615000DC9D06 /* AboutViewController.h */,
+				E5730C541D05615000DC9D06 /* AboutViewController.m */,
+				E5730C551D05615000DC9D06 /* AboutViewController.xib */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -499,7 +515,9 @@
 				E5F7CFB91CF2E1FC00BAF9E3 /* SportHistoryCell.xib in Resources */,
 				E57C74661CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.xib in Resources */,
 				DD43750C1CB49D0A0044D862 /* SportAccumulationView.xib in Resources */,
+				E5730C521D0555A700DC9D06 /* ShareViewController.xib in Resources */,
 				DD4374F21CB49ADC0044D862 /* Assets.xcassets in Resources */,
+				E5730C571D05615000DC9D06 /* AboutViewController.xib in Resources */,
 				E56384EA1CB6032900ED951E /* CountdownView.xib in Resources */,
 				DD4374F01CB49ADC0044D862 /* Main.storyboard in Resources */,
 				E55D79F91CC5C59D0088930C /* SportDistanceCell.xib in Resources */,
@@ -524,6 +542,7 @@
 				E59AAE461CBF66D5004EDA7B /* UIImage+TintColor.m in Sources */,
 				E549F8C81CBCD995007154F9 /* iRun.xcdatamodeld in Sources */,
 				E55D79FD1CC5C6D90088930C /* SportDetailItemCell.m in Sources */,
+				E5730C561D05615000DC9D06 /* AboutViewController.m in Sources */,
 				E57C74651CC0BD5300A56DF8 /* SettingWithSwitchTableViewCell.m in Sources */,
 				E59AAE5E1CC0B7CB004EDA7B /* SettingViewController.m in Sources */,
 				DD4374EA1CB49ADC0044D862 /* AppDelegate.m in Sources */,
@@ -549,6 +568,7 @@
 				E56384E31CB5F6B500ED951E /* CountdownView.m in Sources */,
 				E55D79F81CC5C59D0088930C /* SportDistanceCell.m in Sources */,
 				E57C74711CC0EA8900A56DF8 /* HeightPickerView.m in Sources */,
+				E5730C511D0555A700DC9D06 /* ShareViewController.m in Sources */,
 				DD4374E71CB49ADC0044D862 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

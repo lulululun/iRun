@@ -16,6 +16,7 @@
 
 @interface MainSportViewController () {
     SportTypes sportType;
+    int signalType;
 }
 
 @end
@@ -38,7 +39,19 @@
     
     [self loadDataSource];
     
+    self.gpsSignalAccuracy = [[UILabel alloc] init];
+    [self.gpsSignalAccuracy setFrame:CGRectMake(20, CURREN_SCREEN_HEIGHT - 35.f, 100, 21)];
+    [self.gpsSignalAccuracy setTextAlignment:NSTextAlignmentLeft];
+    [self.gpsSignalAccuracy setTextColor:[UIColor grayColor]];
+    NSMutableAttributedString *gpsText = [[NSMutableAttributedString alloc] initWithString:@"GPS 定位中..."];
+    [gpsText addAttribute:(NSString *)NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(4, gpsText.string.length-4)];
+    [self.gpsSignalAccuracy setAttributedText:gpsText];
+    [self.gpsSignalAccuracy setFont:[UIFont fontWithName:FONT_NAME size:13]];
+    [self.gpsSignalAccuracy sizeToFit];
+    [self.view addSubview:self.gpsSignalAccuracy];
+    signalType = -1;
     
+    [self getGpsSignal];
     
 }
 
@@ -143,7 +156,7 @@
 #pragma mark - SportAccumulationDelegate
 
 - (void)accumulationViewTap:(SportAccumulationView *)view {
-    [self performSegueWithIdentifier:@"toSportHistoryFromMainSport" sender:self];
+//    [self performSegueWithIdentifier:@"toSportHistoryFromMainSport" sender:self];
 }
 
 #pragma mark - LSBleDataReceiveDelegate
@@ -177,7 +190,34 @@
 
 // 点击开始运动按钮事件
 - (IBAction)startSportAction:(id)sender {
-    [self performSegueWithIdentifier:@"toSportViewControllerSegue" sender:self];
+    
+    if (signalType == 0) {
+        UIAlertController *alertController;
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        
+        UIAlertAction *continueAction = [UIAlertAction actionWithTitle:@"继续运动" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self performSegueWithIdentifier:@"toSportViewControllerSegue" sender:self];
+        }];
+        
+        alertController = [UIAlertController alertControllerWithTitle:@"定位信息" message:@"GPS信号不好，是否继续运动？" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:cancelAction];
+        [alertController addAction:continueAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else if (signalType == -1) {
+        UIAlertController *alertController;
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        
+        alertController = [UIAlertController alertControllerWithTitle:@"定位信息" message:@"GPS定位中，请稍后..." preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        [self performSegueWithIdentifier:@"toSportViewControllerSegue" sender:self];
+    }
+
 }
 
 // 加载首页运动数据
@@ -231,6 +271,46 @@
             [self presentViewController:alertController animated:YES completion:nil];
         }
     }
+}
+
+- (void)getGpsSignal {
+    [[AMapLocationServices sharedServices] setApiKey:MAMAP_API_KEY];
+    self.locationManager = [[AMapLocationManager alloc] init];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    
+    [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
+        
+        [self.startSportButton setEnabled:YES];
+        NSMutableAttributedString *gpsTextStr;
+        
+        if (error) {
+            signalType = 0;
+            
+            gpsTextStr = [[NSMutableAttributedString alloc] initWithString:@"GPS 定位失败"];
+            [gpsTextStr addAttribute:(NSString *)NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(4, gpsTextStr.string.length-4)];
+        } else {
+            
+            if (location.horizontalAccuracy < 10 && location.verticalAccuracy < 10) {
+                signalType = 2;
+                
+                gpsTextStr = [[NSMutableAttributedString alloc] initWithString:@"GPS 良好"];
+                [gpsTextStr addAttribute:(NSString *)NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(4, gpsTextStr.string.length-4)];
+            } else if ((location.horizontalAccuracy > 20 && location.verticalAccuracy > 20) || (location.horizontalAccuracy + location.verticalAccuracy) > 40) {
+                signalType = 0;
+                
+                gpsTextStr = [[NSMutableAttributedString alloc] initWithString:@"GPS 弱"];
+                [gpsTextStr addAttribute:(NSString *)NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4, gpsTextStr.string.length-4)];
+            } else {
+                signalType = 1;
+                
+                gpsTextStr = [[NSMutableAttributedString alloc] initWithString:@"GPS 中"];
+                [gpsTextStr addAttribute:(NSString *)NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(4, gpsTextStr.string.length-4)];
+            }
+            
+            [self.gpsSignalAccuracy setAttributedText:gpsTextStr];
+        }
+    }];
+    
 }
 
 @end

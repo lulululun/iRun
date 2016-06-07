@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SportAccumulationView.h"
 #import <LifesenseBluetooth/LSBLEDeviceManager.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 
 @interface MainSportViewController : UIViewController<UIScrollViewDelegate, SportAccumulationDelegate, LSBleDataReceiveDelegate>
 
@@ -42,6 +43,9 @@
 
 // 乐心设备管理
 @property (retain, nonatomic) LSBLEDeviceManager *deviceManager;
+@property (nonatomic, strong) AMapLocationManager *locationManager;
+
+@property (nonatomic, strong) UILabel *gpsSignalAccuracy;
 
 // 菜单按钮点击事件
 - (IBAction)menuAction:(id)sender;

@@ -123,8 +123,8 @@
     switch (self.sportType) {
         case SportTypeRun:
             if (distance > 0) {
-                [self.sportMainArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000]];
-                [self.bottomLeftArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000]];
+                [self.sportMainArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000.f]];
+                [self.bottomLeftArg setText:[NSString stringWithFormat:@"%0.2f", distance/1000.f]];
             }
             
             if (moveSpeed <= 0) {

@@ -27,6 +27,8 @@
     NSMutableArray *locationArr;
     
     CLLocation *lineLocation;
+    
+    float altitudeSum;
 }
 
 @end
@@ -43,6 +45,7 @@
     [self controlViewInit];
     
     maxSpeed = 0;
+    altitudeSum = 0.f;
     
     UIPanGestureRecognizer *unlockRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(unlockAction:)];
     [self.unlockView addGestureRecognizer:unlockRecognizer];
@@ -109,6 +112,7 @@
     if (moveSpeed > 0) {
         if (oldLocation) {
             distance += [nowLocation distanceFromLocation:oldLocation];
+            altitudeSum = altitudeSum + fabs(nowLocation.altitude - oldLocation.altitude);
         } else {
             distance = 0;
         }
@@ -252,11 +256,13 @@
             [data setStartDate:_startSportDate];
             [data setDistance:[NSNumber numberWithFloat:distance]];
             [data setTimer:[NSNumber numberWithInteger:deltaTime]];
-            [data setMaxSpeed:[NSNumber numberWithFloat:maxSpeed/3.6]];
-            [data setAltitude:[NSNumber numberWithFloat:endAltitude-startAltitude]];
+            [data setMaxSpeed:[NSNumber numberWithFloat:maxSpeed*3.6]];
+            [data setAltitude:[NSNumber numberWithFloat:altitudeSum]];
             
             [data setSportType:self.sportType];
             [data setStartDate:_startSportDate];
+            
+            [data setCalorie:[self getCalorieWithData:data]];
             
             NSDate *tempDate = [NSDate date];
             
@@ -386,6 +392,51 @@
     
     
     free(locations);
+}
+
+- (NSNumber *)getCalorieWithData:(SportDataDto *)data {
+    NSNumber *calorie;
+    
+    float sportTime = data.timer.floatValue/3600;
+    
+    switch (self.sportType) {
+        case SportTypeRun: {
+            //跑步热量（kcal）＝体重（kg）×运动时间（小时）×指数K
+            //指数K＝30÷速度（分钟/400米）
+            float weight = [USERDEFAULT stringForKey:USER_SETTING_WEIGHT].floatValue;
+            float sportCPI = 30/((data.timer.floatValue/60)/(data.distance.floatValue/400));
+            
+            //跑步热量（kcal）＝体重（kg）×运动时间（小时）×指数K
+            //指数K＝30÷速度（分钟/400米）
+            float calorieTemp = weight*sportTime*sportCPI;
+            calorie = [NSNumber numberWithFloat:calorieTemp];
+        }
+            break;
+            
+        case SportTypeClimb:
+            calorie = [NSNumber numberWithFloat:sportTime * 499];
+            break;
+            
+        default: {
+            float speed = data.distance.floatValue /data.timer.floatValue *3.6;
+            if (speed <= 16) {
+                calorie = [NSNumber numberWithFloat:sportTime*207];
+            } else if(speed > 16 && speed <= 19) {
+                calorie = [NSNumber numberWithFloat:sportTime*346];
+            } else if(speed > 19 && speed <= 22.4) {
+                calorie = [NSNumber numberWithFloat:sportTime*484];
+            } else if(speed > 22.4 && speed <= 25.5) {
+                calorie = [NSNumber numberWithFloat:sportTime*622];
+            } else if(speed > 25.5 && speed <= 30.6) {
+                calorie = [NSNumber numberWithFloat:sportTime*761];
+            } else {
+                calorie = [NSNumber numberWithFloat:sportTime*1037];
+            }
+        }
+            break;
+    }
+    
+    return calorie;
 }
 
 @end

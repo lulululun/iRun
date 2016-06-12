@@ -228,7 +228,7 @@
     
     NSMutableDictionary *runDic = [[NSMutableDictionary alloc] init];
     [runDic setValue:dataInfo.runDistanceTip forKey:@"units"];
-    [runDic setValue:[NSString stringWithFormat:@"%0.2f", dataInfo.runDistance] forKey:@"accumulation"];
+    [runDic setValue:[NSString stringWithFormat:@"%0.2f", dataInfo.runDistance/1000.f] forKey:@"accumulation"];
     
     NSMutableDictionary *climbDic = [[NSMutableDictionary alloc] init];
     [climbDic setValue:dataInfo.climbAltitudeTip forKey:@"units"];
@@ -236,7 +236,7 @@
     
     NSMutableDictionary *bikeDic = [[NSMutableDictionary alloc] init];
     [bikeDic setValue:dataInfo.bikeDistanceTip forKey:@"units"];
-    [bikeDic setValue:[NSString stringWithFormat:@"%0.2f", dataInfo.bikeDistance] forKey:@"accumulation"];
+    [bikeDic setValue:[NSString stringWithFormat:@"%0.2f", dataInfo.bikeDistance/1000.f] forKey:@"accumulation"];
     
     [self.runView loadViewData:runDic];
     [self.climbView loadViewData:climbDic];

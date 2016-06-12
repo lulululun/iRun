@@ -29,7 +29,7 @@
     
     [self.calorie setText:[NSString stringWithFormat:@"卡路里:%@千卡", dto.calorie]];
     
-    NSString *distanceStr = [NSString stringWithFormat:@"距离:%@km", dto.distance];
+    NSString *distanceStr = [NSString stringWithFormat:@"距离:%0.2fkm", dto.distance.floatValue/1000];
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:distanceStr];
     [attributedStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:FONT_NAME size:12] range:NSMakeRange(distanceStr.length - 2, 2)];
 //    [attributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(distanceStr.length - 2, 2)];

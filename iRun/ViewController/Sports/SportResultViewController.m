@@ -30,15 +30,15 @@
     dataSourceArr = [[NSMutableArray alloc] init];
     NSInteger timer = self.data.timer.integerValue;
     
-    NSNumber *pace = [NSNumber numberWithFloat:timer/60/self.data.distance.floatValue];
+    NSNumber *pace = [NSNumber numberWithFloat:(timer/60.f)/(self.data.distance.floatValue/1000.f)];
     
     NSString *timerStr = [[NSString stringWithFormat:@"%2.ld:%2.ld:%2.ld", timer/3600, (timer%3600)/60, timer%60] stringByReplacingOccurrencesOfString:@" " withString:@"0"];
     NSString *paceStr = [NSString stringWithFormat:@"%ld'%0.0f''", pace.integerValue, (pace.floatValue-pace.integerValue)*60];
     NSString *maxSpeedStr = [NSString stringWithFormat:@"%0.2f", self.data.maxSpeed.floatValue];
-    NSString *averageSpeed = [NSString stringWithFormat:@"%0.2f", self.data.distance.floatValue/self.data.timer.integerValue*3.6];
-    if (averageSpeed) {
-        averageSpeed = @"0.00";
-    }
+    NSString *averageSpeed = [NSString stringWithFormat:@"%0.2f", self.data.distance.floatValue/(self.data.timer.integerValue*3.6f)];
+//    if (averageSpeed) {
+//        averageSpeed = @"0.00";
+//    }
     NSString *altitudeStr = [NSString stringWithFormat:@"%0.2f", self.data.altitude.floatValue];
     NSString *calorieStr = [NSString stringWithFormat:@"%0.2f", self.data.calorie.floatValue];
     
@@ -94,7 +94,7 @@
             distanceCell = (SportDistanceCell *)[[[NSBundle mainBundle] loadNibNamed:@"SportDistanceCell" owner:self options:nil] lastObject];
             [distanceCell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
-        [distanceCell.distanceLabel setText:[NSString stringWithFormat:@"%0.2f", self.data.distance.floatValue]];
+        [distanceCell.distanceLabel setText:[NSString stringWithFormat:@"%0.2f", self.data.distance.floatValue/1000.f]];
         [distanceCell.distanceUnitLabel setText:@"公里"];
         
         return distanceCell;

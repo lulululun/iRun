@@ -25,6 +25,8 @@
     CLLocationDistance endAltitude;
     
     NSMutableArray *locationArr;
+    
+    CLLocation *lineLocation;
 }
 
 @end
@@ -45,7 +47,7 @@
     UIPanGestureRecognizer *unlockRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(unlockAction:)];
     [self.unlockView addGestureRecognizer:unlockRecognizer];
     
-    NSTimer *locationTimer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(loadLocationDataSource) userInfo:nil repeats:YES];
+    NSTimer *locationTimer = [NSTimer timerWithTimeInterval:3 target:self selector:@selector(loadLocationDataSource) userInfo:nil repeats:YES];
     NSRunLoop *run = [NSRunLoop currentRunLoop];
     [run addTimer:locationTimer forMode:NSDefaultRunLoopMode];
     
@@ -86,6 +88,8 @@
     [destinationViewController setSportType:self.sportType];
     [destinationViewController setData:data];
     [destinationViewController setPreVCTag:0];
+    
+    [destinationViewController setBgImage:self.bgImage];
 }
 
 #pragma mark - MAMapViewDelegate
@@ -100,6 +104,7 @@
     
     // 获取移动距离
     nowLocation = userLocation.location;
+    lineLocation = userLocation.location;
     
     if (moveSpeed > 0) {
         if (oldLocation) {
@@ -130,7 +135,7 @@
             if (moveSpeed <= 0) {
                 [self.sportRightAuxiliaryArg setText:@"--"];
             } else {
-                [self.sportRightAuxiliaryArg setText:[NSString stringWithFormat:@"%0.2f", moveSpeed]];
+                [self.sportRightAuxiliaryArg setText:[NSString stringWithFormat:@"%0.2f", 1.f/(moveSpeed/1000*60)]];
             }
             break;
             
@@ -361,7 +366,9 @@
         locationArr = [[NSMutableArray alloc] init];
     }
     
-    [locationArr addObject:nowLocation];
+    if (lineLocation) {
+        [locationArr addObject:lineLocation];
+    }
     
     CLLocationCoordinate2D *locations;
     locations = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D)*locationArr.count);
@@ -374,6 +381,9 @@
     MAPolyline *commonPolyline = [MAPolyline polylineWithCoordinates:locations count:locationArr.count];
     //在地图上添加折线对象
     [self.mapView addOverlay: commonPolyline];
+    
+    NSLog(@"count:%ld", locationArr.count);
+    
     
     free(locations);
 }

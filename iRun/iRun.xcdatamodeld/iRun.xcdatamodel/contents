@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
     <entity name="SportEntity" representedClassName="SportEntity" syncable="YES">
         <attribute name="calorie" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -11,6 +11,6 @@
         <attribute name="timer" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SportEntity" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="SportEntity" positionX="-63" positionY="-18" width="128" height="163"/>
     </elements>
 </model>

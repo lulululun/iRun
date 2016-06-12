@@ -99,6 +99,7 @@
         
     } else if([segue.identifier isEqualToString:@"toSportViewControllerSegue"]) {
         SportViewController *sportVC = segue.destinationViewController;
+        [sportVC setBgImage:snapshot];
         [sportVC setSportType:sportType];
         
     } else if([segue.identifier isEqualToString:@"toSportHistoryFromMainSport"]) {

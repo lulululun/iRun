@@ -71,6 +71,8 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *unlockButtonBottom;
 @property (strong, nonatomic) IBOutlet UILabel *doubleClickLabel;
 
+// 背景图（做毛玻璃效果用）
+@property (strong, nonatomic) UIImage *bgImage;
 
 // 结束运动
 - (IBAction)sportStopAction:(id)sender;

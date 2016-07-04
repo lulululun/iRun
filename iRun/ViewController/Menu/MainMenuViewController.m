@@ -101,6 +101,9 @@
         logoCell = [tableView dequeueReusableCellWithIdentifier:logoCellIndentifier];
         
         if (!logoCell) {
+            
+//            NSArray *tempArray = [[NSBundle mainBundle] loadNibNamed:@"MenuAppLogoTableViewCell" owner:self options:nil];
+            
             logoCell = (MenuAppLogoTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"MenuAppLogoTableViewCell" owner:self options:nil] lastObject];
             [logoCell setBackgroundColor:[UIColor clearColor]];
             [logoCell.appLogo.layer setMasksToBounds:YES];
